@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MoneySaver" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VcK-qO-HIK">
+                                <rect key="frame" x="153" y="487" width="69" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <state key="normal" title="시작"/>
+                                <connections>
+                                    <segue destination="Wgo-05-dur" kind="show" id="J1q-Dx-fdV"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MONEY SAVER" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iRG-bH-yYz">
+                                <rect key="frame" x="110" y="161" width="155" height="127"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-999.20000000000005" y="-171.36431784107947"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="75W-Ol-0lD">
+            <objects>
+                <tabBarController id="Wgo-05-dur" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6fS-ak-bgM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="0AC-Wo-unl" kind="relationship" relationship="viewControllers" id="PR2-y9-avC"/>
+                        <segue destination="6kq-Cl-7Ff" kind="relationship" relationship="viewControllers" id="uGb-hV-MB0"/>
+                        <segue destination="Apb-Ci-PVJ" kind="relationship" relationship="viewControllers" id="UOR-ev-yDE"/>
+                        <segue destination="Fxk-D0-kID" kind="relationship" relationship="viewControllers" id="Z5Q-5X-YrF"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YFT-x6-qxL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-250" y="-181"/>
+        </scene>
+        <!--MoneyBook-->
+        <scene sceneID="9wn-00-stg">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XPg-mj-ixB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="MoneyBook" id="6kq-Cl-7Ff" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="isx-da-LyV"/>
+                </viewControllerPlaceholder>
+            </objects>
+            <point key="canvasLocation" x="310" y="-35"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="ObT-HT-BBI">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="No5-L1-ZVJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Home" id="0AC-Wo-unl" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="ORX-hU-Rie"/>
+                </viewControllerPlaceholder>
+            </objects>
+            <point key="canvasLocation" x="309" y="-368"/>
+        </scene>
+        <!--BucketList-->
+        <scene sceneID="ZkC-5b-gXM">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="970-Zm-Ygr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="BucketList" id="Apb-Ci-PVJ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="eFw-L2-kW0"/>
+                </viewControllerPlaceholder>
+            </objects>
+            <point key="canvasLocation" x="343" y="-257"/>
+        </scene>
+        <!--Setting-->
+        <scene sceneID="wgK-es-2of">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JAr-Kh-IfM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Setting" id="Fxk-D0-kID" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="FtI-kT-Kzj"/>
+                </viewControllerPlaceholder>
+            </objects>
+            <point key="canvasLocation" x="326" y="-146"/>
+        </scene>
+    </scenes>
+</document>
