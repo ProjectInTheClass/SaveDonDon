@@ -7,19 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		612D46B320FDD8DE0069C8DB /* CHPagingScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612D46A720FDD8DD0069C8DB /* CHPagingScrollViewController.swift */; };
-		612D46B420FDD8DE0069C8DB /* CHPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612D46A820FDD8DD0069C8DB /* CHPickerViewController.swift */; };
-		612D46B520FDD8DE0069C8DB /* DrawingCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612D46A920FDD8DD0069C8DB /* DrawingCanvasView.swift */; };
-		612D46B620FDD8DE0069C8DB /* CHContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612D46AA20FDD8DE0069C8DB /* CHContentViewController.swift */; };
-		612D46B720FDD8DE0069C8DB /* CHModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612D46AB20FDD8DE0069C8DB /* CHModalViewController.swift */; };
-		612D46B820FDD8DE0069C8DB /* SwipeActionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612D46AC20FDD8DE0069C8DB /* SwipeActionTableViewCell.swift */; };
-		612D46B920FDD8DE0069C8DB /* FIlters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612D46AD20FDD8DE0069C8DB /* FIlters.swift */; };
-		612D46BA20FDD8DE0069C8DB /* NavigationControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612D46AE20FDD8DE0069C8DB /* NavigationControllers.swift */; };
-		612D46BB20FDD8DE0069C8DB /* CHControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612D46AF20FDD8DE0069C8DB /* CHControls.swift */; };
-		612D46BC20FDD8DE0069C8DB /* CHTableViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612D46B020FDD8DE0069C8DB /* CHTableViewControllers.swift */; };
-		612D46BD20FDD8DE0069C8DB /* CHViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612D46B120FDD8DE0069C8DB /* CHViews.swift */; };
-		612D46BE20FDD8DE0069C8DB /* RecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612D46B220FDD8DE0069C8DB /* RecordButton.swift */; };
-		612D46C020FDD8E30069C8DB /* UIViewController+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612D46BF20FDD8E30069C8DB /* UIViewController+Navigation.swift */; };
 		612D46C220FDDB190069C8DB /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 612D46C120FDDB190069C8DB /* Home.storyboard */; };
 		612D46C420FDDB300069C8DB /* MoneyBook.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 612D46C320FDDB300069C8DB /* MoneyBook.storyboard */; };
 		612D46C620FDDB3F0069C8DB /* BucketList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 612D46C520FDDB3F0069C8DB /* BucketList.storyboard */; };
@@ -32,19 +19,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		612D46A720FDD8DD0069C8DB /* CHPagingScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CHPagingScrollViewController.swift; path = "../../../PilotPlant-master/PilotPlant/CHPagingScrollViewController.swift"; sourceTree = "<group>"; };
-		612D46A820FDD8DD0069C8DB /* CHPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CHPickerViewController.swift; path = "../../../PilotPlant-master/PilotPlant/CHPickerViewController.swift"; sourceTree = "<group>"; };
-		612D46A920FDD8DD0069C8DB /* DrawingCanvasView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DrawingCanvasView.swift; path = "../../../PilotPlant-master/PilotPlant/DrawingCanvasView.swift"; sourceTree = "<group>"; };
-		612D46AA20FDD8DE0069C8DB /* CHContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CHContentViewController.swift; path = "../../../PilotPlant-master/PilotPlant/CHContentViewController.swift"; sourceTree = "<group>"; };
-		612D46AB20FDD8DE0069C8DB /* CHModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CHModalViewController.swift; path = "../../../PilotPlant-master/PilotPlant/CHModalViewController.swift"; sourceTree = "<group>"; };
-		612D46AC20FDD8DE0069C8DB /* SwipeActionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwipeActionTableViewCell.swift; path = "../../../PilotPlant-master/PilotPlant/SwipeActionTableViewCell.swift"; sourceTree = "<group>"; };
-		612D46AD20FDD8DE0069C8DB /* FIlters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FIlters.swift; path = "../../../PilotPlant-master/PilotPlant/FIlters.swift"; sourceTree = "<group>"; };
-		612D46AE20FDD8DE0069C8DB /* NavigationControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationControllers.swift; path = "../../../PilotPlant-master/PilotPlant/NavigationControllers.swift"; sourceTree = "<group>"; };
-		612D46AF20FDD8DE0069C8DB /* CHControls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CHControls.swift; path = "../../../PilotPlant-master/PilotPlant/CHControls.swift"; sourceTree = "<group>"; };
-		612D46B020FDD8DE0069C8DB /* CHTableViewControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CHTableViewControllers.swift; path = "../../../PilotPlant-master/PilotPlant/CHTableViewControllers.swift"; sourceTree = "<group>"; };
-		612D46B120FDD8DE0069C8DB /* CHViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CHViews.swift; path = "../../../PilotPlant-master/PilotPlant/CHViews.swift"; sourceTree = "<group>"; };
-		612D46B220FDD8DE0069C8DB /* RecordButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecordButton.swift; path = "../../../PilotPlant-master/PilotPlant/RecordButton.swift"; sourceTree = "<group>"; };
-		612D46BF20FDD8E30069C8DB /* UIViewController+Navigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+Navigation.swift"; path = "../../../PilotPlant-master/UIViewController+Navigation.swift"; sourceTree = "<group>"; };
 		612D46C120FDDB190069C8DB /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		612D46C320FDDB300069C8DB /* MoneyBook.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MoneyBook.storyboard; sourceTree = "<group>"; };
 		612D46C520FDDB3F0069C8DB /* BucketList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BucketList.storyboard; sourceTree = "<group>"; };
@@ -72,19 +46,6 @@
 		5921D57920F6E13000C7F711 /* PP */ = {
 			isa = PBXGroup;
 			children = (
-				612D46BF20FDD8E30069C8DB /* UIViewController+Navigation.swift */,
-				612D46AA20FDD8DE0069C8DB /* CHContentViewController.swift */,
-				612D46AF20FDD8DE0069C8DB /* CHControls.swift */,
-				612D46AB20FDD8DE0069C8DB /* CHModalViewController.swift */,
-				612D46A720FDD8DD0069C8DB /* CHPagingScrollViewController.swift */,
-				612D46A820FDD8DD0069C8DB /* CHPickerViewController.swift */,
-				612D46B020FDD8DE0069C8DB /* CHTableViewControllers.swift */,
-				612D46B120FDD8DE0069C8DB /* CHViews.swift */,
-				612D46A920FDD8DD0069C8DB /* DrawingCanvasView.swift */,
-				612D46AD20FDD8DE0069C8DB /* FIlters.swift */,
-				612D46AE20FDD8DE0069C8DB /* NavigationControllers.swift */,
-				612D46B220FDD8DE0069C8DB /* RecordButton.swift */,
-				612D46AC20FDD8DE0069C8DB /* SwipeActionTableViewCell.swift */,
 				612D46C120FDDB190069C8DB /* Home.storyboard */,
 				612D46C320FDDB300069C8DB /* MoneyBook.storyboard */,
 				612D46C520FDDB3F0069C8DB /* BucketList.storyboard */,
@@ -198,21 +159,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				612D46BC20FDD8DE0069C8DB /* CHTableViewControllers.swift in Sources */,
-				612D46B520FDD8DE0069C8DB /* DrawingCanvasView.swift in Sources */,
 				A31BE34120F627AC0005D365 /* ViewController.swift in Sources */,
-				612D46B820FDD8DE0069C8DB /* SwipeActionTableViewCell.swift in Sources */,
-				612D46B320FDD8DE0069C8DB /* CHPagingScrollViewController.swift in Sources */,
-				612D46BD20FDD8DE0069C8DB /* CHViews.swift in Sources */,
-				612D46C020FDD8E30069C8DB /* UIViewController+Navigation.swift in Sources */,
-				612D46B720FDD8DE0069C8DB /* CHModalViewController.swift in Sources */,
-				612D46BB20FDD8DE0069C8DB /* CHControls.swift in Sources */,
-				612D46B620FDD8DE0069C8DB /* CHContentViewController.swift in Sources */,
 				A31BE33F20F627AC0005D365 /* AppDelegate.swift in Sources */,
-				612D46BE20FDD8DE0069C8DB /* RecordButton.swift in Sources */,
-				612D46BA20FDD8DE0069C8DB /* NavigationControllers.swift in Sources */,
-				612D46B420FDD8DE0069C8DB /* CHPickerViewController.swift in Sources */,
-				612D46B920FDD8DE0069C8DB /* FIlters.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
