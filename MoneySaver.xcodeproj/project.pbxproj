@@ -15,7 +15,6 @@
 		A31BE34420F627AC0005D365 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A31BE34220F627AC0005D365 /* Main.storyboard */; };
 		A31BE34620F627AD0005D365 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A31BE34520F627AD0005D365 /* Assets.xcassets */; };
 		A31BE34920F627AD0005D365 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A31BE34720F627AD0005D365 /* LaunchScreen.storyboard */; };
-		E04F1C6920FF0BF100DFE473 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E04F1C6120FF0BF100DFE473 /* Info.plist */; };
 		E04F1C7E20FF107900DFE473 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 612D46C120FDDB190069C8DB /* Home.storyboard */; };
 		E056896D20FEE3C200F1D5BC /* CHTableViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056896120FEE3C100F1D5BC /* CHTableViewControllers.swift */; };
 		E056896E20FEE3C200F1D5BC /* NavigationControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056896220FEE3C100F1D5BC /* NavigationControllers.swift */; };
@@ -44,7 +43,6 @@
 		A31BE34520F627AD0005D365 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A31BE34820F627AD0005D365 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A31BE34A20F627AD0005D365 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E04F1C6120FF0BF100DFE473 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "../../../Downloads/Just-Show-Me-Todays-Date-master/Just Show Me Todays Date/Today's Date/Info.plist"; sourceTree = "<group>"; };
 		E056896120FEE3C100F1D5BC /* CHTableViewControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHTableViewControllers.swift; sourceTree = "<group>"; };
 		E056896220FEE3C100F1D5BC /* NavigationControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllers.swift; sourceTree = "<group>"; };
 		E056896320FEE3C100F1D5BC /* CHModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHModalViewController.swift; sourceTree = "<group>"; };
@@ -120,7 +118,6 @@
 				A31BE34220F627AC0005D365 /* Main.storyboard */,
 				A31BE34520F627AD0005D365 /* Assets.xcassets */,
 				A31BE34720F627AD0005D365 /* LaunchScreen.storyboard */,
-				E04F1C6120FF0BF100DFE473 /* Info.plist */,
 				A31BE34A20F627AD0005D365 /* Info.plist */,
 			);
 			path = MoneySaver;
@@ -184,7 +181,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E04F1C6920FF0BF100DFE473 /* Info.plist in Resources */,
 				612D46C620FDDB3F0069C8DB /* BucketList.storyboard in Resources */,
 				A31BE34920F627AD0005D365 /* LaunchScreen.storyboard in Resources */,
 				E04F1C7E20FF107900DFE473 /* Home.storyboard in Resources */,
