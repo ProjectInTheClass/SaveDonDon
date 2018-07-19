@@ -13,8 +13,11 @@
 		A31BE33F20F627AC0005D365 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31BE33E20F627AC0005D365 /* AppDelegate.swift */; };
 		A31BE34120F627AC0005D365 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31BE34020F627AC0005D365 /* ViewController.swift */; };
 		A31BE34420F627AC0005D365 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A31BE34220F627AC0005D365 /* Main.storyboard */; };
-		A31BE34620F627AD0005D365 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A31BE34520F627AD0005D365 /* Assets.xcassets */; };
 		A31BE34920F627AD0005D365 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A31BE34720F627AD0005D365 /* LaunchScreen.storyboard */; };
+		A34C6B3121004E7800340796 /* BucketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34C6B3021004E7800340796 /* BucketModel.swift */; };
+		A34C6B332100506000340796 /* BuckTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34C6B322100506000340796 /* BuckTableViewController.swift */; };
+		A393178B20FF6EFF00B45C0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A393178A20FF6EFF00B45C0E /* Assets.xcassets */; };
+		A3E4AF1820FF8211000771BC /* BucketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E4AF1720FF8211000771BC /* BucketCell.swift */; };
 		E04F1C7E20FF107900DFE473 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 612D46C120FDDB190069C8DB /* Home.storyboard */; };
 		E056896D20FEE3C200F1D5BC /* CHTableViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056896120FEE3C100F1D5BC /* CHTableViewControllers.swift */; };
 		E056896E20FEE3C200F1D5BC /* NavigationControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056896220FEE3C100F1D5BC /* NavigationControllers.swift */; };
@@ -40,9 +43,12 @@
 		A31BE33E20F627AC0005D365 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A31BE34020F627AC0005D365 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A31BE34320F627AC0005D365 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		A31BE34520F627AD0005D365 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A31BE34820F627AD0005D365 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A31BE34A20F627AD0005D365 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A34C6B3021004E7800340796 /* BucketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketModel.swift; sourceTree = "<group>"; };
+		A34C6B322100506000340796 /* BuckTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuckTableViewController.swift; sourceTree = "<group>"; };
+		A393178A20FF6EFF00B45C0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A3E4AF1720FF8211000771BC /* BucketCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketCell.swift; sourceTree = "<group>"; };
 		E056896120FEE3C100F1D5BC /* CHTableViewControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHTableViewControllers.swift; sourceTree = "<group>"; };
 		E056896220FEE3C100F1D5BC /* NavigationControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllers.swift; sourceTree = "<group>"; };
 		E056896320FEE3C100F1D5BC /* CHModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHModalViewController.swift; sourceTree = "<group>"; };
@@ -116,9 +122,12 @@
 				A31BE33E20F627AC0005D365 /* AppDelegate.swift */,
 				A31BE34020F627AC0005D365 /* ViewController.swift */,
 				A31BE34220F627AC0005D365 /* Main.storyboard */,
-				A31BE34520F627AD0005D365 /* Assets.xcassets */,
 				A31BE34720F627AD0005D365 /* LaunchScreen.storyboard */,
 				A31BE34A20F627AD0005D365 /* Info.plist */,
+				A393178A20FF6EFF00B45C0E /* Assets.xcassets */,
+				A3E4AF1720FF8211000771BC /* BucketCell.swift */,
+				A34C6B3021004E7800340796 /* BucketModel.swift */,
+				A34C6B322100506000340796 /* BuckTableViewController.swift */,
 			);
 			path = MoneySaver;
 			sourceTree = "<group>";
@@ -185,7 +194,7 @@
 				A31BE34920F627AD0005D365 /* LaunchScreen.storyboard in Resources */,
 				E04F1C7E20FF107900DFE473 /* Home.storyboard in Resources */,
 				612D46C820FDDB470069C8DB /* Setting.storyboard in Resources */,
-				A31BE34620F627AD0005D365 /* Assets.xcassets in Resources */,
+				A393178B20FF6EFF00B45C0E /* Assets.xcassets in Resources */,
 				612D46C420FDDB300069C8DB /* MoneyBook.storyboard in Resources */,
 				A31BE34420F627AC0005D365 /* Main.storyboard in Resources */,
 			);
@@ -207,10 +216,13 @@
 				E056897A20FEE3DF00F1D5BC /* UIViewController+Navigation.swift in Sources */,
 				A31BE34120F627AC0005D365 /* ViewController.swift in Sources */,
 				E056897120FEE3C200F1D5BC /* CHViews.swift in Sources */,
+				A3E4AF1820FF8211000771BC /* BucketCell.swift in Sources */,
 				A31BE33F20F627AC0005D365 /* AppDelegate.swift in Sources */,
 				E056896F20FEE3C200F1D5BC /* CHModalViewController.swift in Sources */,
 				E056897520FEE3C200F1D5BC /* CHPagingScrollViewController.swift in Sources */,
 				E056897620FEE3C200F1D5BC /* CHContentViewController.swift in Sources */,
+				A34C6B332100506000340796 /* BuckTableViewController.swift in Sources */,
+				A34C6B3121004E7800340796 /* BucketModel.swift in Sources */,
 				E056897020FEE3C200F1D5BC /* DrawingCanvasView.swift in Sources */,
 				E056897420FEE3C200F1D5BC /* CHPickerViewController.swift in Sources */,
 			);
