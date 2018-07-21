@@ -17,6 +17,8 @@
 		A34C6B3121004E7800340796 /* BucketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34C6B3021004E7800340796 /* BucketModel.swift */; };
 		A34C6B3521005E6A00340796 /* BucketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34C6B3421005E6A00340796 /* BucketViewController.swift */; };
 		A34C6B372100639B00340796 /* BucketSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34C6B362100639B00340796 /* BucketSettingController.swift */; };
+		A34C6B39210084AC00340796 /* BucketAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34C6B38210084AC00340796 /* BucketAddViewController.swift */; };
+		A36DAFFF2100A79C00A230F3 /* BucketSaveController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36DAFFE2100A79C00A230F3 /* BucketSaveController.swift */; };
 		A393178B20FF6EFF00B45C0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A393178A20FF6EFF00B45C0E /* Assets.xcassets */; };
 		A3E4AF1820FF8211000771BC /* BucketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E4AF1720FF8211000771BC /* BucketCell.swift */; };
 		E04F1C7E20FF107900DFE473 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 612D46C120FDDB190069C8DB /* Home.storyboard */; };
@@ -49,6 +51,8 @@
 		A34C6B3021004E7800340796 /* BucketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketModel.swift; sourceTree = "<group>"; };
 		A34C6B3421005E6A00340796 /* BucketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketViewController.swift; sourceTree = "<group>"; };
 		A34C6B362100639B00340796 /* BucketSettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketSettingController.swift; sourceTree = "<group>"; };
+		A34C6B38210084AC00340796 /* BucketAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketAddViewController.swift; sourceTree = "<group>"; };
+		A36DAFFE2100A79C00A230F3 /* BucketSaveController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketSaveController.swift; sourceTree = "<group>"; };
 		A393178A20FF6EFF00B45C0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A3E4AF1720FF8211000771BC /* BucketCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketCell.swift; sourceTree = "<group>"; };
 		E056896120FEE3C100F1D5BC /* CHTableViewControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHTableViewControllers.swift; sourceTree = "<group>"; };
@@ -131,6 +135,8 @@
 				A34C6B3021004E7800340796 /* BucketModel.swift */,
 				A34C6B3421005E6A00340796 /* BucketViewController.swift */,
 				A34C6B362100639B00340796 /* BucketSettingController.swift */,
+				A34C6B38210084AC00340796 /* BucketAddViewController.swift */,
+				A36DAFFE2100A79C00A230F3 /* BucketSaveController.swift */,
 			);
 			path = MoneySaver;
 			sourceTree = "<group>";
@@ -214,12 +220,14 @@
 				E056897820FEE3C200F1D5BC /* FIlters.swift in Sources */,
 				A34C6B3521005E6A00340796 /* BucketViewController.swift in Sources */,
 				E056896D20FEE3C200F1D5BC /* CHTableViewControllers.swift in Sources */,
+				A34C6B39210084AC00340796 /* BucketAddViewController.swift in Sources */,
 				E056896E20FEE3C200F1D5BC /* NavigationControllers.swift in Sources */,
 				E056897220FEE3C200F1D5BC /* CHControls.swift in Sources */,
 				E056897720FEE3C200F1D5BC /* RecordButton.swift in Sources */,
 				E056897A20FEE3DF00F1D5BC /* UIViewController+Navigation.swift in Sources */,
 				A31BE34120F627AC0005D365 /* ViewController.swift in Sources */,
 				E056897120FEE3C200F1D5BC /* CHViews.swift in Sources */,
+				A36DAFFF2100A79C00A230F3 /* BucketSaveController.swift in Sources */,
 				A3E4AF1820FF8211000771BC /* BucketCell.swift in Sources */,
 				A31BE33F20F627AC0005D365 /* AppDelegate.swift in Sources */,
 				A34C6B372100639B00340796 /* BucketSettingController.swift in Sources */,
