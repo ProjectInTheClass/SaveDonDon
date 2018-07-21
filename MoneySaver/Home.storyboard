@@ -144,6 +144,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" id="ayJ-sK-Naq"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="dateLabel" destination="kK5-hk-OAp" id="ekj-Ds-I6B"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MMD-Gw-Eep" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

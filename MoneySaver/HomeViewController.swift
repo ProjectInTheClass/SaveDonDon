@@ -10,16 +10,24 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    @IBOutlet weak var dateLabel: UILabel!
+   
     func updateTime() {
         
         let date = NSDate()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyyMMdd"
-        lbICurrentTime.txt = formatter.string(from: date as Date)
+        let formatter = DateFormatter() //날짜 띄우는 포맷
+        formatter.dateFormat = "yyyy.MM.dd" //포맷 지정
+        let dateString = formatter.string(from: date as Date)
+        dateLabel.text = dateString
         
-        //let date = formatter.string(from:Date())
-        //dateLabel.txt = date
+    /*    lbICurrentTime.txt = formatter.string(from: date as Date)
+        let date = formatter.string(from:Date())
+        dateLabel.txt = date */
 
+    }
+    
+    override func viewDidLoad() {
+        updateTime()
     }
    
 }
