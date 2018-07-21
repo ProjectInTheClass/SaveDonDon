@@ -140,7 +140,6 @@
 				A34C6B38210084AC00340796 /* BucketAddViewController.swift */,
 				A36DAFFE2100A79C00A230F3 /* BucketSaveController.swift */,
 				E03CA4732101CB5E005EF278 /* HomeViewController.swift */,
- 1302d3bd8895a86ab2f338bcfdcce89f565d8165
 			);
 			path = MoneySaver;
 			sourceTree = "<group>";

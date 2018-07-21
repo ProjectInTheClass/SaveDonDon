@@ -32,11 +32,11 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let info = modelBucket.arrayList[indexPath.row]
         let cell:BucketCell = tableView.dequeueReusableCell(withIdentifier: "BucketCell") as! BucketCell
-        cell.goalName.text = info.goalName
-        cell.goalMoney.text = String(info.goalMoney)+"원"
-        cell.goalImage.image = UIImage(named: info.goalImg)
-        cell.donMoney.text = String(info.donMoney)+"원"
-        cell.donNum.text = String(info.donNum)
+        cell.goalName?.text = info.goalName
+        cell.goalMoney?.text = String(info.goalMoney)+"원"
+        cell.goalImage?.image = UIImage(named: info.goalImg)
+        cell.donMoney?.text = String(info.donMoney)+"원"
+        cell.donNum?.text = "X" + String(info.donNum)
         
         return cell
     }

@@ -2,4 +2,84 @@
 <Bucket
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MoneySaver/BucketCell.swift"
+            timestampString = "553847263.919565"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "BucketCell"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MoneySaver.BucketCell.goalImage.getter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UIImageView&gt;"
+                  moduleName = "MoneySaver"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hongjeongmin/SaveDonDon/MoneySaver/BucketCell.swift"
+                  timestampString = "553846722.207417"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "79">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MoneySaver.BucketCell.goalImage.setter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UIImageView&gt;"
+                  moduleName = "MoneySaver"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hongjeongmin/SaveDonDon/MoneySaver/BucketCell.swift"
+                  timestampString = "553846722.2096061"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "90">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MoneySaver.BucketCell.init(style: __C.UITableViewCellStyle, reuseIdentifier: Swift.Optional&lt;Swift.String&gt;) -&gt; MoneySaver.BucketCell"
+                  moduleName = "MoneySaver"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hongjeongmin/SaveDonDon/MoneySaver/BucketCell.swift"
+                  timestampString = "553846722.211743"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "257">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MoneySaver.BucketCell.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;MoneySaver.BucketCell&gt;"
+                  moduleName = "MoneySaver"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hongjeongmin/SaveDonDon/MoneySaver/BucketCell.swift"
+                  timestampString = "553846722.214643"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "185">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
