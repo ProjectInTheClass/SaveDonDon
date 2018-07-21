@@ -21,6 +21,7 @@
 		A36DAFFF2100A79C00A230F3 /* BucketSaveController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36DAFFE2100A79C00A230F3 /* BucketSaveController.swift */; };
 		A393178B20FF6EFF00B45C0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A393178A20FF6EFF00B45C0E /* Assets.xcassets */; };
 		A3E4AF1820FF8211000771BC /* BucketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E4AF1720FF8211000771BC /* BucketCell.swift */; };
+		E03CA4742101CB5E005EF278 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03CA4732101CB5E005EF278 /* HomeViewController.swift */; };
 		E04F1C7E20FF107900DFE473 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 612D46C120FDDB190069C8DB /* Home.storyboard */; };
 		E056896D20FEE3C200F1D5BC /* CHTableViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056896120FEE3C100F1D5BC /* CHTableViewControllers.swift */; };
 		E056896E20FEE3C200F1D5BC /* NavigationControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056896220FEE3C100F1D5BC /* NavigationControllers.swift */; };
@@ -55,6 +56,7 @@
 		A36DAFFE2100A79C00A230F3 /* BucketSaveController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketSaveController.swift; sourceTree = "<group>"; };
 		A393178A20FF6EFF00B45C0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A3E4AF1720FF8211000771BC /* BucketCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketCell.swift; sourceTree = "<group>"; };
+		E03CA4732101CB5E005EF278 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E056896120FEE3C100F1D5BC /* CHTableViewControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHTableViewControllers.swift; sourceTree = "<group>"; };
 		E056896220FEE3C100F1D5BC /* NavigationControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllers.swift; sourceTree = "<group>"; };
 		E056896320FEE3C100F1D5BC /* CHModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHModalViewController.swift; sourceTree = "<group>"; };
@@ -135,8 +137,12 @@
 				A34C6B3021004E7800340796 /* BucketModel.swift */,
 				A34C6B3421005E6A00340796 /* BucketViewController.swift */,
 				A34C6B362100639B00340796 /* BucketSettingController.swift */,
+<<<<<<< HEAD
 				A34C6B38210084AC00340796 /* BucketAddViewController.swift */,
 				A36DAFFE2100A79C00A230F3 /* BucketSaveController.swift */,
+=======
+				E03CA4732101CB5E005EF278 /* HomeViewController.swift */,
+>>>>>>> 1302d3bd8895a86ab2f338bcfdcce89f565d8165
 			);
 			path = MoneySaver;
 			sourceTree = "<group>";
@@ -233,6 +239,7 @@
 				A34C6B372100639B00340796 /* BucketSettingController.swift in Sources */,
 				E056896F20FEE3C200F1D5BC /* CHModalViewController.swift in Sources */,
 				E056897520FEE3C200F1D5BC /* CHPagingScrollViewController.swift in Sources */,
+				E03CA4742101CB5E005EF278 /* HomeViewController.swift in Sources */,
 				E056897620FEE3C200F1D5BC /* CHContentViewController.swift in Sources */,
 				A34C6B3121004E7800340796 /* BucketModel.swift in Sources */,
 				E056897020FEE3C200F1D5BC /* DrawingCanvasView.swift in Sources */,
