@@ -191,26 +191,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="유럽" translatesAutoresizingMaskIntoConstraints="NO" id="OLd-23-4AT">
-                                <rect key="frame" x="59" y="118" width="257" height="278"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="OG0-es-h6k">
+                                <rect key="frame" x="126.5" y="483" width="122.5" height="75"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="버킷리스트 이름" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E3o-nk-D8R">
+                                        <rect key="frame" x="0.0" y="0.0" width="122.5" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="목표 금액(원)" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qIM-52-FSU">
+                                        <rect key="frame" x="0.0" y="45" width="122.5" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="유럽" translatesAutoresizingMaskIntoConstraints="NO" id="OLd-23-4AT">
+                                <rect key="frame" x="79" y="124" width="226" height="301"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="OLd-23-4AT" secondAttribute="height" multiplier="127:139" constant="-49.014388489208613" id="23Z-5M-l6W"/>
+                                </constraints>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="목표 금액(원)" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qIM-52-FSU">
-                                <rect key="frame" x="125" y="500" width="125" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="버킷리스트 이름" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E3o-nk-D8R">
-                                <rect key="frame" x="125" y="442" width="125" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="OLd-23-4AT" firstAttribute="leading" secondItem="gdn-QX-V2e" secondAttribute="leading" constant="79" id="Lgx-9L-N6i"/>
+                            <constraint firstItem="gdn-QX-V2e" firstAttribute="bottom" secondItem="qIM-52-FSU" secondAttribute="bottom" constant="60" id="Spk-7U-thD"/>
+                            <constraint firstItem="OG0-es-h6k" firstAttribute="centerX" secondItem="leB-La-t8J" secondAttribute="centerX" id="Zvo-to-k4P"/>
+                            <constraint firstItem="OLd-23-4AT" firstAttribute="centerX" secondItem="leB-La-t8J" secondAttribute="centerX" constant="4.5" id="ko0-aa-vdi"/>
+                            <constraint firstItem="OLd-23-4AT" firstAttribute="top" secondItem="gdn-QX-V2e" secondAttribute="top" constant="60" id="xfS-oD-1Ea"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="gdn-QX-V2e"/>
                     </view>
                     <navigationItem key="navigationItem" title="버킷리스트 편집" id="oZH-Ab-p2i">
