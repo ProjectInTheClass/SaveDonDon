@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+/**버킷리스트 편집 창**/
 class BucketSettingController:UIViewController{
     var modelBucket:BucketModel!
 
