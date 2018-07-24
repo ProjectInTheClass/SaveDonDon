@@ -1,0 +1,6 @@
+framework module Pods_MoneySaver {
+  umbrella header "Pods-MoneySaver-umbrella.h"
+
+  export *
+  module * { export * }
+}

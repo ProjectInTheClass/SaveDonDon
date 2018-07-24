@@ -5,26 +5,36 @@ import UIKit
 /**버킷리스트 메인 창*/
 class BucketViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
+    var bucket = moneyPocket.bucket  //버킷리스트 여러 개 들어있음
+    
     @IBOutlet weak var table: UITableView!
     
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return modelBucket.arrayList.count
+        return bucket.count
     }
     
     
     //cell 리턴
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let info = modelBucket.arrayList[indexPath.row]
+        let info = bucket[indexPath.row]
         let cell:BucketCell = tableView.dequeueReusableCell(withIdentifier: "BucketCell") as! BucketCell
-        cell.goalName?.text = info.goalName
+        cell.goalName?.text = info.bucketName
         cell.goalMoney?.text = String(info.goalMoney)+"원"
-        cell.goalImage?.image = UIImage(named: info.goalImg)
-        cell.donMoney?.text = String(info.donMoney)+"원"
+        cell.goalImage?.image = UIImage(named: info.bucketImg)
+        cell.donMoney?.text = String(info.bucketMoney)+"원"
         cell.donNum?.text = "X " + String(info.donNum)
         
         return cell
@@ -33,7 +43,7 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
     //스와이프해서 삭제
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCellEditingStyle.delete{
-            modelBucket.arrayList.remove(at:indexPath.row) //데이터 삭제
+            bucket.remove(at:indexPath.row) //데이터 삭제
             tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
             
         }
@@ -45,10 +55,10 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
         //연결된 세그가 테이블에서 연결된 편집창
         if segue.identifier == "editBucket"{
             let cell = sender as! BucketCell //내가 누른 셀
-            let indexPath:IndexPath = table.indexPath(for: cell)! //내가 누른 셀의 indexPath
-            modelBucket.selectedIndex = indexPath.row //누른 곳의 인덱스를 indexPath.row로
+            let indexPath:IndexPath = table.indexPath(for: cell)!
+           bucket[indexPath.row].selectedIndex = indexPath.row
             let bucketSetting = segue.destination as! BucketSettingController //목적지는 버킷리스트 세팅창
-            bucketSetting.modelBucket = modelBucket //bucketSetting으로 modelbucket넘겨줌
+            bucketSetting.bucket = bucket[indexPath.row]
         }
         
         
@@ -59,8 +69,8 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
         
     }
     
-    func addNewInfo(info: BucketInfo){
-        modelBucket.arrayList.append(info)
+    func addNewInfo(info: Bucket){
+        bucket += [info]
         table.reloadData()
     }
     
