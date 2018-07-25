@@ -1,38 +1,39 @@
 
 
+import Foundation
 import UIKit
 import FSCalendar
 
-class MoneyBookController: UIViewController, UITableViewDataSource,UITableViewDelegate, FSCalendarDelegate, FSCalendarDataSource  {
+class MoneyBookController: UIViewController, UITableViewDataSource, UITableViewDelegate, FSCalendarDataSource, FSCalendarDelegate {
 
+    //해당 뷰 누르고 컨트롤러로 delegate랑 datasource연결 해준 다음 컨트롤러에 implement한다.
     //has no initializer: 초기화 되지 않은 변수가 있을 경우에 오류 발생할 수 있음.
+
+    @IBOutlet weak var calendar: FSCalendar!
     
     @IBOutlet weak var table: UITableView!
-    @IBOutlet weak var calendar: FSCalendar!
     var income = moneyPocket.income //소득이 배열로 담겨 있음
     var spend = moneyPocket.spend //지출이 배열로 담겨 있음
-    let gregorian = [NSCalendar (calendarIdentifier: NSCalendar.Identifier.gregorian)]
-    
+    let date = NSDate()
+    let formatter = DateFormatter()
+    var selectedDate = ""
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        calendar.scrollDirection = .vertical
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    //특정 날짜를 클릭 했을 때
-    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        
-    }
+    
+    
     
     //뒤에서 여기로 돌아오는 세그
     @IBAction func unwindMoneyBookSegue(segue:UIStoryboardSegue){
         
     }
-    
-    
-    
     func numberOfSections(in tableView: UITableView) -> Int {
       return 1
     }
@@ -41,22 +42,33 @@ class MoneyBookController: UIViewController, UITableViewDataSource,UITableViewDe
         return 1 //오늘의 수입, 지출만 보여줌
     }
     
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+     selectedDate = formatter.string(from: date as Date) //캘린더에서 선택한 날짜 받아오기
+        table.reloadData()
+    }
     
+    //안ㅁ거어
+    
+    //cell 리턴
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-      //  let info = bucket[indexPath.row]
-        let cell:MoneyBookCell = tableView.dequeueReusableCell(withIdentifier: "MoneyBookCell") as! MoneyBookCell
+        let cell: MoneyBookCell = tableView.dequeueReusableCell(withIdentifier: "MoneyBookCell", for: indexPath) as! MoneyBookCell
         
-        //셀에 띄울 데이터: 달력의 날짜와 맞는 수입과 지출들을 필터링해서 더한 다음 띄움
-//        cell.goalName?.text = info.bucketName
-//        cell.goalMoney?.text = String(info.goalMoney)+"원"
-//        cell.goalImage?.image = UIImage(named: info.bucketImg)
-//        cell.donMoney?.text = String(info.bucketMoney)+"원"
-//        cell.donNum?.text = "X " + String(info.donNum)
+        formatter.dateFormat = "yyyy.MM.dd"
+        var tableDate:String = selectedDate
+        
+        if tableDate == ""{
+            tableDate = formatter.string(from: date as Date)
+        }
+        
+        cell.todaysDate!.text = tableDate
+        cell.totalIncome!.text = "100000"
+        cell.totalSpend!.text = "50000"
         
         return cell
     }
     
    
+    
     
     // MARK: - Table view data source
 

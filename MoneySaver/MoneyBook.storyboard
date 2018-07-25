@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -141,47 +140,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TGl-rd-MPA">
-                                <rect key="frame" x="0.0" y="413" width="375" height="216"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="180" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9W5-ru-a3u">
+                                <rect key="frame" x="0.0" y="448" width="375" height="170"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="212" id="gUq-ZK-xZQ" customClass="MoneyBookCell" customModule="MoneySaver" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="212"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MoneyBookCell" rowHeight="180" id="B6A-Wk-d0W" customClass="MoneyBookCell" customModule="MoneySaver" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="180"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gUq-ZK-xZQ" id="Bdk-ux-TMi">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="211.5"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="B6A-Wk-d0W" id="Akn-D4-Oa8">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="179.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="오늘의 수입" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FUK-cJ-ooy">
-                                                    <rect key="frame" x="43" y="104" width="94" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="100000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Bo-kd-iia">
-                                                    <rect key="frame" x="157" y="104" width="99" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="5000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZmK-Nb-zc2">
-                                                    <rect key="frame" x="157" y="140" width="99" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1월 15일" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1wU-Ch-NT3">
-                                                    <rect key="frame" x="27" y="55" width="88" height="32"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bfV-5L-ZUi">
+                                                    <rect key="frame" x="36" y="22" width="128" height="27"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="오늘의 지출" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TZP-e4-wAD">
-                                                    <rect key="frame" x="47" y="140" width="87" height="21"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pig" translatesAutoresizingMaskIntoConstraints="NO" id="DBX-Hk-2L2">
+                                                    <rect key="frame" x="172" y="22" width="30" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="오늘 총 수입" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vk0-5N-ngs">
+                                                    <rect key="frame" x="64" y="73" width="83" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lVb-c6-bcY">
+                                                    <rect key="frame" x="157" y="73" width="160" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="오늘 총 지출" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OxV-kO-mNo">
+                                                    <rect key="frame" x="64" y="102" width="83" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rze-Zf-uvh">
+                                                    <rect key="frame" x="157" y="102" width="171" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -190,34 +194,43 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="todaysDate" destination="1wU-Ch-NT3" id="1nA-S2-CPN"/>
-                                            <outlet property="totalIncome" destination="2Bo-kd-iia" id="N8D-iH-RfS"/>
-                                            <outlet property="totalSpend" destination="ZmK-Nb-zc2" id="W7f-bM-6pm"/>
-                                            <segue destination="MBu-fl-AeB" kind="show" id="L38-ei-bj4"/>
+                                            <outlet property="todaysDate" destination="bfV-5L-ZUi" id="DGe-kZ-Ief"/>
+                                            <outlet property="totalIncome" destination="lVb-c6-bcY" id="Zz6-7k-p1X"/>
+                                            <outlet property="totalSpend" destination="rze-Zf-uvh" id="D1D-Jr-xvI"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
-                            </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DsN-e8-9Jd" customClass="FSCalendar">
-                                <rect key="frame" x="0.0" y="64" width="375" height="353"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <sections/>
                                 <connections>
-                                    <outlet property="dataSource" destination="sgi-Qk-5tE" id="qbD-fz-Umd"/>
-                                    <outlet property="delegate" destination="sgi-Qk-5tE" id="SqE-sx-2wT"/>
+                                    <outlet property="dataSource" destination="sgi-Qk-5tE" id="qlY-Ud-8v8"/>
+                                    <outlet property="delegate" destination="sgi-Qk-5tE" id="2i9-td-llK"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6sj-FQ-ms3" customClass="FSCalendar">
+                                <rect key="frame" x="0.0" y="64" width="375" height="371"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectionColor">
+                                        <color key="value" red="0.82407066610000002" green="0.71942806250000002" blue="0.92003184559999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="todayColor">
+                                        <color key="value" red="0.92003184559999995" green="0.52337552139999999" blue="0.66323588769999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="headerTitleColor">
+                                        <color key="value" red="0.9200318455696106" green="0.35848680591291721" blue="0.49133021562964763" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="weekdayTextColor">
+                                        <color key="value" red="0.92003184559999995" green="0.52337552139999999" blue="0.66323588769999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="dataSource" destination="sgi-Qk-5tE" id="8Xi-de-hWc"/>
+                                    <outlet property="delegate" destination="sgi-Qk-5tE" id="M04-QQ-VA3"/>
                                 </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="TGl-rd-MPA" firstAttribute="trailing" secondItem="DsN-e8-9Jd" secondAttribute="trailing" id="BGX-Ue-E8l"/>
-                            <constraint firstItem="Gc9-Gz-Wyi" firstAttribute="trailing" secondItem="DsN-e8-9Jd" secondAttribute="trailing" id="Hb3-Lf-KkF"/>
-                            <constraint firstItem="DsN-e8-9Jd" firstAttribute="top" secondItem="Gc9-Gz-Wyi" secondAttribute="top" id="Mo3-dH-hDl"/>
-                            <constraint firstItem="DsN-e8-9Jd" firstAttribute="leading" secondItem="Gc9-Gz-Wyi" secondAttribute="leading" id="TaK-ZN-Ltr"/>
-                            <constraint firstItem="Gc9-Gz-Wyi" firstAttribute="bottom" secondItem="DsN-e8-9Jd" secondAttribute="bottom" constant="201" id="XrR-1g-xl4"/>
-                            <constraint firstItem="TGl-rd-MPA" firstAttribute="top" secondItem="Gc9-Gz-Wyi" secondAttribute="top" constant="349" id="di5-qm-vaZ"/>
-                            <constraint firstItem="TGl-rd-MPA" firstAttribute="leading" secondItem="DsN-e8-9Jd" secondAttribute="leading" id="qto-3E-iXL"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="TGl-rd-MPA" secondAttribute="bottom" constant="-11" id="sMz-yN-MJo"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Gc9-Gz-Wyi"/>
                     </view>
                     <navigationItem key="navigationItem" title="가계부" id="xLp-gi-t1x">
@@ -228,13 +241,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="calendar" destination="DsN-e8-9Jd" id="ATq-cH-dok"/>
-                        <outlet property="table" destination="TGl-rd-MPA" id="w1c-O8-9dd"/>
+                        <outlet property="calendar" destination="6sj-FQ-ms3" id="u0A-Zg-Okt"/>
+                        <outlet property="table" destination="9W5-ru-a3u" id="0VL-qA-SbJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fa1-sb-h7w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-335.19999999999999" y="-496.10194902548727"/>
+            <point key="canvasLocation" x="-336.80000000000001" y="-497.00149925037488"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="XBd-Sf-xph">
@@ -333,7 +346,10 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8AC-0g-0Kc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-335" y="209"/>
+            <point key="canvasLocation" x="-336" y="342"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="pig" width="276" height="279"/>
+    </resources>
 </document>
