@@ -10,7 +10,6 @@ class MoneyBookController: UIViewController, UITableViewDataSource, UITableViewD
     //has no initializer: 초기화 되지 않은 변수가 있을 경우에 오류 발생할 수 있음.
     
     @IBOutlet weak var calendar: FSCalendar!
-    
     @IBOutlet weak var table: UITableView!
     var income = moneyPocket.income //소득이 배열로 담겨 있음
     var spend = moneyPocket.spend //지출이 배열로 담겨 있음
@@ -38,6 +37,8 @@ class MoneyBookController: UIViewController, UITableViewDataSource, UITableViewD
     @IBAction func unwindMoneyBookSegue(segue:UIStoryboardSegue){
         
     }
+    
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -45,14 +46,15 @@ class MoneyBookController: UIViewController, UITableViewDataSource, UITableViewD
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1 //오늘의 수입, 지출만 보여줌
     }
+   
     
+    
+    /** 캘린더에서 선택한 날짜 받아오기 */
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        selectedDate = formatter.string(from: date as Date) //캘린더에서 선택한 날짜 받아오기
+        selectedDate = formatter.string(from: date as Date)
         table.reloadData()
     }
     
-    
-    //cell 리턴
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: MoneyBookCell = tableView.dequeueReusableCell(withIdentifier: "MoneyBookCell", for: indexPath) as! MoneyBookCell
         var totalIncome:Int = 0
@@ -97,8 +99,15 @@ class MoneyBookController: UIViewController, UITableViewDataSource, UITableViewD
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AddSegue"{
+            let moneyAddVC = segue.destination as! MoneyBookAddControllerViewController //목적지는 버킷리스트 세팅창
+            moneyAddVC.selectedDate = self.selectedDate
+        }
         
-        
+    }
+    
+    func newAdd(){
+        table.reloadData()
     }
     
     

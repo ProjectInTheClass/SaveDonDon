@@ -1,20 +1,18 @@
-//
-//  MoneyBookAddControllerViewController.swift
-//  MoneySaver
-//
-//  Created by 홍정민 on 2018. 7. 24..
-//  Copyright © 2018년 홍정민. All rights reserved.
-//
 
 import UIKit
 import DLRadioButton
 
+//아직 현금, 카드 안됨 enum쓰고 싶은데 어케 하는지 모르겠네
+
 class MoneyBookAddControllerViewController: UIViewController {
+    var typeString:String?
+    var selectedDate:String!
     
+    @IBOutlet weak var dateText: UILabel!
     @IBOutlet weak var historyText: UITextField!
     @IBOutlet weak var priceText: UITextField!
-    var typeString:String?
-    
+   
+
     @IBAction func typeSelect(_ sender: DLRadioButton) {
         if(sender.currentTitle == "수입"){
             typeString = "수입"
@@ -27,32 +25,22 @@ class MoneyBookAddControllerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        dateText.text = selectedDate
     }
     
     
-    
-    /**수입 추가**/
+   /**수입 추가**/
     func addIncome() -> Income? {
         let history:String = historyText.text!
         let price:Int = Int(priceText.text!)!
-        let date = NSDate()
-        let formatter = DateFormatter() //날짜 띄우는 포맷
-        formatter.dateFormat = "yyyy.MM.dd" //포맷 지정
-        let dateString = formatter.string(from: date as Date)
-        
-        return Income(date: dateString, history: history, price: price)
+        return Income(date: selectedDate, history: history, price: price)
     }
     
     /**지출 추가**/
     func addSpend() -> Spend? {
         let history:String = historyText.text!
         let price:Int = Int(priceText.text!)!
-        let date = NSDate()
-        let formatter = DateFormatter() //날짜 띄우는 포맷
-        formatter.dateFormat = "yyyy.MM.dd" //포맷 지정
-        let dateString = formatter.string(from: date as Date)
-        
-        return Spend(date: dateString, history: history, price: price)
+        return Spend(date: selectedDate, history: history, price: price)
     }
     
     
@@ -69,10 +57,12 @@ class MoneyBookAddControllerViewController: UIViewController {
                 guard let income = addIncome(), let moneyVC = segue.destination as? MoneyBookController
                     else{ return }
                 moneyVC.income += [income]
+                moneyVC.newAdd() //테이블 뷰 갱신
             case "지출":
                 guard let spend = addSpend(), let moneyVC = segue.destination as? MoneyBookController
                     else{ return }
                 moneyVC.spend += [spend]
+                moneyVC.newAdd() //테이블 뷰 갱신
             default:
                 return
             }
