@@ -10,6 +10,7 @@ class MoneyPocket {
     var spend : [Spend]
     var bucket : [Bucket]
     
+    
     //앞에서 넘어온 시작 값과 자본금을 설정
     init(startDate: String, deposit:Int){
         income = []
@@ -17,6 +18,20 @@ class MoneyPocket {
         bucket = []
         self.startDate = startDate
         self.deposit = deposit
+        
+        
+        //수입 쓰레기값(하루 수입 600000원)
+        let income1 = Income(date: "2018.07.26", history: "용돈", price: 100000)
+        let income2 = Income(date: "2018.07.26", history: "월급", price: 200000)
+        let income3 = Income(date: "2018.07.26", history: "근로", price: 300000)
+        income += [income1, income2, income3]
+        
+        
+        //지출 쓰레기값(하루 지출 60000원)
+        let spend1 = Spend(date: "2018.07.26", history: "과자", price: 10000)
+        let spend2 = Spend(date: "2018.07.26", history: "빵", price: 20000)
+        let spend3 = Spend(date: "2018.07.26", history: "음료수", price: 30000)
+        spend += [spend1, spend2, spend3]
         
         //버킷리스트 쓰레기값
         let americaBucket = Bucket(bucketName: "미국여행",bucketImg: "미국", goalMoney: 100000, bucketMoney: 50000)
@@ -28,6 +43,8 @@ class MoneyPocket {
     }
     
 }
+
+
 
 class Income {
     let date: String
