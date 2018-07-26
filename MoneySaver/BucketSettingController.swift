@@ -7,7 +7,6 @@ import UIKit
 class BucketSettingController:UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var bucket: Bucket!
-    
     let picker = UIImagePickerController()
   
     //이미지 추가

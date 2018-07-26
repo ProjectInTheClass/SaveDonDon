@@ -7,6 +7,9 @@ class BucketAddViewController: UIViewController, UIImagePickerControllerDelegate
     
     let picker = UIImagePickerController()
     
+    @IBOutlet weak var bucketImgView: UIImageView!
+    @IBOutlet weak var bucketNameField: UITextField!
+    @IBOutlet weak var bucketMoneyField: UITextField!
     @IBOutlet weak var imageView: UIButton!
     @IBAction func addAction(_ sender: Any) {
         
@@ -26,19 +29,15 @@ class BucketAddViewController: UIViewController, UIImagePickerControllerDelegate
     func openLibrary(){
         
         picker.sourceType = .photoLibrary
-        
         present(picker, animated: false, completion: nil)
     }
     
     func openCamera(){
         
         if(UIImagePickerController .isSourceTypeAvailable(.camera)){
-            
             picker.sourceType = .camera
-            
             present(picker, animated: false, completion: nil)
         }
-            
         else{
             
             print("카메라 안됨ㅋㅋ")
@@ -58,16 +57,14 @@ class BucketAddViewController: UIViewController, UIImagePickerControllerDelegate
         
         dismiss(animated: true, completion: nil)
     }
-        
     
     
-    @IBOutlet weak var bucketImgView: UIImageView!
-    @IBOutlet weak var bucketNameField: UITextField!
-    @IBOutlet weak var bucketMoneyField: UITextField!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        picker.delegate = self
     }
     
     override func didReceiveMemoryWarning() {
@@ -77,7 +74,7 @@ class BucketAddViewController: UIViewController, UIImagePickerControllerDelegate
         picker.delegate = self
     }
     
-
+    
     
     //새로운 버킷리스트 추가(BucketInfo를 넘겨서 넘겨받는 쪽에서 append)
     func addInfo() -> Bucket? {

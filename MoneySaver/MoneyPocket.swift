@@ -29,7 +29,9 @@ class MoneyPocket {
         let spend1 = Spend(date: "2018.07.26",mc: "카드", history: "과자", price: 10000)
         let spend2 = Spend(date: "2018.07.26",mc: "현금", history: "빵", price: 20000)
         let spend3 = Spend(date: "2018.07.26",mc: "카드", history: "음료수", price: 30000)
-        spend += [spend1, spend2, spend3]
+        let spend4 = Spend(date: "2018.07.26",mc: "현금", history: "오징어", price: 40000)
+
+        spend += [spend1, spend2, spend3, spend4]
         
         //버킷리스트 쓰레기값
         let americaBucket = Bucket(bucketName: "미국여행",bucketImg: "미국", goalMoney: 100000, bucketMoney: 50000)

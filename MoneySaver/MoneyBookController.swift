@@ -20,7 +20,10 @@ class MoneyBookController: UIViewController, UITableViewDataSource, UITableViewD
     let date = NSDate()
     let formatter = DateFormatter()
     var selectedDate = ""
-    var todayDate:String!
+    var todayDate:String! //오늘날짜는 캘린더에서 받아와서 무조건 있음
+    var incomeIndex: [Int] = []
+    var spendIndex: [Int] = []
+    
     
     
   
@@ -78,9 +81,15 @@ class MoneyBookController: UIViewController, UITableViewDataSource, UITableViewD
             todayDate = formatter.string(from: date as Date)
         }
         
+   
         //테이블 오늘의 수입(7/26로 선택해야 나옴, 쓰레기 데이터가 7/26)
        todayIncomeArray = income.filter{ $0.date == todayDate }
        todaySpendArray = spend.filter { $0.date == todayDate }
+        
+        incomeIndex = income.indices.filter { income[$0].date == todayDate }
+        spendIndex = spend.indices.filter { spend[$0].date == todayDate }
+        print(incomeIndex)
+        print(spendIndex)
         
         if(todayIncomeArray.count == 0){
             totalIncome = 0
@@ -123,6 +132,10 @@ class MoneyBookController: UIViewController, UITableViewDataSource, UITableViewD
             moneyCheckVC.selectedDate = self.todayDate
             moneyCheckVC.todayIncomeArray = self.todayIncomeArray
             moneyCheckVC.todaySpendArray = self.todaySpendArray
+            moneyCheckVC.incomeIndex = self.incomeIndex
+            moneyCheckVC.spendIndex = self.spendIndex
+            moneyCheckVC.income = self.income
+            moneyCheckVC.spend = self.spend
         }
         
     }

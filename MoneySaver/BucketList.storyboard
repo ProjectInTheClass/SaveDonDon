@@ -50,7 +50,7 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BucketCell" rowHeight="240" id="fsV-1A-vNV" customClass="BucketCell" customModule="MoneySaver" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BucketCell" rowHeight="240" id="fsV-1A-vNV" customClass="BucketCell" customModule="MoneySaver" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="117" width="375" height="240"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fsV-1A-vNV" id="5Eb-Fp-pBC">
@@ -352,7 +352,7 @@
                                 </subviews>
                             </stackView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="유럽" translatesAutoresizingMaskIntoConstraints="NO" id="Itk-0O-aZW">
-                                <rect key="frame" x="79" y="124" width="216" height="290"/>
+                                <rect key="frame" x="79" y="124" width="217" height="291"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Itk-0O-aZW" secondAttribute="height" multiplier="127:139" constant="-49.014388489208613" id="Xxe-hR-K3f"/>
                                 </constraints>
@@ -391,7 +391,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="bucketImgView" destination="Itk-0O-aZW" id="0PK-WI-fMd"/>
+                        <outlet property="bucketImgView" destination="Itk-0O-aZW" id="Qix-5z-R4G"/>
                         <outlet property="bucketMoneyField" destination="i7g-a5-dpy" id="WfT-VY-83J"/>
                         <outlet property="bucketNameField" destination="c2V-Pe-yFC" id="XBJ-rk-VCi"/>
                         <outlet property="imageView" destination="Ic1-5n-nAn" id="oJg-4O-z4H"/>
