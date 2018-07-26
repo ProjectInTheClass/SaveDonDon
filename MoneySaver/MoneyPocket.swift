@@ -1,10 +1,9 @@
 
 import Foundation
 
-let moneyPocket: MoneyPocket = MoneyPocket(startDate: "2018.09.01", deposit: 10000)
+let moneyPocket: MoneyPocket = MoneyPocket(deposit: 10000)
 
 class MoneyPocket {
-    let startDate: String //시작일
     let deposit: Int //자본금
     var income: [Income]
     var spend : [Spend]
@@ -12,25 +11,24 @@ class MoneyPocket {
     
     
     //앞에서 넘어온 시작 값과 자본금을 설정
-    init(startDate: String, deposit:Int){
+    init(deposit:Int){
         income = []
         spend = []
         bucket = []
-        self.startDate = startDate
         self.deposit = deposit
         
         
         //수입 쓰레기값(하루 수입 600000원)
-        let income1 = Income(date: "2018.07.26", history: "용돈", price: 100000)
-        let income2 = Income(date: "2018.07.26", history: "월급", price: 200000)
-        let income3 = Income(date: "2018.07.26", history: "근로", price: 300000)
+        let income1 = Income(date: "2018.07.26",mc: "카드", history: "용돈", price: 100000)
+        let income2 = Income(date: "2018.07.26",mc: "현금", history: "월급", price: 200000)
+        let income3 = Income(date: "2018.07.26",mc: "카드", history: "근로", price: 300000)
         income += [income1, income2, income3]
         
         
         //지출 쓰레기값(하루 지출 60000원)
-        let spend1 = Spend(date: "2018.07.26", history: "과자", price: 10000)
-        let spend2 = Spend(date: "2018.07.26", history: "빵", price: 20000)
-        let spend3 = Spend(date: "2018.07.26", history: "음료수", price: 30000)
+        let spend1 = Spend(date: "2018.07.26",mc: "카드", history: "과자", price: 10000)
+        let spend2 = Spend(date: "2018.07.26",mc: "현금", history: "빵", price: 20000)
+        let spend3 = Spend(date: "2018.07.26",mc: "카드", history: "음료수", price: 30000)
         spend += [spend1, spend2, spend3]
         
         //버킷리스트 쓰레기값
@@ -48,11 +46,13 @@ class MoneyPocket {
 
 class Income {
     let date: String
+    let mc : String
     let history: String
     let price: Int
     
-    init(date: String, history: String, price:Int){
+    init(date: String, mc: String, history: String, price:Int){
         self.date = date
+        self.mc = mc
         self.history = history
         self.price = price
     }
@@ -60,11 +60,13 @@ class Income {
 
 class Spend {
     let date: String
+    let mc : String
     let history: String
     let price: Int
     
-    init(date: String, history: String, price:Int){
+    init(date: String, mc: String, history: String, price:Int){
         self.date = date
+        self.mc = mc
         self.history = history
         self.price = price
     }
@@ -90,5 +92,7 @@ class Bucket{
     }
     
 }
+
+
 
 

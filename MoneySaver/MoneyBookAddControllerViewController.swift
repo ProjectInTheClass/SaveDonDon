@@ -2,10 +2,11 @@
 import UIKit
 import DLRadioButton
 
-//아직 현금, 카드 안됨 enum쓰고 싶은데 어케 하는지 모르겠네
+
 
 class MoneyBookAddControllerViewController: UIViewController {
     var typeString:String?
+    var mcString:String?
     var selectedDate:String!
     
     @IBOutlet weak var dateText: UILabel!
@@ -22,6 +23,14 @@ class MoneyBookAddControllerViewController: UIViewController {
         }
     }
     
+    @IBAction func MCSelect(_ sender: DLRadioButton) {
+        if(sender.currentTitle == "카드"){
+            mcString = "카드"
+        }
+        else{
+            mcString = "현금"
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,14 +42,14 @@ class MoneyBookAddControllerViewController: UIViewController {
     func addIncome() -> Income? {
         let history:String = historyText.text!
         let price:Int = Int(priceText.text!)!
-        return Income(date: selectedDate, history: history, price: price)
+        return Income(date: selectedDate, mc: mcString!, history: history, price: price)
     }
     
     /**지출 추가**/
     func addSpend() -> Spend? {
         let history:String = historyText.text!
         let price:Int = Int(priceText.text!)!
-        return Spend(date: selectedDate, history: history, price: price)
+        return Spend(date: selectedDate, mc: mcString!, history: history, price: price)
     }
     
     
@@ -57,17 +66,16 @@ class MoneyBookAddControllerViewController: UIViewController {
                 guard let income = addIncome(), let moneyVC = segue.destination as? MoneyBookController
                     else{ return }
                 moneyVC.income += [income]
-                moneyVC.newAdd() //테이블 뷰 갱신
+                moneyVC.newDiff() //테이블 뷰 갱신
             case "지출":
                 guard let spend = addSpend(), let moneyVC = segue.destination as? MoneyBookController
                     else{ return }
                 moneyVC.spend += [spend]
-                moneyVC.newAdd() //테이블 뷰 갱신
+                moneyVC.newDiff() //테이블 뷰 갱신
             default:
                 return
             }
         }
-        
     }
     
 }

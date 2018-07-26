@@ -6,8 +6,8 @@ import FSCalendar
 
 class MoneyBookController: UIViewController, UITableViewDataSource, UITableViewDelegate, FSCalendarDataSource, FSCalendarDelegate {
     
-    //해당 뷰 누르고 컨트롤러로 delegate랑 datasource연결 해준 다음 컨트롤러에 implement한다.
-    //has no initializer: 초기화 되지 않은 변수가 있을 경우에 오류 발생할 수 있음.
+    /* 해당 뷰 누르고 컨트롤러로 delegate랑 datasource연결 해준 다음 컨트롤러에 implement한다.
+    has no initializer: 초기화 되지 않은 변수가 있을 경우에 오류 발생할 수 있음. */
     
     @IBOutlet weak var calendar: FSCalendar!
     @IBOutlet weak var table: UITableView!
@@ -32,8 +32,7 @@ class MoneyBookController: UIViewController, UITableViewDataSource, UITableViewD
     
     
     
-    
-    //뒤에서 여기로 돌아오는 세그
+    //가계부 메인으로 돌아오는 세그
     @IBAction func unwindMoneyBookSegue(segue:UIStoryboardSegue){
         
     }
@@ -44,7 +43,7 @@ class MoneyBookController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1 //오늘의 수입, 지출만 보여줌
+        return 1
     }
    
     
@@ -55,6 +54,7 @@ class MoneyBookController: UIViewController, UITableViewDataSource, UITableViewD
         table.reloadData()
     }
     
+    /**셀에 대한 작업**/
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: MoneyBookCell = tableView.dequeueReusableCell(withIdentifier: "MoneyBookCell", for: indexPath) as! MoneyBookCell
         var totalIncome:Int = 0
@@ -68,8 +68,8 @@ class MoneyBookController: UIViewController, UITableViewDataSource, UITableViewD
         }
         
         //테이블 오늘의 수입(7/26로 선택해야 나옴, 쓰레기 데이터가 7/26)
-       todayIncomeArray = income.filter{ $0.date == selectedDate }
-       todaySpendArray = spend.filter { $0.date == selectedDate }
+       todayIncomeArray = income.filter{ $0.date == todayDate }
+       todaySpendArray = spend.filter { $0.date == todayDate }
         
         if(todayIncomeArray.count == 0){
             totalIncome = 0
@@ -77,7 +77,6 @@ class MoneyBookController: UIViewController, UITableViewDataSource, UITableViewD
             for incomeArray in todayIncomeArray {
                 totalIncome += incomeArray.price
             }
-            print(totalIncome)
         }
         
         if(todaySpendArray.count == 0){
@@ -86,10 +85,8 @@ class MoneyBookController: UIViewController, UITableViewDataSource, UITableViewD
             for totalArray in todaySpendArray {
                 totalSpend += totalArray.price
             }
-            print(totalSpend)
         }
 
-        
         cell.todaysDate!.text = todayDate
         cell.totalIncome.text = String(totalIncome)
         cell.totalSpend!.text = String(totalSpend)
@@ -98,6 +95,7 @@ class MoneyBookController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     
+    /**메인->편집/확인 창 구현해야함**/
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AddSegue"{
             let moneyAddVC = segue.destination as! MoneyBookAddControllerViewController //목적지는 버킷리스트 세팅창
@@ -106,7 +104,8 @@ class MoneyBookController: UIViewController, UITableViewDataSource, UITableViewD
         
     }
     
-    func newAdd(){
+   /**정보 추가, 제거 시 호출해서 업데이트**/
+    func newDiff(){
         table.reloadData()
     }
     
