@@ -25,6 +25,7 @@
 		A393178B20FF6EFF00B45C0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A393178A20FF6EFF00B45C0E /* Assets.xcassets */; };
 		A3E4AF1820FF8211000771BC /* BucketCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E4AF1720FF8211000771BC /* BucketCell.swift */; };
 		A3F789C321096E98007E50A5 /* MoneyBookCheckController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F789C221096E98007E50A5 /* MoneyBookCheckController.swift */; };
+		A3F789C52109723D007E50A5 /* MoneyBookCheckCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F789C42109723D007E50A5 /* MoneyBookCheckCell.swift */; };
 		E03CA4742101CB5E005EF278 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03CA4732101CB5E005EF278 /* HomeViewController.swift */; };
 		E04F1C7E20FF107900DFE473 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 612D46C120FDDB190069C8DB /* Home.storyboard */; };
 		E056896D20FEE3C200F1D5BC /* CHTableViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056896120FEE3C100F1D5BC /* CHTableViewControllers.swift */; };
@@ -68,6 +69,7 @@
 		A393178A20FF6EFF00B45C0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A3E4AF1720FF8211000771BC /* BucketCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketCell.swift; sourceTree = "<group>"; };
 		A3F789C221096E98007E50A5 /* MoneyBookCheckController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyBookCheckController.swift; sourceTree = "<group>"; };
+		A3F789C42109723D007E50A5 /* MoneyBookCheckCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyBookCheckCell.swift; sourceTree = "<group>"; };
 		E03CA4732101CB5E005EF278 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E056896120FEE3C100F1D5BC /* CHTableViewControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHTableViewControllers.swift; sourceTree = "<group>"; };
 		E056896220FEE3C100F1D5BC /* NavigationControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllers.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				A300A68E210716FE00025A60 /* MoneyBookAddControllerViewController.swift */,
 				A300A69021073C4900025A60 /* MoneyBookCell.swift */,
 				A3F789C221096E98007E50A5 /* MoneyBookCheckController.swift */,
+				A3F789C42109723D007E50A5 /* MoneyBookCheckCell.swift */,
 			);
 			path = MoneySaver;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				A31BE33F20F627AC0005D365 /* AppDelegate.swift in Sources */,
 				A3F789C321096E98007E50A5 /* MoneyBookCheckController.swift in Sources */,
 				A34C6B372100639B00340796 /* BucketSettingController.swift in Sources */,
+				A3F789C52109723D007E50A5 /* MoneyBookCheckCell.swift in Sources */,
 				E056896F20FEE3C200F1D5BC /* CHModalViewController.swift in Sources */,
 				E056897520FEE3C200F1D5BC /* CHPagingScrollViewController.swift in Sources */,
 				E03CA4742101CB5E005EF278 /* HomeViewController.swift in Sources */,

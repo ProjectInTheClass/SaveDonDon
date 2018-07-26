@@ -20,6 +20,10 @@ class MoneyBookController: UIViewController, UITableViewDataSource, UITableViewD
     let date = NSDate()
     let formatter = DateFormatter()
     var selectedDate = ""
+    var todayDate:String!
+    
+    
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +47,7 @@ class MoneyBookController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+   
         return 1
     }
    
@@ -54,15 +59,21 @@ class MoneyBookController: UIViewController, UITableViewDataSource, UITableViewD
         table.reloadData()
     }
     
+    
     /**셀에 대한 작업**/
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: MoneyBookCell = tableView.dequeueReusableCell(withIdentifier: "MoneyBookCell", for: indexPath) as! MoneyBookCell
         var totalIncome:Int = 0
         var totalSpend:Int =  0
         
+        //3자리씩 끊어서 콤마
+          let numberFormatter = NumberFormatter()
+         numberFormatter.numberStyle = .decimal
+        
+        
         //테이블 표시 날짜 = 캘린더 날짜
         formatter.dateFormat = "yyyy.MM.dd"
-        var todayDate:String = selectedDate
+        todayDate = selectedDate
         if todayDate == ""{
             todayDate = formatter.string(from: date as Date)
         }
@@ -87,9 +98,14 @@ class MoneyBookController: UIViewController, UITableViewDataSource, UITableViewD
             }
         }
 
+        
+        let todayIncomeText = numberFormatter.string(from: NSNumber(value: totalIncome))! + " 원"
+        let todaySpendText = numberFormatter.string(from: NSNumber(value: totalSpend))! + " 원"
+        
+
         cell.todaysDate!.text = todayDate
-        cell.totalIncome.text = String(totalIncome)
-        cell.totalSpend!.text = String(totalSpend)
+        cell.totalIncome.text = todayIncomeText
+        cell.totalSpend!.text = todaySpendText
         
         return cell
     }
@@ -99,7 +115,14 @@ class MoneyBookController: UIViewController, UITableViewDataSource, UITableViewD
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AddSegue"{
             let moneyAddVC = segue.destination as! MoneyBookAddControllerViewController //목적지는 버킷리스트 세팅창
-            moneyAddVC.selectedDate = self.selectedDate
+            moneyAddVC.selectedDate = self.todayDate
+        }
+        
+        if segue.identifier == "CheckSegue"{
+            let moneyCheckVC = segue.destination as! MoneyBookCheckController
+            moneyCheckVC.selectedDate = self.todayDate
+            moneyCheckVC.todayIncomeArray = self.todayIncomeArray
+            moneyCheckVC.todaySpendArray = self.todaySpendArray
         }
         
     }
