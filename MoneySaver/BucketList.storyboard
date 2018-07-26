@@ -240,6 +240,14 @@
                                     <constraint firstAttribute="width" secondItem="OLd-23-4AT" secondAttribute="height" multiplier="127:139" constant="-49.014388489208613" id="23Z-5M-l6W"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wk6-eU-AJ4">
+                                <rect key="frame" x="151" y="442" width="72" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="add Image"/>
+                                <connections>
+                                    <action selector="addAction:" destination="QnC-TH-XRv" eventType="touchUpInside" id="ihx-HG-CR3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -267,6 +275,7 @@
                         <outlet property="bucketImg" destination="OLd-23-4AT" id="8oH-8h-klC"/>
                         <outlet property="bucketMoney" destination="qIM-52-FSU" id="EML-eU-CKT"/>
                         <outlet property="bucketName" destination="E3o-nk-D8R" id="eVA-Hk-rUp"/>
+                        <outlet property="imageView" destination="OLd-23-4AT" id="1ql-4H-X3I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tfP-za-hYz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -348,6 +357,15 @@
                                     <constraint firstAttribute="width" secondItem="Itk-0O-aZW" secondAttribute="height" multiplier="127:139" constant="-49.014388489208613" id="Xxe-hR-K3f"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ic1-5n-nAn">
+                                <rect key="frame" x="151" y="438" width="72" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="add Image"/>
+                                <connections>
+                                    <action selector="addAction:" destination="QnC-TH-XRv" eventType="touchUpInside" id="8J5-6D-6yW"/>
+                                    <action selector="addAction:" destination="FLu-5z-EeN" eventType="touchUpInside" id="Mkk-3s-OPZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -376,6 +394,7 @@
                         <outlet property="bucketImgView" destination="Itk-0O-aZW" id="0PK-WI-fMd"/>
                         <outlet property="bucketMoneyField" destination="i7g-a5-dpy" id="WfT-VY-83J"/>
                         <outlet property="bucketNameField" destination="c2V-Pe-yFC" id="XBJ-rk-VCi"/>
+                        <outlet property="imageView" destination="Ic1-5n-nAn" id="oJg-4O-z4H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fwX-ba-yiR" userLabel="First Responder" sceneMemberID="firstResponder"/>

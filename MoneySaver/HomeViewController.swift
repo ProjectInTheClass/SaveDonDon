@@ -26,8 +26,10 @@ class HomeViewController: UIViewController {
 
     }
     
+
     override func viewDidLoad() {
         updateTime()
+
     }
-   
+    
 }
