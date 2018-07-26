@@ -3,7 +3,63 @@
 import UIKit
 
 /**버킷리스트 추가 창*/
-class BucketAddViewController: UIViewController {
+class BucketAddViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    let picker = UIImagePickerController()
+    
+    @IBOutlet weak var imageView: UIButton!
+    @IBAction func addAction(_ sender: Any) {
+        
+        let alert = UIAlertController(title:"원하는 타이틀", message:"원하는 메시지", preferredStyle: .actionSheet)
+        let library = UIAlertAction(title: "사진앨범", style: .default) {(action) in self.openLibrary()}
+        let camera = UIAlertAction(title: "카메라", style: .default) {(action) in self.openCamera()}
+        let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        
+        alert.addAction(library)
+        alert.addAction(camera)
+        alert.addAction(cancel)
+        
+        present(alert, animated: true, completion: nil)
+        
+    }
+    
+    func openLibrary(){
+        
+        picker.sourceType = .photoLibrary
+        
+        present(picker, animated: false, completion: nil)
+    }
+    
+    func openCamera(){
+        
+        if(UIImagePickerController .isSourceTypeAvailable(.camera)){
+            
+            picker.sourceType = .camera
+            
+            present(picker, animated: false, completion: nil)
+        }
+            
+        else{
+            
+            print("카메라 안됨ㅋㅋ")
+            
+        }
+        
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]){
+        
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage{
+            
+            bucketImgView.image = image
+            
+            print(info)
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
+        
+    
     
     @IBOutlet weak var bucketImgView: UIImageView!
     @IBOutlet weak var bucketNameField: UITextField!
@@ -16,6 +72,9 @@ class BucketAddViewController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        
+        super.viewDidLoad()
+        picker.delegate = self
     }
     
 
