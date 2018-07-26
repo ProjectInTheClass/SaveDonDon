@@ -51,18 +51,32 @@ class MoneyBookCheckController: UITableViewController {
         
         if(indexPath.section == 0 ){
             let value = todayIncomeArray
-            cell.mcImg?.image = UIImage(named: "pig")
+            
+            if(value[indexPath.row].mc == "현금")
+            {
+                cell.mcImg?.image = UIImage(named: "현금")
+                
+            } else {
+                cell.mcImg?.image = UIImage(named: "카드")
+            }
+            
             cell.typeImg?.image = UIImage(named: "pig")
             cell.historyLabel?.text = String(value[indexPath.row].history)
-            
             priceText = numberFormatter.string(from: NSNumber(value: value[indexPath.row].price))! + " 원"
             cell.priceLabel?.text = priceText
         } else{
             let value = todaySpendArray
-            cell.mcImg?.image = UIImage(named: "pig")
+           
+            if(value[indexPath.row].mc == "현금")
+            {
+                cell.mcImg?.image = UIImage(named: "현금")
+                
+            } else {
+                cell.mcImg?.image = UIImage(named: "카드")
+            }
+            
             cell.typeImg?.image = UIImage(named: "pig")
             cell.historyLabel?.text = String(value[indexPath.row].history)
-            
             priceText = numberFormatter.string(from: NSNumber(value: value[indexPath.row].price))! + " 원"
             cell.priceLabel?.text = priceText }
         
