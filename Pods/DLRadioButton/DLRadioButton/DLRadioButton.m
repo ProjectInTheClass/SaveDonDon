@@ -1,8 +1,9 @@
 #import "DLRadioButton.h"
 
-static const CGFloat kDefaultIconSize = 15.0;
-static const CGFloat kDefaultMarginWidth = 5.0;
+static const CGFloat kDefaultIconSize = 0.0; //동그라미 (라디오버튼) 크기 : 정사이즈 15.0 , 0.0으로 바꾸면 될것같음
+static const CGFloat kDefaultMarginWidth = 15.0; //라디오 버튼과 텍스트 사이의 거리
 static const CFTimeInterval kDefaultAnimationDuration = 0.3;
+// 다른 버튼으로 넘어갈때 사라지는 시간: 원래 0.3, 라디오버튼 크기 0.0이면 의미 x
 static NSString * const kGeneratedIconName = @"Generated Icon";
 
 static BOOL _groupModifing = NO;
