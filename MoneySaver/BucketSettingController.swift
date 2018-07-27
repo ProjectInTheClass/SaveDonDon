@@ -70,7 +70,7 @@ class BucketSettingController:UIViewController, UIImagePickerControllerDelegate,
     override func viewDidLoad() {
         bucketName.text = bucket.bucketName
         bucketMoney.text = "\(bucket.goalMoney)"
-        bucketImg.image = UIImage(named: (bucket.bucketImg))
+        bucketImg.image = bucket.bucketImg
         
         super.viewDidLoad()
         picker.delegate = self

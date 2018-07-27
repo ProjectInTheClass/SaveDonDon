@@ -80,10 +80,10 @@ class BucketAddViewController: UIViewController, UIImagePickerControllerDelegate
     func addInfo() -> Bucket? {
         let bucketName = bucketNameField.text!
         let goalMoney = Int(bucketMoneyField.text!)!
-        let bucketImg = "pig" //변경해야 함, 값없으면 터지는 것도 변경해야함
+        let bucketImg = bucketImgView.image! //변경해야 함, 값없으면 터지는 것도 변경해야함
         let bucketMoney = 0
         
-        return Bucket(bucketName: bucketName, bucketImg: bucketImg, goalMoney: goalMoney, bucketMoney: bucketMoney)
+        return Bucket(bucketName: bucketName, bucketImg: bucketImg, goalMoney: goalMoney)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

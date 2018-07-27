@@ -1,5 +1,6 @@
 
 import Foundation
+import UIKit
 
 let moneyPocket: MoneyPocket = MoneyPocket(deposit: 10000)
 
@@ -34,9 +35,9 @@ class MoneyPocket {
         spend += [spend1, spend2, spend3, spend4]
         
         //버킷리스트 쓰레기값
-        let americaBucket = Bucket(bucketName: "미국여행",bucketImg: "미국", goalMoney: 100000, bucketMoney: 50000)
-        let europeBucket =  Bucket(bucketName: "유럽여행",bucketImg: "유럽", goalMoney: 120000, bucketMoney: 30000)
-        let nammiBucket = Bucket(bucketName: "남미여행", bucketImg: "남미", goalMoney: 140000, bucketMoney: 40000)
+        let americaBucket = Bucket(bucketName: "미국여행",bucketImg: UIImage(named: "미국")!, goalMoney: 100000)
+        let europeBucket =  Bucket(bucketName: "유럽여행",bucketImg: UIImage(named: "유럽")!, goalMoney: 50000)
+        let nammiBucket = Bucket(bucketName: "남미여행", bucketImg: UIImage(named: "남미")!, goalMoney: 140000)
         
         bucket += [americaBucket, europeBucket, nammiBucket]
         
@@ -89,23 +90,39 @@ class Spend: Equatable {
 
 
 
-class Bucket{
-    var selectedIndex = 0
+class Bucket: Equatable{
+    static func == (lhs: Bucket, rhs: Bucket) -> Bool{
+        return lhs.timeStamp == rhs.timeStamp
+    }
     
-    let bucketName:String //목표 이름
-    let bucketImg:String //목표 이미지
-    let goalMoney:Int //목표 돈
-    let bucketMoney:Int //모은 돈
-    let donNum:Int = 0 //돈돈이 개수
+    var selectedIndex = 0
+    let timeStamp = Date().timeIntervalSince1970
+    let bucketName:String
+    let bucketImg: UIImage
+    let goalMoney:Int
+    let bucketMoney:Int = 0
+    let dondon:[Pig] = []
     let percent:Double = 0
     
-    init(bucketName:String, bucketImg:String, goalMoney:Int, bucketMoney:Int) {
+    init(bucketName:String, bucketImg:UIImage, goalMoney:Int) {
         self.bucketName = bucketName
         self.bucketImg = bucketImg
         self.goalMoney = goalMoney
-        self.bucketMoney = bucketMoney
     }
     
+    
+    
+}
+
+/**돈돈이**/
+class Pig {
+    let date:String //돈돈이 넣은 날짜
+    let num: Int
+    
+    init(date:String, num:Int){
+        self.date = date
+        self.num = num
+    }
 }
 
 
