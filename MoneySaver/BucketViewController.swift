@@ -72,7 +72,7 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
     
     /**서치바에 입력한 내용의 범위에 있는 bucketName의 버킷을 찾아서 뿌려줌**/
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        filteredData = searchText.isEmpty ? moneyPocket.bucket : moneyPocket.bucket.filter{$0.bucketName.range(of: searchText) != nil }
+        filteredData = searchText.isEmpty ? moneyPocket.bucket : moneyPocket.bucket.filter{ $0.bucketName.range(of: searchText) != nil }
         table.reloadData()
     }
     
@@ -80,14 +80,18 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         self.bucketSearch.showsCancelButton = true
     }
+   
     
     /**취소 버튼 클릭 시 키보드 닫히기, 검색어 초기화*/
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        self.bucketSearch.showsCancelButton = false
         self.bucketSearch.text = ""
-        self.bucketSearch.resignFirstResponder()
-        
+        self.bucketSearch.showsCancelButton = false
+        self.bucketSearch.endEditing(true)
+        self.filteredData = moneyPocket.bucket
+        table.reloadData()
     }
+
+
     
     @IBAction func unWindBucketMain(segue: UIStoryboardSegue){
         
