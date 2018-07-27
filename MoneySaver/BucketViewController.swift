@@ -97,8 +97,8 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
         
     }
     
-    func addNewInfo(info: Bucket){
-        moneyPocket.bucket += [info]
+    func addNewInfo(){
+        filteredData = moneyPocket.bucket
         table.reloadData()
     }
     

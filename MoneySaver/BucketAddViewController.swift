@@ -77,19 +77,20 @@ class BucketAddViewController: UIViewController, UIImagePickerControllerDelegate
     
     
     //새로운 버킷리스트 추가(BucketInfo를 넘겨서 넘겨받는 쪽에서 append)
-    func addInfo() -> Bucket? {
+    func addInfo() {
         let bucketName = bucketNameField.text!
         let goalMoney = Int(bucketMoneyField.text!)!
         let bucketImg = bucketImgView.image! //변경해야 함, 값없으면 터지는 것도 변경해야함
-        let bucketMoney = 0
         
-        return Bucket(bucketName: bucketName, bucketImg: bucketImg, goalMoney: goalMoney)
+        let newBucket = Bucket(bucketName: bucketName, bucketImg: bucketImg, goalMoney: goalMoney)
+        moneyPocket.bucket.append(newBucket)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SaveSegue" {
-            guard let info = addInfo(),let bucketVC = segue.destination as? BucketViewController else{ return }
-            bucketVC.addNewInfo(info: info)
+            addInfo() //새로운 버킷 만들어서 추가
+            let bucketVC = segue.destination as? BucketViewController
+            bucketVC?.addNewInfo() //테이블뷰 갱신(메인)
         }
         
         
