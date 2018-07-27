@@ -175,10 +175,10 @@
 				A36DAFFE2100A79C00A230F3 /* BucketSaveController.swift */,
 				E03CA4732101CB5E005EF278 /* HomeViewController.swift */,
 				A300A68C2107138400025A60 /* MoneyBookController.swift */,
+				A3F789C42109723D007E50A5 /* MoneyBookCheckCell.swift */,
 				A300A68E210716FE00025A60 /* MoneyBookAddControllerViewController.swift */,
 				A300A69021073C4900025A60 /* MoneyBookCell.swift */,
 				A3F789C221096E98007E50A5 /* MoneyBookCheckController.swift */,
-				A3F789C42109723D007E50A5 /* MoneyBookCheckCell.swift */,
 			);
 			path = MoneySaver;
 			sourceTree = "<group>";

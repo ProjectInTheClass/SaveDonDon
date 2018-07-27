@@ -12,10 +12,6 @@ class MoneyBookCheckController: UITableViewController {
     var todayIncomeArray: [Income] = [] //전체 income에서 해당날짜 수입만 모은 배열
     var todaySpendArray: [Spend] = [] //전제 spend에서 해당날짜 지출만 모은 배열
     var selectedDate:String!
-    var incomeIndex: [Int] = [] //filter해서 얻은 값이 원래 배열의 어디에 있는 값인지 알기 위해 사용
-    var spendIndex: [Int] = []
-    var income:[Income] = [] //소득이 배열로 담겨 있음(바뀐 소득 배열을 업데이트 시켜주기 위해)
-    var spend: [Spend] = [] //지출이 배열로 담겨 있음
     
     @IBOutlet weak var dateLabel: UILabel!
     
@@ -106,16 +102,20 @@ class MoneyBookCheckController: UITableViewController {
 
         if indexPath.section == 0 {
         if editingStyle == UITableViewCellEditingStyle.delete{
-            todayIncomeArray.remove(at:indexPath.row) //데이터 삭제
-            income.remove(at: incomeIndex[indexPath.row])
+            if let index = moneyPocket.income.index(of:todayIncomeArray[indexPath.row]) {
+               moneyPocket.income.remove(at: index)
+            }
+            self.todayIncomeArray.remove(at:indexPath.row) //데이터 삭제
             tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
             }
         }
         else if indexPath.section == 1 {
             if editingStyle == UITableViewCellEditingStyle.delete{
-                todaySpendArray.remove(at:indexPath.row)
-                //화면에 보여주는 오늘의 지출 삭제(but 전 화면에 영향x, 전 화면의 income과 spend를 업데이트 하면 연관된 오늘의 지출, 수입이 업데이트 됨)
-                spend.remove(at: spendIndex[indexPath.row]) //filter된 곳의 index 위치의 값을 지움
+                if let index = moneyPocket.spend.index(of:todaySpendArray[indexPath.row]) {
+                    moneyPocket.spend.remove(at: index)
+                }
+                self.todaySpendArray.remove(at:indexPath.row)
+               
                 tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
             }
         }
@@ -125,8 +125,10 @@ class MoneyBookCheckController: UITableViewController {
         //연결된 세그가 테이블에서 연결된 편집창
         if segue.identifier == "CheckBackSegue" {
             let moneyBookVC = segue.destination as! MoneyBookController
-            moneyBookVC.income = self.income
-            moneyBookVC.spend = self.spend
+            print(todayIncomeArray)
+            print(moneyPocket.income)
+            moneyBookVC.income = moneyPocket.income
+            moneyBookVC.spend = moneyPocket.spend
             moneyBookVC.newDiff()
         }
     }

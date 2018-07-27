@@ -16,7 +16,7 @@ class MoneyPocket {
         spend = []
         bucket = []
         self.deposit = deposit
-        
+  
         
         //수입 쓰레기값(하루 수입 600000원)
         let income1 = Income(date: "2018.07.26",mc: "카드", history: "용돈", price: 100000)
@@ -46,7 +46,13 @@ class MoneyPocket {
 
 
 
-class Income {
+class Income : Equatable {
+    static func == (lhs: Income, rhs: Income) -> Bool {
+        return lhs.timeStamp == rhs.timeStamp
+    }
+    
+    let timeStamp = Date().timeIntervalSince1970
+    
     let date: String
     let mc : String
     let history: String
@@ -60,7 +66,14 @@ class Income {
     }
 }
 
-class Spend {
+class Spend: Equatable {
+    
+    static func == (lhs: Spend, rhs: Spend) -> Bool{
+        return lhs.timeStamp == rhs.timeStamp
+    }
+    
+    let timeStamp = Date().timeIntervalSince1970
+    
     let date: String
     let mc : String
     let history: String

@@ -7,7 +7,7 @@ import FSCalendar
 class MoneyBookController: UIViewController, UITableViewDataSource, UITableViewDelegate, FSCalendarDataSource, FSCalendarDelegate {
     
     /* 해당 뷰 누르고 컨트롤러로 delegate랑 datasource연결 해준 다음 컨트롤러에 implement한다.
-    has no initializer: 초기화 되지 않은 변수가 있을 경우에 오류 발생할 수 있음. */
+     has no initializer: 초기화 되지 않은 변수가 있을 경우에 오류 발생할 수 있음. */
     
     @IBOutlet weak var calendar: FSCalendar!
     @IBOutlet weak var table: UITableView!
@@ -16,17 +16,16 @@ class MoneyBookController: UIViewController, UITableViewDataSource, UITableViewD
     
     var todayIncomeArray: [Income] = [] //전체 income에서 해당날짜 수입만 모은 배열
     var todaySpendArray: [Spend] = [] //전제 spend에서 해당날짜 지출만 모은 배열
-    
     let date = NSDate()
     let formatter = DateFormatter()
     var selectedDate = ""
     var todayDate:String! //오늘날짜는 캘린더에서 받아와서 무조건 있음
-    var incomeIndex: [Int] = []
-    var spendIndex: [Int] = []
+    //    var incomeIndex: [Int] = []
+    //    var spendIndex: [Int] = []
     
     
     
-  
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,10 +49,10 @@ class MoneyBookController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-   
+        
         return 1
     }
-   
+    
     
     
     /** 캘린더에서 선택한 날짜 받아오기 */
@@ -70,8 +69,8 @@ class MoneyBookController: UIViewController, UITableViewDataSource, UITableViewD
         var totalSpend:Int =  0
         
         //3자리씩 끊어서 콤마
-          let numberFormatter = NumberFormatter()
-         numberFormatter.numberStyle = .decimal
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
         
         
         //테이블 표시 날짜 = 캘린더 날짜
@@ -81,15 +80,12 @@ class MoneyBookController: UIViewController, UITableViewDataSource, UITableViewD
             todayDate = formatter.string(from: date as Date)
         }
         
-   
-        //테이블 오늘의 수입(7/26로 선택해야 나옴, 쓰레기 데이터가 7/26)
-       todayIncomeArray = income.filter{ $0.date == todayDate }
-       todaySpendArray = spend.filter { $0.date == todayDate }
         
-        incomeIndex = income.indices.filter { income[$0].date == todayDate }
-        spendIndex = spend.indices.filter { spend[$0].date == todayDate }
-        print(incomeIndex)
-        print(spendIndex)
+        //테이블 오늘의 수입(7/26로 선택해야 나옴, 쓰레기 데이터가 7/26)
+        todayIncomeArray = income.filter{ $0.date == todayDate }
+        todaySpendArray = spend.filter { $0.date == todayDate }
+        
+        
         
         if(todayIncomeArray.count == 0){
             totalIncome = 0
@@ -106,12 +102,12 @@ class MoneyBookController: UIViewController, UITableViewDataSource, UITableViewD
                 totalSpend += totalArray.price
             }
         }
-
+        
         
         let todayIncomeText = numberFormatter.string(from: NSNumber(value: totalIncome))! + " 원"
         let todaySpendText = numberFormatter.string(from: NSNumber(value: totalSpend))! + " 원"
         
-
+        
         cell.todaysDate!.text = todayDate
         cell.totalIncome.text = todayIncomeText
         cell.totalSpend!.text = todaySpendText
@@ -132,15 +128,12 @@ class MoneyBookController: UIViewController, UITableViewDataSource, UITableViewD
             moneyCheckVC.selectedDate = self.todayDate
             moneyCheckVC.todayIncomeArray = self.todayIncomeArray
             moneyCheckVC.todaySpendArray = self.todaySpendArray
-            moneyCheckVC.incomeIndex = self.incomeIndex
-            moneyCheckVC.spendIndex = self.spendIndex
-            moneyCheckVC.income = self.income
-            moneyCheckVC.spend = self.spend
+            
         }
         
     }
     
-   /**정보 추가, 제거 시 호출해서 업데이트**/
+    /**정보 추가, 제거 시 호출해서 업데이트**/
     func newDiff(){
         table.reloadData()
     }
@@ -195,7 +188,7 @@ class MoneyBookController: UIViewController, UITableViewDataSource, UITableViewD
      return true
      }
      */
-
+    
     
     
 }
