@@ -97,9 +97,13 @@ class Bucket: Equatable{
     
     var selectedIndex = 0
     let timeStamp = Date().timeIntervalSince1970
+    
+    //추가할때 필요함
     let bucketName:String
     let bucketImg: UIImage
     let goalMoney:Int
+    
+    //초기값이 필요 없음
     let bucketMoney:Int = 0
     let dondon:[Pig] = []
     let percent:Double = 0

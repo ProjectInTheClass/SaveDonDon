@@ -21,19 +21,16 @@ class BucketAddViewController: UIViewController, UIImagePickerControllerDelegate
         alert.addAction(library)
         alert.addAction(camera)
         alert.addAction(cancel)
-        
         present(alert, animated: true, completion: nil)
         
     }
     
     func openLibrary(){
-        
         picker.sourceType = .photoLibrary
         present(picker, animated: false, completion: nil)
     }
     
     func openCamera(){
-        
         if(UIImagePickerController .isSourceTypeAvailable(.camera)){
             picker.sourceType = .camera
             present(picker, animated: false, completion: nil)
@@ -49,16 +46,10 @@ class BucketAddViewController: UIViewController, UIImagePickerControllerDelegate
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]){
         
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage{
-            
             bucketImgView.image = image
-            
-            print(info)
         }
-        
         dismiss(animated: true, completion: nil)
     }
-    
-    
     
     
     
@@ -69,9 +60,6 @@ class BucketAddViewController: UIViewController, UIImagePickerControllerDelegate
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        
-        super.viewDidLoad()
-        picker.delegate = self
     }
     
     

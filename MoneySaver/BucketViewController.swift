@@ -57,14 +57,30 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
     
     //다음 창으로 넘어갈 때 준비함
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         //연결된 세그가 테이블에서 연결된 편집창
         if segue.identifier == "editBucket"{
             let cell = sender as! BucketCell //내가 누른 셀
             let indexPath:IndexPath = table.indexPath(for: cell)!
+            
             filteredData[indexPath.row].selectedIndex = indexPath.row
+            
             let bucketSetting = segue.destination as! BucketSettingController //목적지는 버킷리스트 세팅창
+            
             bucketSetting.bucket = filteredData[indexPath.row]
+        }
+        
+        if segue.identifier == "DonDonSegue"{
+            let button = sender as! UIButton
+            
+            let cell = button.superview?.superview?.superview as! BucketCell
+            
+            let indexPath:IndexPath = table.indexPath(for: cell)!
+            
+            
+            filteredData[indexPath.row].selectedIndex = indexPath.row
+            
+            let BucketSave = segue.destination as! BucketSaveController //목적지는 버킷리스트 세팅창
+            BucketSave.bucket = filteredData[indexPath.row]
         }
         
         
