@@ -121,17 +121,9 @@ class MoneyBookCheckController: UITableViewController {
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //연결된 세그가 테이블에서 연결된 편집창
-        if segue.identifier == "CheckBackSegue" {
-            let moneyBookVC = segue.destination as! MoneyBookController
-            print(todayIncomeArray)
-            print(moneyPocket.income)
-            moneyBookVC.income = moneyPocket.income
-            moneyBookVC.spend = moneyPocket.spend
-            moneyBookVC.newDiff()
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//
+//    }
     
     /*
      // Override to support rearranging the table view.

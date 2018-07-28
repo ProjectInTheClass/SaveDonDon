@@ -37,7 +37,10 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
         cell.goalName?.text = info.bucketName
         cell.goalMoney?.text = String(info.goalMoney)+"원"
         cell.goalImage?.image = info.bucketImg
-        cell.donMoney?.text = String(info.bucketMoney)+"원"
+        cell.donMoney?.text = String(info.dondonMoney)+"원"
+        cell.donNum?.text = "x" + String(info.getTotalPig())
+        cell.donMoney?.text = String(info.dondonMoney)+"원"
+        
         
         return cell
     }
@@ -110,11 +113,11 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
 
     
     @IBAction func unWindBucketMain(segue: UIStoryboardSegue){
-        
+        table.reloadData()
     }
     
     func addNewInfo(){
-        filteredData = moneyPocket.bucket
+        filteredData = moneyPocket.bucket //실제 버킷에 바뀐 내용 업데이트
         table.reloadData()
     }
     

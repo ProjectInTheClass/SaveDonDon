@@ -2,14 +2,14 @@
 import Foundation
 import UIKit
 
-let moneyPocket: MoneyPocket = MoneyPocket(deposit: 10000)
+let moneyPocket: MoneyPocket = MoneyPocket(deposit: 100000) //자본금 3원짜리 지갑
 
 class MoneyPocket {
-    let deposit: Int //자본금
+    let deposit: Int
     var income: [Income]
     var spend : [Spend]
     var bucket : [Bucket]
-    
+    var balance: Int = 0  //deposit + income - spend
     
     //앞에서 넘어온 시작 값과 자본금을 설정
     init(deposit:Int){
@@ -17,31 +17,49 @@ class MoneyPocket {
         spend = []
         bucket = []
         self.deposit = deposit
-  
         
-        //수입 쓰레기값(하루 수입 600000원)
+        
         let income1 = Income(date: "2018.07.26",mc: "카드", history: "용돈", price: 100000)
-        let income2 = Income(date: "2018.07.26",mc: "현금", history: "월급", price: 200000)
-        let income3 = Income(date: "2018.07.26",mc: "카드", history: "근로", price: 300000)
-        income += [income1, income2, income3]
+        let income2 = Income(date: "2018.07.26",mc: "현금", history: "월급", price: 100000)
+        let income3 = Income(date: "2018.07.26",mc: "카드", history: "근로", price: 100000)
+        let income4 = Income(date: "2018.07.26",mc: "현금", history: "일급", price: 100000)
+        income += [income1, income2, income3, income4]
         
         
-        //지출 쓰레기값(하루 지출 60000원)
         let spend1 = Spend(date: "2018.07.26",mc: "카드", history: "과자", price: 10000)
-        let spend2 = Spend(date: "2018.07.26",mc: "현금", history: "빵", price: 20000)
-        let spend3 = Spend(date: "2018.07.26",mc: "카드", history: "음료수", price: 30000)
-        let spend4 = Spend(date: "2018.07.26",mc: "현금", history: "오징어", price: 40000)
-
+        let spend2 = Spend(date: "2018.07.26",mc: "현금", history: "빵", price: 10000)
+        let spend3 = Spend(date: "2018.07.26",mc: "카드", history: "음료수", price: 10000)
+        let spend4 = Spend(date: "2018.07.26",mc: "현금", history: "오징어", price: 10000)
         spend += [spend1, spend2, spend3, spend4]
         
-        //버킷리스트 쓰레기값
         let americaBucket = Bucket(bucketName: "미국여행",bucketImg: UIImage(named: "미국")!, goalMoney: 100000)
-        let europeBucket =  Bucket(bucketName: "유럽여행",bucketImg: UIImage(named: "유럽")!, goalMoney: 50000)
-        let nammiBucket = Bucket(bucketName: "남미여행", bucketImg: UIImage(named: "남미")!, goalMoney: 140000)
+        let europeBucket =  Bucket(bucketName: "유럽여행",bucketImg: UIImage(named: "유럽")!, goalMoney: 100000)
+        let nammiBucket = Bucket(bucketName: "남미여행", bucketImg: UIImage(named: "남미")!, goalMoney: 100000)
+        
+        let americaPig = Pig(date: "2018.07.26", num: 5)
+        americaBucket.savePig(pig: americaPig)
         
         bucket += [americaBucket, europeBucket, nammiBucket]
-        
     }
+    
+    func getBalance() -> Int {
+        balance = deposit
+        
+        for i in income
+        {
+            balance += i.price
+        }
+        
+        for i in spend {
+            balance -= i.price
+        }
+        
+        if balance < 0 {
+            balance = 0
+        }
+        return balance
+    }
+    
     
 }
 
@@ -97,21 +115,38 @@ class Bucket: Equatable{
     
     var selectedIndex = 0
     let timeStamp = Date().timeIntervalSince1970
-    
-    //추가할때 필요함
     let bucketName:String
     let bucketImg: UIImage
     let goalMoney:Int
-    
-    //초기값이 필요 없음
-    let bucketMoney:Int = 0
-    let dondon:[Pig] = []
-    let percent:Double = 0
+    var dondonMoney:Int = 0
+    var dondon:[Pig] = []
+    var percent:Double = 0
     
     init(bucketName:String, bucketImg:UIImage, goalMoney:Int) {
         self.bucketName = bucketName
         self.bucketImg = bucketImg
         self.goalMoney = goalMoney
+    }
+    
+    func getGoalPig() -> Int {
+        let needDonNum = goalMoney / 10000
+        return needDonNum
+    }
+    
+    //현재 돈돈이가 몇마리 저축되었는지 리턴해주는 메소드
+    func getTotalPig() -> Int{
+        var donNum: Int = 0
+        for i in dondon {
+            donNum += i.num
+        }
+        return donNum
+    }
+    
+    //돈돈이를 넣는 메소드
+    func savePig(pig: Pig){
+        dondon += [pig]
+        dondonMoney += pig.num * 10000
+        percent = Double(goalMoney / dondonMoney)
     }
     
     

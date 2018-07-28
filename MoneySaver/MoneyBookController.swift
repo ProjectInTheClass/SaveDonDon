@@ -11,21 +11,22 @@ class MoneyBookController: UIViewController, UITableViewDataSource, UITableViewD
     
     @IBOutlet weak var calendar: FSCalendar!
     @IBOutlet weak var table: UITableView!
-    var income = moneyPocket.income //소득이 배열로 담겨 있음
-    var spend = moneyPocket.spend //지출이 배열로 담겨 있음
+   
+    var income: [Income]!
+    var spend: [Spend]!
+
     
-    var todayIncomeArray: [Income] = [] //전체 income에서 해당날짜 수입만 모은 배열
-    var todaySpendArray: [Spend] = [] //전제 spend에서 해당날짜 지출만 모은 배열
+    var todayIncomeArray: [Income] = []
+    var todaySpendArray: [Spend] = []
     let date = NSDate()
     let formatter = DateFormatter()
     var selectedDate = ""
     var todayDate:String! //오늘날짜는 캘린더에서 받아와서 무조건 있음
-    //    var incomeIndex: [Int] = []
-    //    var spendIndex: [Int] = []
     
-    
-    
-    
+
+    override func viewWillAppear(_ animated: Bool) {
+        newDiff() //데이터 세팅
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -116,7 +117,6 @@ class MoneyBookController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     
-    /**메인->편집/확인 창 구현해야함**/
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AddSegue"{
             let moneyAddVC = segue.destination as! MoneyBookAddControllerViewController //목적지는 버킷리스트 세팅창
@@ -135,12 +135,14 @@ class MoneyBookController: UIViewController, UITableViewDataSource, UITableViewD
     
     /**정보 추가, 제거 시 호출해서 업데이트**/
     func newDiff(){
+        self.income = moneyPocket.income
+        self.spend = moneyPocket.spend
         table.reloadData()
     }
     
     
     
-    // MARK: - Table view data source
+    
     
     
     

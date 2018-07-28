@@ -63,17 +63,11 @@ class MoneyBookAddControllerViewController: UIViewController {
         if segue.identifier == "AddSaveSegue" {
             switch typeString{
             case "수입":
-                guard let income = addIncome(), let moneyVC = segue.destination as? MoneyBookController
-                    else{ return }
+                guard let income = addIncome() else { return }
                 moneyPocket.income += [income]
-                moneyVC.income = moneyPocket.income
-                moneyVC.newDiff() //테이블 뷰 갱신
             case "지출":
-                guard let spend = addSpend(), let moneyVC = segue.destination as? MoneyBookController
-                    else{ return }
+                guard let spend = addSpend() else { return }
                 moneyPocket.spend += [spend]
-                moneyVC.spend = moneyPocket.spend
-                moneyVC.newDiff() //테이블 뷰 갱신
             default:
                 return
             }
