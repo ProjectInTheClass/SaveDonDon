@@ -32,12 +32,9 @@ class MoneyPocket {
         let spend4 = Spend(date: "2018.07.26",mc: "현금", history: "오징어", price: 10000)
         spend += [spend1, spend2, spend3, spend4]
         
-        let americaBucket = Bucket(bucketName: "미국여행",bucketImg: UIImage(named: "미국")!, goalMoney: 100000)
+        let americaBucket = Bucket(bucketName: "미국여행",bucketImg: UIImage(named: "미국")!, goalMoney: 1000000)
         let europeBucket =  Bucket(bucketName: "유럽여행",bucketImg: UIImage(named: "유럽")!, goalMoney: 100000)
         let nammiBucket = Bucket(bucketName: "남미여행", bucketImg: UIImage(named: "남미")!, goalMoney: 100000)
-        
-        let americaPig = Pig(date: "2018.07.26", num: 5)
-        americaBucket.savePig(pig: americaPig)
         
         bucket += [americaBucket, europeBucket, nammiBucket]
     }
@@ -54,9 +51,7 @@ class MoneyPocket {
             balance -= i.price
         }
         
-        if balance < 0 {
-            balance = 0
-        }
+        
         return balance
     }
     
@@ -97,12 +92,22 @@ class Spend: Equatable {
     let mc : String
     let history: String
     let price: Int
+    var bucketIndex: Int = -1
+
     
     init(date: String, mc: String, history: String, price:Int){
         self.date = date
         self.mc = mc
         self.history = history
         self.price = price
+    }
+    
+    init(date: String, mc: String, history: String, price:Int, bucketIndex: Int){
+        self.date = date
+        self.mc = mc
+        self.history = history
+        self.price = price
+        self.bucketIndex = bucketIndex
     }
 }
 
@@ -118,22 +123,25 @@ class Bucket: Equatable{
     let bucketName:String
     let bucketImg: UIImage
     let goalMoney:Int
-    var dondonMoney:Int = 0
     var dondon:[Pig] = []
-    var percent:Double = 0
+    var dondonMoney:Int
+    var percent:Double
     
     init(bucketName:String, bucketImg:UIImage, goalMoney:Int) {
         self.bucketName = bucketName
         self.bucketImg = bucketImg
         self.goalMoney = goalMoney
+        self.dondonMoney = 0
+        self.percent = 0
     }
     
+    // 목표하는 돈돈이가 몇마리인지
     func getGoalPig() -> Int {
         let needDonNum = goalMoney / 10000
         return needDonNum
     }
     
-    //현재 돈돈이가 몇마리 저축되었는지 리턴해주는 메소드
+    //현재 돈돈이가 몇마리 저축되었는지
     func getTotalPig() -> Int{
         var donNum: Int = 0
         for i in dondon {
@@ -142,7 +150,7 @@ class Bucket: Equatable{
         return donNum
     }
     
-    //돈돈이를 넣는 메소드
+    //돈돈이를 넣기
     func savePig(pig: Pig){
         dondon += [pig]
         dondonMoney += pig.num * 10000

@@ -48,18 +48,17 @@ class MoneyBookCheckController: UITableViewController {
         numberFormatter.numberStyle = .decimal
         var priceText:String!
         
-        if(indexPath.section == 0 ){
+        if indexPath.section == 0 {
             let value = todayIncomeArray
             
-            if(value[indexPath.row].mc == "현금")
+            if value[indexPath.row].mc == "현금"
             {
                 cell.mcImg?.image = UIImage(named: "현금")
                 
-            } else {
+            } else  if value[indexPath.row].mc == "카드" {
                 cell.mcImg?.image = UIImage(named: "카드")
             }
             
-            cell.typeImg?.image = UIImage(named: "pig")
             cell.historyLabel?.text = String(value[indexPath.row].history)
             priceText = numberFormatter.string(from: NSNumber(value: value[indexPath.row].price))! + " 원"
             cell.priceLabel?.text = priceText
@@ -70,11 +69,12 @@ class MoneyBookCheckController: UITableViewController {
             {
                 cell.mcImg?.image = UIImage(named: "현금")
                 
-            } else {
+            } else if value[indexPath.row].mc == "카드"{
                 cell.mcImg?.image = UIImage(named: "카드")
+            } else {
+                cell.mcImg?.image = UIImage(named: "pig")
             }
             
-            cell.typeImg?.image = UIImage(named: "pig")
             cell.historyLabel?.text = String(value[indexPath.row].history)
             priceText = numberFormatter.string(from: NSNumber(value: value[indexPath.row].price))! + " 원"
             cell.priceLabel?.text = priceText }
@@ -111,12 +111,19 @@ class MoneyBookCheckController: UITableViewController {
         }
         else if indexPath.section == 1 {
             if editingStyle == UITableViewCellEditingStyle.delete{
+                if(todaySpendArray[indexPath.row].mc == "돈돈이")
+                {
+                    let alert = UIAlertController(title: "삭제 불가", message: "돈돈이 삭제는 버킷리스트 탭에서 가능합니다", preferredStyle: UIAlertControllerStyle.alert)
+                    let action = UIAlertAction(title: "확인", style: UIAlertActionStyle.default)
+                    alert.addAction(action)
+                    present(alert, animated: true, completion: nil)
+                }
+                else{
                 if let index = moneyPocket.spend.index(of:todaySpendArray[indexPath.row]) {
                     moneyPocket.spend.remove(at: index)
                 }
                 self.todaySpendArray.remove(at:indexPath.row)
-               
-                tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+                    tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)}
             }
         }
     }

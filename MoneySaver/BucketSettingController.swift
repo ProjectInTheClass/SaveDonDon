@@ -4,13 +4,29 @@ import Foundation
 import UIKit
 
 /**버킷리스트 편집 창**/
-class BucketSettingController:UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    var bucket: Bucket!
-    let picker = UIImagePickerController()
+class BucketSettingController:UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource {
   
-    //이미지 추가
+    @IBOutlet weak var bucketName: UITextField!
+    @IBOutlet weak var bucketMoney: UITextField!
+    @IBOutlet weak var bucketImg: UIImageView!
     @IBOutlet weak var imageView: UIImageView!
+
+    var bucket: Bucket!
+    var index: Int!
+    let picker = UIImagePickerController()
+    var history: [Spend] = []
+    
+    override func viewDidLoad() {
+        bucketName.text = bucket.bucketName
+        bucketMoney.text = "\(bucket.goalMoney)"
+        bucketImg.image = bucket.bucketImg
+        
+        super.viewDidLoad()
+        picker.delegate = self
+    }
+    
+    
+    //이미지 추가
     @IBAction func addAction(_ sender: Any) {
         
         let alert = UIAlertController(title:"원하는 타이틀", message:"원하는 메시지", preferredStyle: .actionSheet)
@@ -62,19 +78,31 @@ class BucketSettingController:UIViewController, UIImagePickerControllerDelegate,
     }
     
     
-    
-    @IBOutlet weak var bucketName: UITextField!
-    @IBOutlet weak var bucketMoney: UITextField!
-    @IBOutlet weak var bucketImg: UIImageView!
-    
-    override func viewDidLoad() {
-        bucketName.text = bucket.bucketName
-        bucketMoney.text = "\(bucket.goalMoney)"
-        bucketImg.image = bucket.bucketImg
-        
-        super.viewDidLoad()
-        picker.delegate = self
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
+  
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        history =  moneyPocket.spend.filter{ $0.bucketIndex == self.index }
+        print(history)
+        return history.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let info = history[indexPath.row]
+        let cell:BucketSettingCell = tableView.dequeueReusableCell(withIdentifier: "BucketSettingCell") as! BucketSettingCell
+        
+        cell.whenLabel?.text = info.date
+        cell.priceLabel?.text = String(info.price)+"원"
+        cell.percentLabel?.text = "몰러"
+        
+        
+        return cell
+        
+        
+    }
+    
     
     
 }
