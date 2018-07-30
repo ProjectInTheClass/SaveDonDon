@@ -358,7 +358,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="pig" width="276" height="279"/>
+        <image name="pig" width="146" height="142"/>
         <image name="현금" width="139" height="80"/>
     </resources>
 </document>

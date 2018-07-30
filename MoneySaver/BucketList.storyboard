@@ -445,7 +445,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="pig" width="276" height="279"/>
+        <image name="pig" width="146" height="142"/>
         <image name="유럽" width="480" height="360"/>
     </resources>
 </document>

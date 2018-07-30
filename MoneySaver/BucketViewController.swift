@@ -135,7 +135,7 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
     /**서치바에 입력한 내용의 범위에 있는 bucketName의 버킷을 찾아서 뿌려줌**/
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filteredData = searchText.isEmpty ? moneyPocket.bucket : moneyPocket.bucket.filter{ $0.bucketName.range(of: searchText) != nil }
-        filteredData = filteredData.sort({ } )
+        // filteredData = filteredData.sort({ } )
         table.reloadData()
     }
     
