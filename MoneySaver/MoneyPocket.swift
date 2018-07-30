@@ -123,54 +123,29 @@ class Bucket: Equatable{
     let bucketName:String
     let bucketImg: UIImage
     let goalMoney:Int
-    var dondon:[Pig] = []
+    var goalDonNum: Int
     var dondonMoney:Int
-    var percent:Double
+    var dondonNum: Int
+    var percent:Double {
+        if dondonMoney == 0 { return 0 }
+        else { return Double(self.dondonMoney) / Double(self.goalMoney)  }
+    }
     
     init(bucketName:String, bucketImg:UIImage, goalMoney:Int) {
         self.bucketName = bucketName
         self.bucketImg = bucketImg
         self.goalMoney = goalMoney
+        self.goalDonNum = goalMoney / 10000
         self.dondonMoney = 0
-        self.percent = 0
+        self.dondonNum = 0
     }
     
-    // 목표하는 돈돈이가 몇마리인지
-    func getGoalPig() -> Int {
-        let needDonNum = goalMoney / 10000
-        return needDonNum
-    }
-    
-    //현재 돈돈이가 몇마리 저축되었는지
-    func getTotalPig() -> Int{
-        var donNum: Int = 0
-        for i in dondon {
-            donNum += i.num
-        }
-        return donNum
-    }
-    
-    //돈돈이를 넣기
-    func savePig(pig: Pig){
-        dondon += [pig]
-        dondonMoney += pig.num * 10000
-        percent = Double(goalMoney / dondonMoney)
-    }
     
     
     
 }
 
-/**돈돈이**/
-class Pig {
-    let date:String //돈돈이 넣은 날짜
-    let num: Int
-    
-    init(date:String, num:Int){
-        self.date = date
-        self.num = num
-    }
-}
+
 
 
 

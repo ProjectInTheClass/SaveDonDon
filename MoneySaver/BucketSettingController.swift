@@ -14,12 +14,9 @@ class BucketSettingController:UIViewController, UIImagePickerControllerDelegate,
     var bucket: Bucket!
     var index: Int!
     let picker = UIImagePickerController()
-    var history: [Spend] = []
+    var history: [Spend]!
     
     override func viewDidLoad() {
-        bucketName.text = bucket.bucketName
-        bucketMoney.text = "\(bucket.goalMoney)"
-        bucketImg.image = bucket.bucketImg
         
         super.viewDidLoad()
         picker.delegate = self
@@ -84,8 +81,6 @@ class BucketSettingController:UIViewController, UIImagePickerControllerDelegate,
     }
   
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        history =  moneyPocket.spend.filter{ $0.bucketIndex == self.index }
-        print(history)
         return history.count
     }
     
@@ -97,12 +92,24 @@ class BucketSettingController:UIViewController, UIImagePickerControllerDelegate,
         cell.priceLabel?.text = String(info.price)+"원"
         cell.percentLabel?.text = "몰러"
         
-        
         return cell
         
         
     }
     
+    //스와이프해서 삭제(수정 필요)
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.delete{
+            if let index = moneyPocket.spend.index(of:history[indexPath.row]) {
+                moneyPocket.spend.remove(at: index)
+            }
+            history.remove(at:indexPath.row) //데이터 삭제
+            tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+        }
+
+    }
+
+
     
     
 }

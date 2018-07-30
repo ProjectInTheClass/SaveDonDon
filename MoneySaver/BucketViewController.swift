@@ -6,15 +6,23 @@ import UIKit
 class BucketViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
     
     var filteredData: [Bucket]! //검색바를 위한 변수
+    var history: [Spend] = []
+    
     @IBOutlet weak var table: UITableView!
     @IBOutlet weak var bucketSearch: UISearchBar!
     
+    
+    override func viewWillAppear(_ animated: Bool){
+        table.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.bucketSearch.delegate = self
         self.bucketSearch.placeholder = "버킷리스트 이름"
         self.filteredData = moneyPocket.bucket //동일하게 복사
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -32,15 +40,37 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
     
     //cell 리턴
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let info = filteredData[indexPath.row]
+        let index = moneyPocket.bucket.index(of:filteredData[indexPath.row])
+        history =  moneyPocket.spend.filter{ $0.bucketIndex == index }
+        
+        var donMoney = 0
+        var donNum = 0
+        
+        
+        for i in history {
+            donMoney += i.price
+        }
+        
+        
+        if donMoney != 0
+        { donNum = donMoney / 10000 }
+        
+        
         let cell:BucketCell = tableView.dequeueReusableCell(withIdentifier: "BucketCell") as! BucketCell
+        
+        
+        moneyPocket.bucket[index!].dondonMoney = donMoney
+        moneyPocket.bucket[index!].dondonNum = donNum
+        
+        let info = filteredData[indexPath.row]
+     
+        
         cell.goalName?.text = info.bucketName
         cell.goalMoney?.text = String(info.goalMoney)+"원"
         cell.goalImage?.image = info.bucketImg
         cell.donMoney?.text = String(info.dondonMoney)+"원"
-        cell.donNum?.text = "x" + String(info.getTotalPig())
-        cell.donMoney?.text = String(info.dondonMoney)+"원"
-        
+        cell.donNum?.text = "x" + String(info.dondonNum)
+        cell.progressBar.setProgress(CGFloat(info.percent), animated: true)
         
         return cell
     }
@@ -62,21 +92,23 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //연결된 세그가 테이블에서 연결된 편집창
         if segue.identifier == "editBucket"{
-           let bucketSetting = segue.destination as! BucketSettingController //목적지는 버킷리스트 세팅창
-            
+            let bucketSetting = segue.destination as! BucketSettingController //목적지는 버킷리스트 세팅창
             let cell = sender as! BucketCell //내가 누른 셀
             let indexPath:IndexPath = table.indexPath(for: cell)!
             filteredData[indexPath.row].selectedIndex = indexPath.row
-
+            
             let index = moneyPocket.bucket.index(of:filteredData[indexPath.row])
+            
+            history =  moneyPocket.spend.filter{ $0.bucketIndex == index }
             bucketSetting.bucket = filteredData[indexPath.row]
-            bucketSetting.index = index
+            print(history)
+            bucketSetting.history = history
             
         }
         
         if segue.identifier == "DonDonSegue"{
             let bucketSave = segue.destination as! BucketSaveController //목적지는 버킷리스트 세팅창
-
+            
             let button = sender as! UIButton
             
             let cell = button.superview?.superview?.superview as! BucketCell
@@ -103,7 +135,7 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         self.bucketSearch.showsCancelButton = true
     }
-   
+    
     
     /**취소 버튼 클릭 시 키보드 닫히기, 검색어 초기화*/
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -113,8 +145,8 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
         self.filteredData = moneyPocket.bucket
         table.reloadData()
     }
-
-
+    
+    
     
     @IBAction func unWindBucketMain(segue: UIStoryboardSegue){
         table.reloadData()

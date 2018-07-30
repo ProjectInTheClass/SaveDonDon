@@ -1,12 +1,7 @@
-//
-//  BucketCell.swift
-//  MoneySaver
-//
-//  Created by 홍정민 on 2018. 7. 18..
-//  Copyright © 2018년 홍정민. All rights reserved.
-//
+
 
 import UIKit
+import YLProgressBar
 
 class BucketCell: UITableViewCell {
 
@@ -15,6 +10,7 @@ class BucketCell: UITableViewCell {
     @IBOutlet weak var goalMoney: UILabel!
     @IBOutlet weak var donMoney: UILabel!
     @IBOutlet weak var donNum: UILabel!
+    @IBOutlet weak var progressBar: YLProgressBar!
     
     override func awakeFromNib() {
         super.awakeFromNib()

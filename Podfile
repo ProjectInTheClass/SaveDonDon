@@ -6,6 +6,7 @@ target 'MoneySaver' do
   use_frameworks!
    pod 'FSCalendar'
    pod 'DLRadioButton', '~> 1.4'
+   pod 'YLProgressBar', '~> 3.10.2'
   # Pods for MoneySaver
 
 post_install do |installer|
