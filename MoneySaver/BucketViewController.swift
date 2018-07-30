@@ -38,6 +38,11 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
     
     //cell 리턴
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        //3자리씩 끊어서 콤마
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        
         let index = moneyPocket.bucket.index(of:filteredData[indexPath.row])
         history =  moneyPocket.spend.filter{ $0.bucketIndex == index }
         
@@ -61,43 +66,57 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
         moneyPocket.bucket[index!].dondonNum = donNum
         
         
-        filteredData.sort(by: { $0.done < $1.done } )
+        filteredData.sort(by: { $0.done < $1.done } ) //완료된 애가 아래로 내려가게 정렬
+        
         let info = filteredData[indexPath.row]
-        
-        
         cell.goalName?.text = info.bucketName
-        cell.goalMoney?.text = String(info.goalMoney)+"원"
+        cell.goalMoney?.text = numberFormatter.string(from: NSNumber(value: info.goalMoney))! + " 원"
         cell.goalImage?.image = info.bucketImg
-        cell.donMoney?.text = String(info.dondonMoney)+"원"
+        cell.donMoney?.text =  numberFormatter.string(from: NSNumber(value: info.dondonMoney))! + " 원"
         cell.donNum?.text = "x" + String(info.dondonNum)
         cell.progressBar.setProgress(CGFloat(info.percent), animated: true)
         
+        
         if info.done == 1 {
-            cell.backgroundColor = UIColor.lightGray
+            cell.backgroundColor = UIColor( red: CGFloat(152/255.0), green: CGFloat(152/255.0), blue: CGFloat(152/255.0), alpha: CGFloat(0.4))
             
+        }else {
+            cell.backgroundColor = UIColor.white
         }
         
         return cell
     }
     
-    //스와이프해서 삭제(수정 필요)
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCellEditingStyle.delete{
             
-            if let index = moneyPocket.bucket.index(of:filteredData[indexPath.row]) {
-                moneyPocket.bucket.remove(at: index)
-                history =  moneyPocket.spend.filter{ $0.bucketIndex == index }
+            let alert = UIAlertController(title: "버킷 삭제 경고", message: "저축한 돈돈이가 사라집니다", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "확인", style: UIAlertActionStyle.default) {
+                (action: UIAlertAction) -> Void in
+                deleteBucket()
             }
+            let cancelAction = UIAlertAction(title: "취소", style: UIAlertActionStyle.default)
+            alert.addAction(okAction)
+            alert.addAction(cancelAction)
             
-            for i in 0...history.count - 1 {
-                if let index2 = moneyPocket.spend.index(of:history[i]) {
-                    moneyPocket.spend.remove(at: index2)
+            self.present(alert, animated: true, completion: nil)
+            
+            
+            func deleteBucket() {
+                if let index = moneyPocket.bucket.index(of:filteredData[indexPath.row]) {
+                    moneyPocket.bucket.remove(at: index)
+                    history =  moneyPocket.spend.filter{ $0.bucketIndex == index }
                 }
-            }
+                
+                if history.count != 0 {
+                    for i in 0...history.count - 1 {
+                        if let index2 = moneyPocket.spend.index(of:history[i]) {
+                            moneyPocket.spend.remove(at: index2)
+                        }
+                    } }
+                filteredData.remove(at:indexPath.row) //데이터 삭제
+                tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic) }
             
-            
-            filteredData.remove(at:indexPath.row) //데이터 삭제
-            tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
         }
     }
     
@@ -123,7 +142,7 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
         if segue.identifier == "DonDonSegue"{
             
             let button = sender as! UIButton
-            let cell = button.superview?.superview?.superview as! BucketCell
+            let cell = button.superview?.superview as! BucketCell
             let indexPath:IndexPath = table.indexPath(for: cell)!
             
             if filteredData[indexPath.row].done == 1 {
@@ -172,7 +191,7 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func addNewInfo(){
-        filteredData = moneyPocket.bucket //실제 버킷에 바뀐 내용 업데이트
+        filteredData = moneyPocket.bucket
         table.reloadData()
     }
     

@@ -98,7 +98,7 @@ class BucketSaveController: UIViewController {
                 moneyPocket.spend.append(Spend(date: dateStr, mc: "돈돈이", history: nameLabel.text!, price: pigNum * 10000, bucketIndex: index ))
                 
                 alert.title = "꿀꿀"
-                alert.message = "돈돈이가 넣기 성공!"
+                alert.message = "돈돈이 넣기 성공!"
                 let action = UIAlertAction(title: "확인", style: UIAlertActionStyle.default){ (action: UIAlertAction) -> Void in
                     self.dismiss(animated: true, completion: nil)
                 }
