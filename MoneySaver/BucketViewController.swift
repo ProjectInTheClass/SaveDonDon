@@ -21,8 +21,6 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
         self.bucketSearch.delegate = self
         self.bucketSearch.placeholder = "버킷리스트 이름"
         self.filteredData = moneyPocket.bucket //동일하게 복사
-        
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -78,9 +76,19 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
     //스와이프해서 삭제(수정 필요)
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCellEditingStyle.delete{
+           
             if let index = moneyPocket.bucket.index(of:filteredData[indexPath.row]) {
                 moneyPocket.bucket.remove(at: index)
+                history =  moneyPocket.spend.filter{ $0.bucketIndex == index }
             }
+            
+            for i in 0...history.count - 1 {
+                if let index2 = moneyPocket.spend.index(of:history[i]) {
+                    moneyPocket.spend.remove(at: index2)
+                }
+            }
+          
+            
             filteredData.remove(at:indexPath.row) //데이터 삭제
             tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
         }
@@ -101,7 +109,6 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
             
             history =  moneyPocket.spend.filter{ $0.bucketIndex == index }
             bucketSetting.bucket = filteredData[indexPath.row]
-            print(history)
             bucketSetting.history = history
             
         }
@@ -128,6 +135,7 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
     /**서치바에 입력한 내용의 범위에 있는 bucketName의 버킷을 찾아서 뿌려줌**/
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filteredData = searchText.isEmpty ? moneyPocket.bucket : moneyPocket.bucket.filter{ $0.bucketName.range(of: searchText) != nil }
+        filteredData = filteredData.sort({ } )
         table.reloadData()
     }
     
