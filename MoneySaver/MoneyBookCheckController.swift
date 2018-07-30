@@ -72,7 +72,7 @@ class MoneyBookCheckController: UITableViewController {
             } else if value[indexPath.row].mc == "카드"{
                 cell.mcImg?.image = UIImage(named: "카드")
             } else {
-                cell.mcImg?.image = UIImage(named: "pig")
+                cell.mcImg?.image = UIImage(named: "돈돈이")
             }
             
             cell.historyLabel?.text = String(value[indexPath.row].history)

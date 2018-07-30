@@ -27,7 +27,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="barTintColor" red="0.98431372549019602" green="0.67450980392156867" blue="0.65490196078431373" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="barTintColor" red="0.94901960784313721" green="0.69019607843137254" blue="0.61176470588235299" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <textInputTraits key="textInputTraits"/>
                                     <connections>
                                         <outlet property="delegate" destination="WdV-Y2-C2V" id="sgC-g8-SXd"/>
@@ -108,12 +108,19 @@
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="color" keyPath="progressTintColor">
-                                                                    <color key="value" red="1" green="0.5409764051" blue="0.84731429820000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <color key="value" red="0.95686274509803915" green="0.50980392156862742" blue="0.42352941176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </userDefinedRuntimeAttribute>
                                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="stripesAnimated" value="YES"/>
                                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="uniformTintColor" value="YES"/>
                                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="hideTrack" value="NO"/>
                                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="hideStripes" value="YES"/>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="hideTrack" value="NO"/>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="trackTintColor">
+                                                                    <color key="value" red="0.94901960784313721" green="0.69019607843137254" blue="0.61176470588235299" alpha="0.3087810359589041" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="hideGloss" value="YES"/>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="progressStretch" value="NO"/>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="uniformTintColor" value="YES"/>
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                     </subviews>
