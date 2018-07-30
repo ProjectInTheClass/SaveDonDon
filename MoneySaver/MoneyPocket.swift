@@ -126,9 +126,14 @@ class Bucket: Equatable{
     var goalDonNum: Int
     var dondonMoney:Int
     var dondonNum: Int
+   
     var percent:Double {
         if dondonMoney == 0 { return 0 }
         else { return Double(self.dondonMoney) / Double(self.goalMoney)  }
+    }
+    var done: Int {
+        if dondonMoney == goalMoney { return 1 }
+        else { return 0 }
     }
     
     init(bucketName:String, bucketImg:UIImage, goalMoney:Int) {

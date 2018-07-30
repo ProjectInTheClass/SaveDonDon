@@ -60,8 +60,10 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
         moneyPocket.bucket[index!].dondonMoney = donMoney
         moneyPocket.bucket[index!].dondonNum = donNum
         
+        
+        filteredData.sort(by: { $0.done < $1.done } )
         let info = filteredData[indexPath.row]
-     
+        
         
         cell.goalName?.text = info.bucketName
         cell.goalMoney?.text = String(info.goalMoney)+"원"
@@ -70,13 +72,18 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
         cell.donNum?.text = "x" + String(info.dondonNum)
         cell.progressBar.setProgress(CGFloat(info.percent), animated: true)
         
+        if info.done == 1 {
+            cell.backgroundColor = UIColor.lightGray
+            
+        }
+        
         return cell
     }
     
     //스와이프해서 삭제(수정 필요)
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCellEditingStyle.delete{
-           
+            
             if let index = moneyPocket.bucket.index(of:filteredData[indexPath.row]) {
                 moneyPocket.bucket.remove(at: index)
                 history =  moneyPocket.spend.filter{ $0.bucketIndex == index }
@@ -87,7 +94,7 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
                     moneyPocket.spend.remove(at: index2)
                 }
             }
-          
+            
             
             filteredData.remove(at:indexPath.row) //데이터 삭제
             tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
@@ -114,28 +121,32 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
         }
         
         if segue.identifier == "DonDonSegue"{
-            let bucketSave = segue.destination as! BucketSaveController //목적지는 버킷리스트 세팅창
             
             let button = sender as! UIButton
-            
             let cell = button.superview?.superview?.superview as! BucketCell
             let indexPath:IndexPath = table.indexPath(for: cell)!
             
+            if filteredData[indexPath.row].done == 1 {
+                let alert = UIAlertController(title: "완료된 버킷", message: "더 이상 저축이 불가합니다", preferredStyle: .alert)
+                let action = UIAlertAction(title: "확인", style: UIAlertActionStyle.default)
+                alert.addAction(action)
+                self.present(alert, animated: true, completion: nil)
+                return 
+            }else {
+                let bucketSave = segue.destination as! BucketSaveController //목적지는 버킷리스트 세팅창
+                filteredData[indexPath.row].selectedIndex = indexPath.row
+                let index = moneyPocket.bucket.index(of:filteredData[indexPath.row])
+                bucketSave.bucket = filteredData[indexPath.row]
+                bucketSave.index = index
+                
+            }
             
-            filteredData[indexPath.row].selectedIndex = indexPath.row
-            
-            let index = moneyPocket.bucket.index(of:filteredData[indexPath.row])
-            bucketSave.bucket = filteredData[indexPath.row]
-            bucketSave.index = index
         }
-        
-        
     }
     
     /**서치바에 입력한 내용의 범위에 있는 bucketName의 버킷을 찾아서 뿌려줌**/
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filteredData = searchText.isEmpty ? moneyPocket.bucket : moneyPocket.bucket.filter{ $0.bucketName.range(of: searchText) != nil }
-        // filteredData = filteredData.sort({ } )
         table.reloadData()
     }
     
