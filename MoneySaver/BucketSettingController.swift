@@ -7,8 +7,8 @@ import UIKit
 class BucketSettingController:UIViewController, UITableViewDelegate, UITableViewDataSource {
   
    var bucket: Bucket!
-    var index: Int!
-    var history: [Spend]!
+   var index: Int!
+   var history: [Spend]!
     
     override func viewDidLoad() {
         
@@ -39,10 +39,13 @@ class BucketSettingController:UIViewController, UITableViewDelegate, UITableView
     //스와이프해서 삭제(수정 필요)
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCellEditingStyle.delete{
+            
             if let index = moneyPocket.spend.index(of:history[indexPath.row]) {
-                moneyPocket.spend.remove(at: index)
+                moneyPocket.spend.remove(at: index) //원래 spend에서 삭제
+                bucket.dondonMoney -= history[indexPath.row].price //돈돈머니 빼줌
             }
-            history.remove(at:indexPath.row) //데이터 삭제
+            
+            history.remove(at:indexPath.row) //필터된 곳에서 삭제
             tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
         }
 

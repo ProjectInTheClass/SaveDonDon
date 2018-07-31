@@ -14,7 +14,6 @@ class BucketSaveController: UIViewController {
     
     let numberFormatter = NumberFormatter()
     var index: Int!
-    var needPig: Int = 0
     var possiblePig: Int = 0
     
     
@@ -29,20 +28,18 @@ class BucketSaveController: UIViewController {
     }
     
     func refreshData(){
+        
         numberFormatter.numberStyle = .decimal
-        
-        let balance = moneyPocket.getBalance() //잔액 받아오기
-        
-        if balance > 0{
-            possiblePig = balance / 10000
-        } else {
+     
+        if moneyPocket.balance <= 0 {
             possiblePig = 0
+        }else {
+        possiblePig = moneyPocket.balance / 10000
         }
-        
         
         nameLabel.text = bucket.bucketName
         needPigLabel.text = "x \(bucket.goalDonNum) 개"
-        balanceLabel.text = numberFormatter.string(from: NSNumber(value: balance))! + " 원"
+        balanceLabel.text = numberFormatter.string(from: NSNumber(value: moneyPocket.balance))! + " 원"
         pigLabel.text = "\(possiblePig) 마리"
     }
     
@@ -96,6 +93,10 @@ class BucketSaveController: UIViewController {
                 let dateStr = formatter.string(from: date as Date)
                 
                 moneyPocket.spend.append(Spend(date: dateStr, mc: "돈돈이", history: nameLabel.text!, price: pigNum * 10000, bucketIndex: index ))
+                
+                //추가 중
+                bucket.dondonMoney += pigNum * 10000
+                
                 
                 alert.title = "꿀꿀"
                 alert.message = "돈돈이 넣기 성공!"

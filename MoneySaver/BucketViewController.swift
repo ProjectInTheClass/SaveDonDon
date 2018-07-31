@@ -43,32 +43,13 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
         
-        let index = moneyPocket.bucket.index(of:filteredData[indexPath.row])
-        history =  moneyPocket.spend.filter{ $0.bucketIndex == index }
-        
-        var donMoney = 0
-        var donNum = 0
-        
-        
-        for i in history {
-            donMoney += i.price
-        }
-        
-        
-        if donMoney != 0
-        { donNum = donMoney / 10000 }
-        
-        
         let cell:BucketCell = tableView.dequeueReusableCell(withIdentifier: "BucketCell") as! BucketCell
         
         
-        moneyPocket.bucket[index!].dondonMoney = donMoney
-        moneyPocket.bucket[index!].dondonNum = donNum
-        
-        
         filteredData.sort(by: { $0.done < $1.done } ) //완료된 애가 아래로 내려가게 정렬
-        
+
         let info = filteredData[indexPath.row]
+
         cell.goalName?.text = info.bucketName
         cell.goalMoney?.text = numberFormatter.string(from: NSNumber(value: info.goalMoney))! + " 원"
         cell.goalImage?.image = info.bucketImg
@@ -77,9 +58,9 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
         cell.progressBar.setProgress(CGFloat(info.percent), animated: true)
         
         
+        //done 1일때 배경 회색
         if info.done == 1 {
             cell.backgroundColor = UIColor( red: CGFloat(152/255.0), green: CGFloat(152/255.0), blue: CGFloat(152/255.0), alpha: CGFloat(0.4))
-            
         }else {
             cell.backgroundColor = UIColor.white
         }
@@ -87,15 +68,19 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
         return cell
     }
     
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCellEditingStyle.delete{
             
             let alert = UIAlertController(title: "버킷 삭제 경고", message: "저축한 돈돈이가 사라집니다", preferredStyle: .alert)
+            
             let okAction = UIAlertAction(title: "확인", style: UIAlertActionStyle.default) {
                 (action: UIAlertAction) -> Void in
                 deleteBucket()
             }
+            
             let cancelAction = UIAlertAction(title: "취소", style: UIAlertActionStyle.default)
+            
             alert.addAction(okAction)
             alert.addAction(cancelAction)
             
@@ -129,7 +114,6 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
             let bucketSetting = segue.destination as! BucketSettingController //목적지는 버킷리스트 세팅창
             let cell = sender as! BucketCell //내가 누른 셀
             let indexPath:IndexPath = table.indexPath(for: cell)!
-            filteredData[indexPath.row].selectedIndex = indexPath.row
             
             let index = moneyPocket.bucket.index(of:filteredData[indexPath.row])
             
@@ -153,7 +137,7 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
                 return 
             }else {
                 let bucketSave = segue.destination as! BucketSaveController //목적지는 버킷리스트 세팅창
-                filteredData[indexPath.row].selectedIndex = indexPath.row
+               // filteredData[indexPath.row].selectedIndex = indexPath.row
                 let index = moneyPocket.bucket.index(of:filteredData[indexPath.row])
                 bucketSave.bucket = filteredData[indexPath.row]
                 bucketSave.index = index

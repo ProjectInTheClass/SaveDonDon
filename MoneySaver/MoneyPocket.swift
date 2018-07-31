@@ -5,11 +5,25 @@ import UIKit
 let moneyPocket: MoneyPocket = MoneyPocket(deposit: 100000) //자본금 3원짜리 지갑
 
 class MoneyPocket {
-    let deposit: Int
+    var deposit: Int
     var income: [Income]
     var spend : [Spend]
     var bucket : [Bucket]
-    var balance: Int = 0  //deposit + income - spend
+    
+    var balance: Int {
+        var num = deposit
+        
+        for i in income
+        {
+            num += i.price
+        }
+        
+        for i in spend {
+            num -= i.price
+        }
+        
+        return num
+    }
     
     //앞에서 넘어온 시작 값과 자본금을 설정
     init(deposit:Int){
@@ -38,23 +52,7 @@ class MoneyPocket {
         
         bucket += [americaBucket, europeBucket, nammiBucket]
     }
-    
-    func getBalance() -> Int {
-        balance = deposit
-        
-        for i in income
-        {
-            balance += i.price
-        }
-        
-        for i in spend {
-            balance -= i.price
-        }
-        
-        
-        return balance
-    }
-    
+
     
 }
 
@@ -118,19 +116,27 @@ class Bucket: Equatable{
         return lhs.timeStamp == rhs.timeStamp
     }
     
-    var selectedIndex = 0
     let timeStamp = Date().timeIntervalSince1970
     let bucketName:String
     let bucketImg: UIImage
     let goalMoney:Int
-    var goalDonNum: Int
     var dondonMoney:Int
-    var dondonNum: Int
+   
+    var goalDonNum: Int {
+        return goalMoney / 10000
+    }
+
+    
+    var dondonNum: Int {
+        if dondonMoney == 0 { return 0 }
+        else { return dondonMoney / 10000}
+    }
    
     var percent:Double {
         if dondonMoney == 0 { return 0 }
         else { return Double(self.dondonMoney) / Double(self.goalMoney)  }
     }
+    
     var done: Int {
         if dondonMoney == goalMoney { return 1 }
         else { return 0 }
@@ -140,9 +146,7 @@ class Bucket: Equatable{
         self.bucketName = bucketName
         self.bucketImg = bucketImg
         self.goalMoney = goalMoney
-        self.goalDonNum = goalMoney / 10000
         self.dondonMoney = 0
-        self.dondonNum = 0
     }
     
     
