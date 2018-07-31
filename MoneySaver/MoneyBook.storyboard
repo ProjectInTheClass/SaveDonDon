@@ -339,20 +339,12 @@
                             <outlet property="delegate" destination="MBu-fl-AeB" id="D5X-Lu-pTe"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="내역" id="Krk-ld-SMo">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="EB4-5b-oi2">
-                            <connections>
-                                <action selector="navigationBack:" destination="MBu-fl-AeB" id="avf-AU-73E"/>
-                                <segue destination="ZRD-xR-VhY" kind="unwind" identifier="CheckBackSegue" unwindAction="unwindMoneyBookSegueWithSegue:" id="Ro7-tP-wFi"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="내역" id="Krk-ld-SMo"/>
                     <connections>
                         <outlet property="dateLabel" destination="Lxn-0t-Whn" id="zzq-38-ovO"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8AC-0g-0Kc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="ZRD-xR-VhY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-336.80000000000001" y="341.37931034482762"/>
         </scene>

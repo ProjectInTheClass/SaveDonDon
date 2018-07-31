@@ -47,9 +47,9 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
         
         
         filteredData.sort(by: { $0.done < $1.done } ) //완료된 애가 아래로 내려가게 정렬
-
+        
         let info = filteredData[indexPath.row]
-
+        
         cell.goalName?.text = info.bucketName
         cell.goalMoney?.text = numberFormatter.string(from: NSNumber(value: info.goalMoney))! + " 원"
         cell.goalImage?.image = info.bucketImg
@@ -57,12 +57,17 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
         cell.donNum?.text = "x" + String(info.dondonNum)
         cell.progressBar.setProgress(CGFloat(info.percent), animated: true)
         
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "tableBound")
+        cell.backgroundView = backgroundImage
+        
         
         //done 1일때 배경 회색
         if info.done == 1 {
-            cell.backgroundColor = UIColor( red: CGFloat(152/255.0), green: CGFloat(152/255.0), blue: CGFloat(152/255.0), alpha: CGFloat(0.4))
-        }else {
-            cell.backgroundColor = UIColor.white
+            let doneImage = UIImageView(frame: UIScreen.main.bounds)
+            doneImage.image = UIImage(named: "tableDone")
+            doneImage.alpha = 0.2
+            cell.backgroundView = doneImage
         }
         
         return cell
@@ -99,6 +104,7 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
                             moneyPocket.spend.remove(at: index2)
                         }
                     } }
+                
                 filteredData.remove(at:indexPath.row) //데이터 삭제
                 tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic) }
             
@@ -123,29 +129,20 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
             
         }
         
-        if segue.identifier == "DonDonSegue"{
-            
+        if segue.identifier == "DonDonSegue" {
             let button = sender as! UIButton
             let cell = button.superview?.superview as! BucketCell
             let indexPath:IndexPath = table.indexPath(for: cell)!
             
-            if filteredData[indexPath.row].done == 1 {
-                let alert = UIAlertController(title: "완료된 버킷", message: "더 이상 저축이 불가합니다", preferredStyle: .alert)
-                let action = UIAlertAction(title: "확인", style: UIAlertActionStyle.default)
-                alert.addAction(action)
-                self.present(alert, animated: true, completion: nil)
-                return 
-            }else {
-                let bucketSave = segue.destination as! BucketSaveController //목적지는 버킷리스트 세팅창
-               // filteredData[indexPath.row].selectedIndex = indexPath.row
-                let index = moneyPocket.bucket.index(of:filteredData[indexPath.row])
-                bucketSave.bucket = filteredData[indexPath.row]
-                bucketSave.index = index
-                
-            }
+            let index = moneyPocket.bucket.index(of:filteredData[indexPath.row])
             
+            let bucketSave = segue.destination as! BucketSaveController //목적지는 버킷리
+            bucketSave.bucket = filteredData[indexPath.row]
+            bucketSave.index = index
         }
+        
     }
+    
     
     /**서치바에 입력한 내용의 범위에 있는 bucketName의 버킷을 찾아서 뿌려줌**/
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -180,6 +177,26 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        
+        if identifier == "DonDonSegue"{
+            
+            let button = sender as! UIButton
+            let cell = button.superview?.superview as! BucketCell
+            let indexPath:IndexPath = table.indexPath(for: cell)!
+            
+            if filteredData[indexPath.row].done == 1 {
+                let alert = UIAlertController(title: "완료된 버킷", message: "더 이상 저축이 불가합니다", preferredStyle: .alert)
+                let action = UIAlertAction(title: "확인", style: UIAlertActionStyle.default)
+                alert.addAction(action)
+                self.present(alert, animated: true, completion: nil)
+                return false
+            } else {
+                return true }
+        }
+        
+        else { return true }
+    }
     
     
     

@@ -74,17 +74,17 @@ class BucketAddViewController: UIViewController, UIImagePickerControllerDelegate
     
     
     //새로운 버킷리스트 추가
-    func addInfo(){
+    func addInfo() -> Bool{
         let bucketName = bucketNameField.text!
         let goalMoney = bucketMoneyField.text!
         let bucketImg = bucketImgView.image!
         
-        //먼가 이상함 ;;;;;;;;;;;
         if bucketName.isEmpty || goalMoney.isEmpty {
             let alert = UIAlertController(title: "버킷 추가 불가", message: "모든 항목을 채워주세요", preferredStyle: .alert)
             let action = UIAlertAction(title: "확인", style: UIAlertActionStyle.default)
             alert.addAction(action)
             self.present(alert, animated: true, completion: nil)
+            return false
             
         }
         else if (Int(goalMoney)! % 10000 ) != 0 {
@@ -92,25 +92,33 @@ class BucketAddViewController: UIViewController, UIImagePickerControllerDelegate
             let action = UIAlertAction(title: "확인", style: UIAlertActionStyle.default)
             alert.addAction(action)
             self.present(alert, animated: true, completion: nil)
+            return false
         }
         else {
             let newBucket = Bucket(bucketName: bucketName, bucketImg: bucketImg, goalMoney: Int(goalMoney)!)
-            moneyPocket.bucket.append(newBucket)}
+            moneyPocket.bucket.append(newBucket)
+            return true
+        }
+    
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //이상함;;;;;;
-        if segue.identifier == "SaveSegue" {
-            addInfo() //새로운 버킷 만들어서 추가
-            let bucketVC = segue.destination as? BucketViewController
-            bucketVC?.addNewInfo() //테이블뷰 갱신(메인)
-        }
-    }
+    
     // prepare 전에 이 메서드가 호출됨. true 이면 segue 가 동작하기 시작하고, false 이면 동작 안함.
     // 지금 안되는 건, segue의 unwind 가 동작하는데, 화면 넘어가면 안되는데 계속 segue는 타는데,
     // alert이 올라와 있기 때문에, 경고 나면서 멈추는 거에요.
     // 위의 prepare 메서드와 아래 should 메서드에 break point 걸고 테스트 해보세요. :) 이해 될꺼임.
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        return false
+        if identifier == "SaveSegue"{
+            return addInfo() }
+        else { return true }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "SaveSegue" {
+            let bucketVC = segue.destination as? BucketViewController
+            bucketVC?.addNewInfo() //테이블뷰 갱신(메인)
+        }
+    }
+    
+  
 }
