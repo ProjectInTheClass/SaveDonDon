@@ -2,7 +2,7 @@ import UIKit
 
 
 /**돈돈이 넣는 곳 **/
-class BucketSaveController: UIViewController {
+class BucketSaveController: UIViewController, UITextFieldDelegate {
     
     var bucket: Bucket! //여기에는 filteredData[selectedIndex]값이 들어 있음.
     
@@ -20,8 +20,30 @@ class BucketSaveController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         refreshData()
+        savePigText.delegate = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
     }
     
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
+    }
+    
+    @objc func keyboardWillShow(_ sender: Notification) {
+        self.view.frame.origin.y = -50
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    @objc func keyboardWillHide(_ sender: Notification) {
+        self.view.frame.origin.y = 0
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -30,11 +52,11 @@ class BucketSaveController: UIViewController {
     func refreshData(){
         
         numberFormatter.numberStyle = .decimal
-     
+        
         if moneyPocket.balance <= 0 {
             possiblePig = 0
         }else {
-        possiblePig = moneyPocket.balance / 10000
+            possiblePig = moneyPocket.balance / 10000
         }
         
         nameLabel.text = bucket.bucketName

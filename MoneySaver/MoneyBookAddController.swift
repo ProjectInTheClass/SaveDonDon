@@ -36,17 +36,44 @@ class MoneyBookAddController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         dateText.text = selectedDate
         historyText.delegate = self
-        priceText.keyboardType = .numberPad
+        priceText.delegate = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
+        
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
+    }
+    
+    @objc func keyboardWillShow(_ sender: Notification) {
+        self.view.frame.origin.y = -50
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    @objc func keyboardWillHide(_ sender: Notification) {
+        self.view.frame.origin.y = 0
+    }
+    
+
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        guard let text = historyText.text else { return true }
-        let newLength = text.count + string.count - range.length
-        return newLength <= 8
+        if textField == historyText {
+            let text = textField.text
+            let newLength = (text?.count)! + string.count - range.length
+            return newLength <= 8 }
+        else { return true }
     }
     
     

@@ -54,7 +54,7 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
         cell.goalMoney?.text = numberFormatter.string(from: NSNumber(value: info.goalMoney))! + " 원"
         cell.goalImage?.image = info.bucketImg
         cell.donMoney?.text =  numberFormatter.string(from: NSNumber(value: info.dondonMoney))! + " 원"
-        cell.donNum?.text = "x" + String(info.dondonNum)
+        cell.donNum?.text = "x " + String(info.dondonNum)
         cell.progressBar.setProgress(CGFloat(info.percent), animated: true)
         
         let backgroundImage = UIImageView(frame: UIScreen.main.bounds)

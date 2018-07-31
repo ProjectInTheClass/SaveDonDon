@@ -57,14 +57,39 @@ class BucketAddViewController: UIViewController, UIImagePickerControllerDelegate
         super.viewDidLoad()
         picker.delegate = self
         bucketNameField.delegate = self
-        bucketMoneyField.keyboardType = .numberPad
+        bucketMoneyField.delegate = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
+        
     }
     
-
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
+    }
+        
+    @objc func keyboardWillShow(_ sender: Notification) {
+        self.view.frame.origin.y = -150
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    @objc func keyboardWillHide(_ sender: Notification) {
+        self.view.frame.origin.y = 0
+    }
+    
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        guard let text = bucketNameField.text else { return true }
-        let newLength = text.count + string.count - range.length
-        return newLength <= 8 
+        
+        if textField == bucketNameField {
+        let text = textField.text
+        let newLength = (text?.count)! + string.count - range.length
+            return newLength <= 8 }
+        else { return true }
     }
     
     override func didReceiveMemoryWarning() {
@@ -99,7 +124,7 @@ class BucketAddViewController: UIViewController, UIImagePickerControllerDelegate
             moneyPocket.bucket.append(newBucket)
             return true
         }
-    
+        
     }
     
     
@@ -114,11 +139,11 @@ class BucketAddViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if segue.identifier == "SaveSegue" {
+        if segue.identifier == "SaveSegue" {
             let bucketVC = segue.destination as? BucketViewController
             bucketVC?.addNewInfo() //테이블뷰 갱신(메인)
         }
     }
     
-  
+    
 }
