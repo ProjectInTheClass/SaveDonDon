@@ -13,6 +13,8 @@
 		A300A68D2107138400025A60 /* MoneyBookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A300A68C2107138400025A60 /* MoneyBookController.swift */; };
 		A300A68F210716FE00025A60 /* MoneyBookAddControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A300A68E210716FE00025A60 /* MoneyBookAddControllerViewController.swift */; };
 		A300A69121073C4900025A60 /* MoneyBookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A300A69021073C4900025A60 /* MoneyBookCell.swift */; };
+		A311CA81211038EC00BD436D /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A311CA80211038EC00BD436D /* SettingViewController.swift */; };
+		A311CA832110393A00BD436D /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A311CA822110393A00BD436D /* SettingCell.swift */; };
 		A31BE33F20F627AC0005D365 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31BE33E20F627AC0005D365 /* AppDelegate.swift */; };
 		A31BE34120F627AC0005D365 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31BE34020F627AC0005D365 /* ViewController.swift */; };
 		A31BE34420F627AC0005D365 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A31BE34220F627AC0005D365 /* Main.storyboard */; };
@@ -56,6 +58,8 @@
 		A300A68C2107138400025A60 /* MoneyBookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyBookController.swift; sourceTree = "<group>"; };
 		A300A68E210716FE00025A60 /* MoneyBookAddControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyBookAddControllerViewController.swift; sourceTree = "<group>"; };
 		A300A69021073C4900025A60 /* MoneyBookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyBookCell.swift; sourceTree = "<group>"; };
+		A311CA80211038EC00BD436D /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		A311CA822110393A00BD436D /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		A31BE33B20F627AC0005D365 /* MoneySaver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneySaver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A31BE33E20F627AC0005D365 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A31BE34020F627AC0005D365 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -163,6 +167,8 @@
 				612D46C320FDDB300069C8DB /* MoneyBook.storyboard */,
 				612D46C520FDDB3F0069C8DB /* BucketList.storyboard */,
 				612D46C720FDDB470069C8DB /* Setting.storyboard */,
+				A311CA822110393A00BD436D /* SettingCell.swift */,
+				A311CA80211038EC00BD436D /* SettingViewController.swift */,
 				A31BE33E20F627AC0005D365 /* AppDelegate.swift */,
 				A31BE34020F627AC0005D365 /* ViewController.swift */,
 				A31BE34220F627AC0005D365 /* Main.storyboard */,
@@ -306,6 +312,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A311CA81211038EC00BD436D /* SettingViewController.swift in Sources */,
 				E056897320FEE3C200F1D5BC /* SwipeActionTableViewCell.swift in Sources */,
 				E056897820FEE3C200F1D5BC /* FIlters.swift in Sources */,
 				A34C6B3521005E6A00340796 /* BucketViewController.swift in Sources */,
@@ -313,6 +320,7 @@
 				A34C6B39210084AC00340796 /* BucketAddViewController.swift in Sources */,
 				E056896E20FEE3C200F1D5BC /* NavigationControllers.swift in Sources */,
 				A3AC10C0210E003F007991D5 /* BucketSettingCell.swift in Sources */,
+				A311CA832110393A00BD436D /* SettingCell.swift in Sources */,
 				E056897220FEE3C200F1D5BC /* CHControls.swift in Sources */,
 				A300A68D2107138400025A60 /* MoneyBookController.swift in Sources */,
 				E056897720FEE3C200F1D5BC /* RecordButton.swift in Sources */,

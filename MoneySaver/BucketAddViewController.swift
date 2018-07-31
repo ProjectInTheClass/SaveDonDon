@@ -3,7 +3,7 @@
 import UIKit
 
 /**버킷리스트 추가 창*/
-class BucketAddViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class BucketAddViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     let picker = UIImagePickerController()
     
@@ -13,7 +13,7 @@ class BucketAddViewController: UIViewController, UIImagePickerControllerDelegate
     @IBOutlet weak var imageView: UIButton!
     @IBAction func addAction(_ sender: Any) {
         
-        let alert = UIAlertController(title:"원하는 타이틀", message:"원하는 메시지", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title:"이미지 선택", message:"버킷리스트 이미지를 선택해주세요", preferredStyle: .actionSheet)
         let library = UIAlertAction(title: "사진앨범", style: .default) {(action) in self.openLibrary()}
         let camera = UIAlertAction(title: "카메라", style: .default) {(action) in self.openCamera()}
         let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
@@ -56,6 +56,15 @@ class BucketAddViewController: UIViewController, UIImagePickerControllerDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         picker.delegate = self
+        bucketNameField.delegate = self
+        bucketMoneyField.keyboardType = .numberPad
+    }
+    
+
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let text = bucketNameField.text else { return true }
+        let newLength = text.count + string.count - range.length
+        return newLength <= 8 
     }
     
     override func didReceiveMemoryWarning() {
@@ -64,17 +73,33 @@ class BucketAddViewController: UIViewController, UIImagePickerControllerDelegate
     
     
     
-    //새로운 버킷리스트 추가(BucketInfo를 넘겨서 넘겨받는 쪽에서 append)
-    func addInfo() {
+    //새로운 버킷리스트 추가
+    func addInfo(){
         let bucketName = bucketNameField.text!
-        let goalMoney = Int(bucketMoneyField.text!)!
-        let bucketImg = bucketImgView.image! //변경해야 함, 값없으면 터지는 것도 변경해야함
+        let goalMoney = bucketMoneyField.text!
+        let bucketImg = bucketImgView.image!
         
-        let newBucket = Bucket(bucketName: bucketName, bucketImg: bucketImg, goalMoney: goalMoney)
-        moneyPocket.bucket.append(newBucket)
+        //먼가 이상함 ;;;;;;;;;;;
+        if bucketName.isEmpty || goalMoney.isEmpty {
+            let alert = UIAlertController(title: "버킷 추가 불가", message: "모든 항목을 채워주세요", preferredStyle: .alert)
+            let action = UIAlertAction(title: "확인", style: UIAlertActionStyle.default)
+            alert.addAction(action)
+            self.present(alert, animated: true, completion: nil)
+            
+        }
+        else if (Int(goalMoney)! % 10000 ) != 0 {
+            let alert = UIAlertController(title: "버킷 금액 오류", message: "만원으로 나누어 떨어지게 입력해주세요\r\n ex) 20000원", preferredStyle: .alert)
+            let action = UIAlertAction(title: "확인", style: UIAlertActionStyle.default)
+            alert.addAction(action)
+            self.present(alert, animated: true, completion: nil)
+        }
+        else {
+            let newBucket = Bucket(bucketName: bucketName, bucketImg: bucketImg, goalMoney: Int(goalMoney)!)
+            moneyPocket.bucket.append(newBucket)}
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //이상함;;;;;;
         if segue.identifier == "SaveSegue" {
             addInfo() //새로운 버킷 만들어서 추가
             let bucketVC = segue.destination as? BucketViewController
