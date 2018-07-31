@@ -119,7 +119,7 @@ class MoneyBookController: UIViewController, UITableViewDataSource, UITableViewD
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AddSegue"{
-            let moneyAddVC = segue.destination as! MoneyBookAddControllerViewController //목적지는 버킷리스트 세팅창
+            let moneyAddVC = segue.destination as! MoneyBookAddController //목적지는 버킷리스트 세팅창
             moneyAddVC.selectedDate = self.todayDate
         }
         

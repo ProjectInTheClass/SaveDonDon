@@ -74,7 +74,7 @@ class BucketAddViewController: UIViewController, UIImagePickerControllerDelegate
     
     
     //새로운 버킷리스트 추가
-    func addInfo() -> Bool{
+    func addInfo() -> Bool {
         let bucketName = bucketNameField.text!
         let goalMoney = bucketMoneyField.text!
         let bucketImg = bucketImgView.image!

@@ -11,7 +11,7 @@
 		612D46C620FDDB3F0069C8DB /* BucketList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 612D46C520FDDB3F0069C8DB /* BucketList.storyboard */; };
 		612D46C820FDDB470069C8DB /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 612D46C720FDDB470069C8DB /* Setting.storyboard */; };
 		A300A68D2107138400025A60 /* MoneyBookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A300A68C2107138400025A60 /* MoneyBookController.swift */; };
-		A300A68F210716FE00025A60 /* MoneyBookAddControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A300A68E210716FE00025A60 /* MoneyBookAddControllerViewController.swift */; };
+		A300A68F210716FE00025A60 /* MoneyBookAddController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A300A68E210716FE00025A60 /* MoneyBookAddController.swift */; };
 		A300A69121073C4900025A60 /* MoneyBookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A300A69021073C4900025A60 /* MoneyBookCell.swift */; };
 		A311CA81211038EC00BD436D /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A311CA80211038EC00BD436D /* SettingViewController.swift */; };
 		A311CA832110393A00BD436D /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A311CA822110393A00BD436D /* SettingCell.swift */; };
@@ -56,7 +56,7 @@
 		68DDC176EBA6623CD805C844 /* Pods-MoneySaver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneySaver.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoneySaver/Pods-MoneySaver.debug.xcconfig"; sourceTree = "<group>"; };
 		888DC7D1377329E710201EC0 /* Pods-MoneySaver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoneySaver.release.xcconfig"; path = "Pods/Target Support Files/Pods-MoneySaver/Pods-MoneySaver.release.xcconfig"; sourceTree = "<group>"; };
 		A300A68C2107138400025A60 /* MoneyBookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyBookController.swift; sourceTree = "<group>"; };
-		A300A68E210716FE00025A60 /* MoneyBookAddControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyBookAddControllerViewController.swift; sourceTree = "<group>"; };
+		A300A68E210716FE00025A60 /* MoneyBookAddController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyBookAddController.swift; sourceTree = "<group>"; };
 		A300A69021073C4900025A60 /* MoneyBookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyBookCell.swift; sourceTree = "<group>"; };
 		A311CA80211038EC00BD436D /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		A311CA822110393A00BD436D /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
@@ -184,7 +184,7 @@
 				E03CA4732101CB5E005EF278 /* HomeViewController.swift */,
 				A300A68C2107138400025A60 /* MoneyBookController.swift */,
 				A3F789C42109723D007E50A5 /* MoneyBookCheckCell.swift */,
-				A300A68E210716FE00025A60 /* MoneyBookAddControllerViewController.swift */,
+				A300A68E210716FE00025A60 /* MoneyBookAddController.swift */,
 				A300A69021073C4900025A60 /* MoneyBookCell.swift */,
 				A3F789C221096E98007E50A5 /* MoneyBookCheckController.swift */,
 				A3AC10BF210E003F007991D5 /* BucketSettingCell.swift */,
@@ -337,7 +337,7 @@
 				E056897520FEE3C200F1D5BC /* CHPagingScrollViewController.swift in Sources */,
 				E03CA4742101CB5E005EF278 /* HomeViewController.swift in Sources */,
 				E056897620FEE3C200F1D5BC /* CHContentViewController.swift in Sources */,
-				A300A68F210716FE00025A60 /* MoneyBookAddControllerViewController.swift in Sources */,
+				A300A68F210716FE00025A60 /* MoneyBookAddController.swift in Sources */,
 				A300A69121073C4900025A60 /* MoneyBookCell.swift in Sources */,
 				A34C6B3121004E7800340796 /* MoneyPocket.swift in Sources */,
 				E056897020FEE3C200F1D5BC /* DrawingCanvasView.swift in Sources */,
