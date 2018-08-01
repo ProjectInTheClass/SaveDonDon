@@ -156,6 +156,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="depositText" destination="KUo-u5-hhe" id="TvU-n8-JKa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5GW-Pu-cXh" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Fg9-zu-ON2" userLabel="Exit" sceneMemberID="exit"/>

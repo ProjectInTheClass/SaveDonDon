@@ -41,7 +41,7 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
             return cell
         }else if index == 1 {
             let cell:DepositCell = tableView.dequeueReusableCell(withIdentifier: "DepositCell") as! DepositCell
-            cell.depositLabel.text = "10000원"
+            cell.depositLabel.text = "\(moneyPocket.deposit) 원"
             return cell
         }
         else {

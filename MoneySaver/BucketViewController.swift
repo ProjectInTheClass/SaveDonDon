@@ -80,7 +80,7 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
         } else
         {
             let ingImage = UIImageView(frame: UIScreen.main.bounds)
-            ingImage.image = UIImage(named: "pig") //여기 흰색으로 변경
+            ingImage.image = UIImage(named: "tableIng") //여기 흰색으로 변경
             cell.backgroundView = ingImage
         }
         

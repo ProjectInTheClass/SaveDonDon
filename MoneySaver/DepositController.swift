@@ -9,9 +9,11 @@
 import UIKit
 
 class DepositController: UIViewController {
-
+    @IBOutlet weak var depositText: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        depositText.text = String(moneyPocket.deposit)
 
         // Do any additional setup after loading the view.
     }
@@ -22,6 +24,21 @@ class DepositController: UIViewController {
     }
     
 
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "DepositSaveSegue" {
+            let deposit = depositText.text!
+            if deposit.isEmpty {
+                let alert = UIAlertController(title: "자본금 저장 불가", message: "값을 입력해주세요", preferredStyle: .alert)
+                let action = UIAlertAction(title: "확인", style: UIAlertActionStyle.default)
+                alert.addAction(action)
+                self.present(alert, animated: true, completion: nil)
+                return false
+            }else {
+                moneyPocket.deposit = Int(deposit)!
+                return true }
+        }
+        return true
+    }
     /*
     // MARK: - Navigation
 

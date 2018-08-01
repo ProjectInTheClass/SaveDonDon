@@ -7,6 +7,7 @@ class PigNameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        pigNameText.text = moneyPocket.pigName
 
         // Do any additional setup after loading the view.
     }
@@ -17,11 +18,6 @@ class PigNameViewController: UIViewController {
     }
     
 
-   
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-    }
-    
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if identifier == "NameSaveSegue" {
             let pigName = pigNameText.text!
