@@ -128,9 +128,11 @@ class MoneyBookAddController: UIViewController, UITextFieldDelegate {
             case "수입":
                 let income = addIncome()
                 moneyPocket.income += [income]
+                moneyPocket.save()
             case "지출":
                let spend = addSpend()
                 moneyPocket.spend += [spend]
+                moneyPocket.save()
             default:
                 return
             }

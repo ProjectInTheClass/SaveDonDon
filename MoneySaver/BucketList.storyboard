@@ -13,7 +13,7 @@
         <!--버킷리스트-->
         <scene sceneID="q6j-jf-9ww">
             <objects>
-                <viewController id="WdV-Y2-C2V" customClass="BucketViewController" customModule="MoneySaver" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="WdV-Y2-C2V" customClass="BucketViewController" customModule="Save_돈돈" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jZ0-xt-SfG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -33,7 +33,7 @@
                                     </connections>
                                 </searchBar>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BucketCell" rowHeight="250" id="fsV-1A-vNV" customClass="BucketCell" customModule="MoneySaver" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BucketCell" rowHeight="250" id="fsV-1A-vNV" customClass="BucketCell" customModule="Save_돈돈" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="84" width="375" height="250"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fsV-1A-vNV" id="5Eb-Fp-pBC">
@@ -170,7 +170,7 @@
         <!--버킷리스트 상세보기-->
         <scene sceneID="tWn-fM-69e">
             <objects>
-                <viewController id="QnC-TH-XRv" customClass="BucketSettingController" customModule="MoneySaver" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="QnC-TH-XRv" customClass="BucketSettingController" customModule="Save_돈돈" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="leB-La-t8J">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -180,10 +180,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BucketSettingCell" rowHeight="50" id="i4N-Tr-coa" customClass="BucketSettingCell" customModule="MoneySaver" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BucketSettingCell" rowHeight="50" id="i4N-Tr-coa" customClass="BucketSettingCell" customModule="Save_돈돈" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="i4N-Tr-coa" id="hDe-am-Ewm" customClass="BucketSettingCell" customModule="MoneySaver" customModuleProvider="target">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="i4N-Tr-coa" id="hDe-am-Ewm" customClass="BucketSettingCell" customModule="Save_돈돈" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -250,7 +250,7 @@
         <!--Bucket Save Controller-->
         <scene sceneID="byc-sk-ZSe">
             <objects>
-                <viewController modalPresentationStyle="overCurrentContext" id="Bk4-VJ-Lym" customClass="BucketSaveController" customModule="MoneySaver" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="overCurrentContext" id="Bk4-VJ-Lym" customClass="BucketSaveController" customModule="Save_돈돈" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" tag="1" contentMode="scaleToFill" id="wQQ-lE-hBW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -363,7 +363,7 @@
         <!--버킷리스트 추가-->
         <scene sceneID="FyY-BQ-zuY">
             <objects>
-                <viewController id="FLu-5z-EeN" customClass="BucketAddViewController" customModule="MoneySaver" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="FLu-5z-EeN" customClass="BucketAddViewController" customModule="Save_돈돈" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lnf-sw-hRk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -453,7 +453,7 @@
         <!--Bucket Save Controller-->
         <scene sceneID="CHy-tE-o3W">
             <objects>
-                <viewController id="HeA-uc-etE" customClass="BucketSaveController" customModule="MoneySaver" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="HeA-uc-etE" customClass="BucketSaveController" customModule="Save_돈돈" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" tag="1" contentMode="scaleToFill" id="Zfq-Af-Poa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

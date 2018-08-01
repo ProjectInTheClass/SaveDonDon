@@ -122,6 +122,7 @@ class BucketAddViewController: UIViewController, UIImagePickerControllerDelegate
         else {
             let newBucket = Bucket(bucketName: bucketName, bucketImg: bucketImg, goalMoney: Int(goalMoney)!)
             moneyPocket.bucket.append(newBucket)
+            moneyPocket.save()
             return true
         }
         
