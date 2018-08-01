@@ -14,6 +14,10 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
     
     override func viewWillAppear(_ animated: Bool){
         table.reloadData()
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(BucketViewController.handleModalDismissed),
+                                               name: NSNotification.Name(rawValue: "modalIsDimissed"),
+                                               object: nil)
     }
     
     override func viewDidLoad() {
@@ -25,6 +29,12 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    
+    
+    @objc func handleModalDismissed() {
+        table.reloadData()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -57,11 +67,8 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
         cell.donNum?.text = "x " + String(info.dondonNum)
         cell.progressBar.setProgress(CGFloat(info.percent), animated: true)
         
-        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "tableBound")
-        cell.backgroundView = backgroundImage
         
-        
+
         //done 1일때 배경 회색
         if info.done == 1 {
             let doneImage = UIImageView(frame: UIScreen.main.bounds)
@@ -70,6 +77,7 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
             cell.backgroundView = doneImage
         }
         
+        print(info.done)
         return cell
     }
     
@@ -133,7 +141,6 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
             let button = sender as! UIButton
             let cell = button.superview?.superview as! BucketCell
             let indexPath:IndexPath = table.indexPath(for: cell)!
-            
             let index = moneyPocket.bucket.index(of:filteredData[indexPath.row])
             
             let bucketSave = segue.destination as! BucketSaveController //목적지는 버킷리
@@ -180,7 +187,6 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         
         if identifier == "DonDonSegue"{
-            
             let button = sender as! UIButton
             let cell = button.superview?.superview as! BucketCell
             let indexPath:IndexPath = table.indexPath(for: cell)!
@@ -194,7 +200,7 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
             } else {
                 return true }
         }
-        
+            
         else { return true }
     }
     

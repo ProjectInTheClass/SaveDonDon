@@ -1,8 +1,14 @@
 
 import UIKit
 
-class SettingViewController: UIViewController {
-
+class SettingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var table: UITableView!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        table.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -14,7 +20,40 @@ class SettingViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func unWindSettingMain(segue: UIStoryboardSegue){
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+  
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let index = indexPath.row
+        
+        if index == 0 {
+         let cell:PigNameCell = tableView.dequeueReusableCell(withIdentifier: "PigNameCell") as! PigNameCell
+            cell.pigNameLabel.text = moneyPocket.pigName
+            return cell
+        }else if index == 1 {
+            let cell:DepositCell = tableView.dequeueReusableCell(withIdentifier: "DepositCell") as! DepositCell
+            cell.depositLabel.text = "10000원"
+            return cell
+        }
+        else {
+            let cell:HelpCell = tableView.dequeueReusableCell(withIdentifier: "HelpCell") as! HelpCell
+            return cell
+        }
+        
+    }
 
+
+    
+    
     /*
     // MARK: - Navigation
 

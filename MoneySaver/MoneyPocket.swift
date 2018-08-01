@@ -2,9 +2,10 @@
 import Foundation
 import UIKit
 
-let moneyPocket: MoneyPocket = MoneyPocket(deposit: 100000) //자본금 3원짜리 지갑
+let moneyPocket: MoneyPocket = MoneyPocket() //자본금 3원짜리 지갑
 
 class MoneyPocket {
+    var pigName: String
     var deposit: Int
     var income: [Income]
     var spend : [Spend]
@@ -22,16 +23,16 @@ class MoneyPocket {
             num -= i.price
         }
         
-        
         return num
     }
     
     //앞에서 넘어온 시작 값과 자본금을 설정
-    init(deposit:Int){
+    init(){
         income = []
         spend = []
         bucket = []
-        self.deposit = deposit
+        deposit = 0
+        pigName = "돈돈이"
         
         
         let income1 = Income(date: "2018.07.26",mc: "카드", history: "용돈", price: 100000)

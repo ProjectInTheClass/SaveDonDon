@@ -30,6 +30,8 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         updateTime()
         
+        nameLabel.text = moneyPocket.pigName
+        
         // 1 5 10 20
         doneCount =  moneyPocket.bucket.filter{ $0.done == 1 }.count
         ingCount = moneyPocket.bucket.filter{ $0.done == 0 }.count

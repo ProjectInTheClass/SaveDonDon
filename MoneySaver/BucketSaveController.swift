@@ -21,6 +21,7 @@ class BucketSaveController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         refreshData()
         savePigText.delegate = self
+       // savePigText.becomeFirstResponder() //포커스 주기
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
         
@@ -33,7 +34,7 @@ class BucketSaveController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func keyboardWillShow(_ sender: Notification) {
-        self.view.frame.origin.y = -50
+        self.view.frame.origin.y = -60
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -71,7 +72,8 @@ class BucketSaveController: UIViewController, UITextFieldDelegate {
         
         let pig = savePigText.text! //내가 넣는 돼지 몇마리?
         let alert = UIAlertController()
-        
+        self.savePigText.resignFirstResponder() //포커스가 가는게 first responder,
+
         
         if pig.isEmpty {
             alert.title = "꿀꿀"
@@ -123,7 +125,10 @@ class BucketSaveController: UIViewController, UITextFieldDelegate {
                 alert.title = "꿀꿀"
                 alert.message = "돈돈이 넣기 성공!"
                 let action = UIAlertAction(title: "확인", style: UIAlertActionStyle.default){ (action: UIAlertAction) -> Void in
-                    self.dismiss(animated: true, completion: nil)
+                    self.dismiss(animated: true, completion: {
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "modalIsDimissed"), object: nil)
+                        
+                    })
                 }
                 alert.addAction(action)
                 self.present(alert, animated: true, completion: nil)
