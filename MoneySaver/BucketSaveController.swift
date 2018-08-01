@@ -118,8 +118,7 @@ class BucketSaveController: UIViewController, UITextFieldDelegate {
                 
                 moneyPocket.spend.append(Spend(date: dateStr, mc: "돈돈이", history: nameLabel.text!, price: pigNum * 10000, bucketIndex: index ))
                 
-                //추가 중
-                bucket.dondonMoney += pigNum * 10000
+                moneyPocket.bucket[index].dondonMoney += pigNum * 10000
                 
                 
                 alert.title = "꿀꿀"
@@ -138,18 +137,5 @@ class BucketSaveController: UIViewController, UITextFieldDelegate {
     
     
     
-    
-    
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }

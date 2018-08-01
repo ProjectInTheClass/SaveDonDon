@@ -13,18 +13,25 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
     
     
     override func viewWillAppear(_ animated: Bool){
-        table.reloadData()
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(BucketViewController.handleModalDismissed),
                                                name: NSNotification.Name(rawValue: "modalIsDimissed"),
-                                               object: nil)
+                                               object: nil) //modaldismiss시 액션
+        
+        self.filteredData = moneyPocket.bucket //필터데이터에 원본 데이터 복사
+        table.reloadData() //어디서든 업뎃
+    }
+    
+    
+    /** save창 dismiss시 액션*/
+    @objc func handleModalDismissed() {
+        table.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.bucketSearch.delegate = self
         self.bucketSearch.placeholder = "버킷리스트 이름"
-        self.filteredData = moneyPocket.bucket //동일하게 복사
     }
     
     override func didReceiveMemoryWarning() {
@@ -32,12 +39,8 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     
-    
-    @objc func handleModalDismissed() {
-        table.reloadData()
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
+    /**테이블**/
+    func numberOfSections(in taㅋleView: UITableView) -> Int {
         return 1
     }
     
@@ -46,7 +49,6 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     
-    //cell 리턴
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         //3자리씩 끊어서 콤마
@@ -56,9 +58,9 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
         let cell:BucketCell = tableView.dequeueReusableCell(withIdentifier: "BucketCell") as! BucketCell
         
         
-        filteredData.sort(by: { $0.done < $1.done } ) //완료된 애가 아래로 내려가게 정렬
+        filteredData.sort(by: { $0.done < $1.done } ) //완료된 버킷이 아래로 깔리게 정렬된 데이터
         
-        let info = filteredData[indexPath.row]
+        let info = filteredData[indexPath.row] //셀에 쓰는 데이터 ( row값에 맞게 가져옴 )
         
         cell.goalName?.text = info.bucketName
         cell.goalMoney?.text = numberFormatter.string(from: NSNumber(value: info.goalMoney))! + " 원"
@@ -75,9 +77,13 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
             doneImage.image = UIImage(named: "tableDone")
             doneImage.alpha = 0.2
             cell.backgroundView = doneImage
+        } else
+        {
+            let ingImage = UIImageView(frame: UIScreen.main.bounds)
+            ingImage.image = UIImage(named: "pig") //여기 흰색으로 변경
+            cell.backgroundView = ingImage
         }
         
-        print(info.done)
         return cell
     }
     
@@ -86,34 +92,30 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
         if editingStyle == UITableViewCellEditingStyle.delete{
             
             let alert = UIAlertController(title: "버킷 삭제 경고", message: "저축한 돈돈이가 사라집니다", preferredStyle: .alert)
-            
             let okAction = UIAlertAction(title: "확인", style: UIAlertActionStyle.default) {
                 (action: UIAlertAction) -> Void in
                 deleteBucket()
             }
-            
             let cancelAction = UIAlertAction(title: "취소", style: UIAlertActionStyle.default)
-            
             alert.addAction(okAction)
             alert.addAction(cancelAction)
-            
             self.present(alert, animated: true, completion: nil)
             
             
             func deleteBucket() {
                 if let index = moneyPocket.bucket.index(of:filteredData[indexPath.row]) {
-                    moneyPocket.bucket.remove(at: index)
-                    history =  moneyPocket.spend.filter{ $0.bucketIndex == index }
+                    moneyPocket.bucket.remove(at: index) //버켓리스트 삭제
+                    history =  moneyPocket.spend.filter{ $0.bucketIndex == index } //해당 버킷에 관련된 지출 뽑음
                 }
                 
                 if history.count != 0 {
                     for i in 0...history.count - 1 {
                         if let index2 = moneyPocket.spend.index(of:history[i]) {
-                            moneyPocket.spend.remove(at: index2)
+                            moneyPocket.spend.remove(at: index2) //원본배열에서 모두 삭제
                         }
                     } }
                 
-                filteredData.remove(at:indexPath.row) //데이터 삭제
+                filteredData.remove(at:indexPath.row) //필터된 데이터에도 삭제
                 tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic) }
             
         }
@@ -130,8 +132,8 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
             let indexPath:IndexPath = table.indexPath(for: cell)!
             
             let index = moneyPocket.bucket.index(of:filteredData[indexPath.row])
-            
             history =  moneyPocket.spend.filter{ $0.bucketIndex == index }
+            
             bucketSetting.bucket = filteredData[indexPath.row]
             bucketSetting.history = history
             
@@ -143,7 +145,7 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
             let indexPath:IndexPath = table.indexPath(for: cell)!
             let index = moneyPocket.bucket.index(of:filteredData[indexPath.row])
             
-            let bucketSave = segue.destination as! BucketSaveController //목적지는 버킷리
+            let bucketSave = segue.destination as! BucketSaveController
             bucketSave.bucket = filteredData[indexPath.row]
             bucketSave.index = index
         }
@@ -167,21 +169,20 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         self.bucketSearch.text = ""
         self.bucketSearch.showsCancelButton = false
-        self.bucketSearch.endEditing(true)
+        self.bucketSearch.endEditing(true) //키보드 내려감
         self.filteredData = moneyPocket.bucket
         table.reloadData()
     }
     
-    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar)
+    {
+        self.bucketSearch.endEditing(true)
+
+    }
     
     @IBAction func unWindBucketMain(segue: UIStoryboardSegue){
-        table.reloadData()
     }
     
-    func addNewInfo(){
-        filteredData = moneyPocket.bucket
-        table.reloadData()
-    }
     
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {

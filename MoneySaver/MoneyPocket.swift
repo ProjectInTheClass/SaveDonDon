@@ -160,7 +160,7 @@ class Bucket: Equatable{
     }
     
     var done: Int {
-        if dondonMoney == goalMoney { return 1 }
+        if self.dondonMoney == self.goalMoney { return 1 }
         else { return 0 }
     }
     
