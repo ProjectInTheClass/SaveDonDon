@@ -39,6 +39,7 @@ class PigNameViewController: UIViewController, UITextFieldDelegate {
                 return false
             }else {
                 moneyPocket.pigName = pigName
+                moneyPocket.save() //이거만 됨^^...
                 return true }
         }
         return true

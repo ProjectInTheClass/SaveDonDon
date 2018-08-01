@@ -37,12 +37,19 @@ class MoneyPocket {
     
     init() {
         if FileManager.default.fileExists(atPath: self.filePath) {
-            if let unarchArray = NSKeyedUnarchiver.unarchiveObject(withFile: self.filePath) as? MoneyPocket{
-                moneyPocket.income += unarchArray.income
-                moneyPocket.spend += unarchArray.spend
-                moneyPocket.deposit = unarchArray.deposit
-                moneyPocket.pigName = unarchArray.pigName
+            if let unarchArray = NSKeyedUnarchiver.unarchiveObject(withFile: self.filePath) as? [Income]{
+                self.income += unarchArray
+                            }
+            if let unarchArray2 = NSKeyedUnarchiver.unarchiveObject(withFile: self.filePath) as? [Spend]{
+                self.spend += unarchArray2
             }
+            if let unarchArray3 = NSKeyedUnarchiver.unarchiveObject(withFile: self.filePath) as? String{
+                self.pigName = unarchArray3
+            }
+            if let unarchArray4 = NSKeyedUnarchiver.unarchiveObject(withFile: self.filePath) as? Int{
+                self.deposit += unarchArray4
+            }
+            
         } else {
             let income1 = Income(date: "2018.07.26",mc: "카드", history: "용돈", price: 100000)
             let income2 = Income(date: "2018.07.26",mc: "현금", history: "월급", price: 100000)
@@ -87,7 +94,12 @@ class MoneyPocket {
         }
     
     func save(){
-        // NSKeyedArchiver.archiveRootObject(moneyPocket, toFile: self.filePath)
+         NSKeyedArchiver.archiveRootObject(self.income, toFile: self.filePath)
+        NSKeyedArchiver.archiveRootObject(self.spend, toFile: self.filePath)
+        NSKeyedArchiver.archiveRootObject(self.deposit, toFile: self.filePath)
+        NSKeyedArchiver.archiveRootObject(self.pigName, toFile: self.filePath)
+
+        //여기서 맨 마지막 것만 찍히는데 이걸 어케 해야할지 모르ㅔㄱㅆ음 ㅜㅜ
     }
 
 }
@@ -231,8 +243,8 @@ class MoneyPocket {
     init(bucketName:String, bucketImg:UIImage, goalMoney:Int) {
         self.bucketName = bucketName
         self.bucketImg = bucketImg
-        self.goalMoney = 0
-        self.dondonMoney = 0
+        self.goalMoney = 0 //터ㅓ져
+        self.dondonMoney = 0 //터져 int
     }
     
 }
