@@ -64,7 +64,7 @@
 		A300A69021073C4900025A60 /* MoneyBookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyBookCell.swift; sourceTree = "<group>"; };
 		A311CA80211038EC00BD436D /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		A311CA822110393A00BD436D /* PigNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PigNameCell.swift; sourceTree = "<group>"; };
-		A31BE33B20F627AC0005D365 /* MoneySaver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoneySaver.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A31BE33B20F627AC0005D365 /* Save 돈돈.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Save 돈돈.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A31BE33E20F627AC0005D365 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A31BE34020F627AC0005D365 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A31BE34320F627AC0005D365 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -162,7 +162,7 @@
 		A31BE33C20F627AC0005D365 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A31BE33B20F627AC0005D365 /* MoneySaver.app */,
+				A31BE33B20F627AC0005D365 /* Save 돈돈.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -223,7 +223,7 @@
 			);
 			name = MoneySaver;
 			productName = MoneySaver;
-			productReference = A31BE33B20F627AC0005D365 /* MoneySaver.app */;
+			productReference = A31BE33B20F627AC0005D365 /* Save 돈돈.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -509,7 +509,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = jmzzang.MoneySaver;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Save 돈돈";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -527,7 +527,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = jmzzang.MoneySaver;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Save 돈돈";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
