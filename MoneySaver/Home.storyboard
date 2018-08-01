@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home-->
+        <!--홈-->
         <scene sceneID="jBq-d0-dWO">
             <objects>
                 <viewController id="H7Q-Wa-Lmn" customClass="HomeViewController" customModule="MoneySaver" customModuleProvider="target" sceneMemberID="viewController">
@@ -61,7 +61,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="xRy-Cd-DJ2"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" id="ayJ-sK-Naq"/>
+                    <tabBarItem key="tabBarItem" title="홈" image="tab_1" id="ayJ-sK-Naq"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="bucketLabel" destination="U8E-uM-HSB" id="rX1-vb-Nuz"/>
@@ -78,5 +78,6 @@
     </scenes>
     <resources>
         <image name="lv5" width="390" height="370"/>
+        <image name="tab_1" width="25" height="25"/>
     </resources>
 </document>

@@ -434,7 +434,7 @@
         <scene sceneID="jbm-oR-J04">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="m4i-Eq-RPX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="버킷리스트" id="d32-ZR-8Hs"/>
+                    <tabBarItem key="tabBarItem" title="버킷리스트" image="tab_3" id="d32-ZR-8Hs"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xBx-a7-S0y">
@@ -567,6 +567,7 @@
     <resources>
         <image name="pig" width="146" height="142"/>
         <image name="settingPig" width="375" height="136"/>
+        <image name="tab_3" width="25" height="25"/>
         <image name="유럽" width="480" height="360"/>
     </resources>
 </document>

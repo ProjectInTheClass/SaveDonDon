@@ -141,7 +141,7 @@
         <scene sceneID="rgb-Dm-tYA">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="En2-Ku-JKM" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="가계부" id="tgh-33-nPQ"/>
+                    <tabBarItem key="tabBarItem" title="가계부" image="tab_2" id="tgh-33-nPQ"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NZP-et-j1t">
@@ -345,6 +345,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="tab_2" width="25" height="25"/>
         <image name="현금" width="139" height="80"/>
     </resources>
 </document>

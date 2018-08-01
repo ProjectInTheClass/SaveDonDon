@@ -232,7 +232,7 @@
         <scene sceneID="HF5-sH-Nnd">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qKC-n5-hh7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="설정" id="RcO-eH-z73"/>
+                    <tabBarItem key="tabBarItem" title="설정" image="tab_4" id="RcO-eH-z73"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8i7-qx-rg0">
@@ -249,4 +249,7 @@
             <point key="canvasLocation" x="-575" y="-175"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tab_4" width="25" height="25"/>
+    </resources>
 </document>
