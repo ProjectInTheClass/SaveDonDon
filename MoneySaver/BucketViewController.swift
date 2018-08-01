@@ -40,7 +40,7 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
     
     
     /**테이블**/
-    func numberOfSections(in taㅋleView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     

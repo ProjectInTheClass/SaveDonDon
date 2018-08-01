@@ -1,22 +1,32 @@
 
 import UIKit
 
-class PigNameViewController: UIViewController {
+class PigNameViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var pigNameText: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        pigNameText.delegate = self
         pigNameText.text = moneyPocket.pigName
-
-        // Do any additional setup after loading the view.
+        pigNameText.becomeFirstResponder()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == pigNameText {
+            let text = textField.text
+            let newLength = (text?.count)! + string.count - range.length
+            return newLength <= 8 }
+        else { return true }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        self.view.endEditing(true)
+    }
 
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if identifier == "NameSaveSegue" {
