@@ -110,9 +110,10 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
                     for i in 0...history.count - 1 {
                         if let index2 = moneyPocket.spend.index(of:history[i]) {
                             moneyPocket.spend.remove(at: index2) //원본배열에서 모두 삭제
-                            moneyPocket.save()
                         }
-                    } }
+                    }
+                    moneyPocket.save()
+                }
                 
                 filteredData.remove(at:indexPath.row) //필터된 데이터에도 삭제
                 tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic) }
