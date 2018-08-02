@@ -115,30 +115,8 @@ class MoneyPocket {
             }
         }else {
             let americaBucket = Bucket(bucketName: "미국여행",bucketImg: UIImage(named: "미국")!, goalMoney: 1000000)
-            let europeBucket =  Bucket(bucketName: "유럽여행",bucketImg: UIImage(named: "유럽")!, goalMoney: 10000)
-            let nammiBucket = Bucket(bucketName: "남미여행", bucketImg: UIImage(named: "남미")!, goalMoney: 10000)
-            let europeBucket2 =  Bucket(bucketName: "유럽여행",bucketImg: UIImage(named: "유럽")!, goalMoney: 10000)
-            let nammiBucket2 = Bucket(bucketName: "남미여행", bucketImg: UIImage(named: "남미")!, goalMoney: 10000)
-            
-            let europeBucket3 =  Bucket(bucketName: "유럽여행",bucketImg: UIImage(named: "유럽")!, goalMoney: 10000)
-            let nammiBucket3 = Bucket(bucketName: "남미여행", bucketImg: UIImage(named: "남미")!, goalMoney: 10000)
-            
-            let europeBucket4 =  Bucket(bucketName: "유럽여행",bucketImg: UIImage(named: "유럽")!, goalMoney: 10000)
-            let nammiBucket4 = Bucket(bucketName: "남미여행", bucketImg: UIImage(named: "남미")!, goalMoney: 10000)
-            
-            let europeBucket5 =  Bucket(bucketName: "유럽여행",bucketImg: UIImage(named: "유럽")!, goalMoney: 10000)
-            let nammiBucket5 = Bucket(bucketName: "남미여행", bucketImg: UIImage(named: "남미")!, goalMoney: 10000)
-            let europeBucket6 =  Bucket(bucketName: "유럽여행",bucketImg: UIImage(named: "유럽")!, goalMoney: 10000)
-            let nammiBucket6 = Bucket(bucketName: "남미여행", bucketImg: UIImage(named: "남미")!, goalMoney: 10000)
-            let europeBucket7 =  Bucket(bucketName: "유럽여행",bucketImg: UIImage(named: "유럽")!, goalMoney: 10000)
-            let nammiBucket7 = Bucket(bucketName: "남미여행", bucketImg: UIImage(named: "남미")!, goalMoney: 10000)
-            let europeBucket8 =  Bucket(bucketName: "유럽여행",bucketImg: UIImage(named: "유럽")!, goalMoney: 10000)
-            let nammiBucket8 = Bucket(bucketName: "남미여행", bucketImg: UIImage(named: "남미")!, goalMoney: 10000)
-            let europeBucket9 =  Bucket(bucketName: "유럽여행",bucketImg: UIImage(named: "유럽")!, goalMoney: 10000)
-            let nammiBucket9 = Bucket(bucketName: "남미여행", bucketImg: UIImage(named: "남미")!, goalMoney: 10000)
-            let europeBucket10 =  Bucket(bucketName: "유럽여행",bucketImg: UIImage(named: "유럽")!, goalMoney: 10000)
-            let nammiBucket10 = Bucket(bucketName: "남미여행", bucketImg: UIImage(named: "남미")!, goalMoney: 10000)
-            bucket += [americaBucket, europeBucket, nammiBucket, europeBucket2, nammiBucket2, europeBucket3, nammiBucket3, europeBucket4, nammiBucket4, europeBucket5, nammiBucket5, europeBucket6, nammiBucket6, europeBucket7,nammiBucket7, nammiBucket8, europeBucket8, nammiBucket9, europeBucket9, nammiBucket10, europeBucket10 ]
+           
+            bucket += [americaBucket]
         }
         
         
