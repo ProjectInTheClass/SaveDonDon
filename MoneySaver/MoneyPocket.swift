@@ -114,7 +114,7 @@ class MoneyPocket {
                 self.bucket = bucket
             }
         }else {
-            let americaBucket = Bucket(bucketName: "미국여행",bucketImg: UIImage(named: "미국")!, goalMoney: 1000000)
+            let americaBucket = Bucket(bucketName: "립스틱",bucketImg: UIImage(named: "lip")!, goalMoney: 50000)
            
             bucket += [americaBucket]
         }
