@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,14 +21,18 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_screen" translatesAutoresizingMaskIntoConstraints="NO" id="RUJ-Uo-oeU">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="RUJ-Uo-oeU" secondAttribute="height" multiplier="375:667" id="RH3-98-xkW"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="RUJ-Uo-oeU" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="9oO-z2-piY"/>
-                            <constraint firstItem="RUJ-Uo-oeU" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="QSd-iP-hZs"/>
+                            <constraint firstItem="RUJ-Uo-oeU" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Tkb-vP-OT5"/>
                             <constraint firstItem="RUJ-Uo-oeU" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="WDO-fc-XiR"/>
                             <constraint firstItem="RUJ-Uo-oeU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bhc-zv-ror"/>
+                            <constraint firstItem="RUJ-Uo-oeU" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="tyV-6D-0Pf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

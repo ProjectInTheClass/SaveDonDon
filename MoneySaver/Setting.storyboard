@@ -208,12 +208,14 @@
                         <viewLayoutGuide key="safeArea" id="yv5-NY-znI"/>
                     </view>
                     <navigationItem key="navigationItem" title="돈돈이 이름 설정" id="JK1-vo-mPl">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="vje-7f-kaW">
+                        <barButtonItem key="leftBarButtonItem" title="취소" id="vje-7f-kaW">
+                            <color key="tintColor" red="0.85882352939999995" green="0.3921568627" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <segue destination="BdU-ki-5do" kind="unwind" identifier="NameCancelSegue" unwindAction="unWindSettingMainWithSegue:" id="6V5-vt-b1d"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="ea7-ms-6FT">
+                        <barButtonItem key="rightBarButtonItem" title="저장" id="ea7-ms-6FT">
+                            <color key="tintColor" red="0.85882352939999995" green="0.3921568627" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <segue destination="BdU-ki-5do" kind="unwind" identifier="NameSaveSegue" unwindAction="unWindSettingMainWithSegue:" id="lWx-we-qZU"/>
                             </connections>
