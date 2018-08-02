@@ -93,10 +93,6 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pig" translatesAutoresizingMaskIntoConstraints="NO" id="KzE-Cl-45Q">
-                                                    <rect key="frame" x="15" y="58" width="345" height="306"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -254,7 +250,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="pig" width="146" height="142"/>
         <image name="tab_4" width="25" height="25"/>
     </resources>
 </document>
