@@ -4,14 +4,16 @@ import UIKit
 class SettingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var table: UITableView!
-    
+    let numberFormatter = NumberFormatter()
+
     override func viewWillAppear(_ animated: Bool) {
         table.reloadData()
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        numberFormatter.numberStyle = .decimal
+
 
         // Do any additional setup after loading the view.
     }
@@ -42,7 +44,7 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
             return cell
         }else if index == 1 {
             let cell:DepositCell = tableView.dequeueReusableCell(withIdentifier: "DepositCell") as! DepositCell
-            cell.depositLabel.text = "\(moneyPocket.deposit) 원"
+            cell.depositLabel.text = numberFormatter.string(from: NSNumber(value: moneyPocket.deposit))! + " 원"
             return cell
         }
         else {

@@ -55,10 +55,10 @@ class MoneyBookCheckController: UITableViewController {
             
             if value[indexPath.row].mc == "현금"
             {
-                cell.mcImg?.image = UIImage(named: "현금")
+                cell.mcImg?.image = UIImage(named: "money")
                 
             } else  if value[indexPath.row].mc == "카드" {
-                cell.mcImg?.image = UIImage(named: "카드")
+                cell.mcImg?.image = UIImage(named: "card")
             }
             
             cell.historyLabel?.text = String(value[indexPath.row].history)
@@ -69,12 +69,12 @@ class MoneyBookCheckController: UITableViewController {
            
             if(value[indexPath.row].mc == "현금")
             {
-                cell.mcImg?.image = UIImage(named: "현금")
+                cell.mcImg?.image = UIImage(named: "money")
                 
             } else if value[indexPath.row].mc == "카드"{
-                cell.mcImg?.image = UIImage(named: "카드")
+                cell.mcImg?.image = UIImage(named: "card")
             } else {
-                cell.mcImg?.image = UIImage(named: "돈돈이")
+                cell.mcImg?.image = UIImage(named: "dondon")
             }
             
             cell.historyLabel?.text = String(value[indexPath.row].history)
