@@ -106,6 +106,7 @@ class MoneyBookCheckController: UITableViewController {
         if editingStyle == UITableViewCellEditingStyle.delete{
             if let index = moneyPocket.income.index(of:todayIncomeArray[indexPath.row]) {
                moneyPocket.income.remove(at: index)
+                moneyPocket.save()
             }
             self.todayIncomeArray.remove(at:indexPath.row) //데이터 삭제
             tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
@@ -123,6 +124,7 @@ class MoneyBookCheckController: UITableViewController {
                 else{
                 if let index = moneyPocket.spend.index(of:todaySpendArray[indexPath.row]) {
                     moneyPocket.spend.remove(at: index)
+                    moneyPocket.save()
                 }
                 self.todaySpendArray.remove(at:indexPath.row)
                     tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)}

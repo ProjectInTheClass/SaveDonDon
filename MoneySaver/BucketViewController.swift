@@ -102,6 +102,7 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
             func deleteBucket() {
                 if let index = moneyPocket.bucket.index(of:filteredData[indexPath.row]) {
                     moneyPocket.bucket.remove(at: index) //버켓리스트 삭제
+                    moneyPocket.save()
                     history =  moneyPocket.spend.filter{ $0.bucketIndex == index } //해당 버킷에 관련된 지출 뽑음
                 }
                 
@@ -109,6 +110,7 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
                     for i in 0...history.count - 1 {
                         if let index2 = moneyPocket.spend.index(of:history[i]) {
                             moneyPocket.spend.remove(at: index2) //원본배열에서 모두 삭제
+                            moneyPocket.save()
                         }
                     } }
                 

@@ -42,6 +42,7 @@ class BucketSettingController:UIViewController, UITableViewDelegate, UITableView
             
             if let index = moneyPocket.spend.index(of:history[indexPath.row]) {
                 moneyPocket.spend.remove(at: index) //원래 spend에서 삭제
+                moneyPocket.save()
                 bucket.dondonMoney -= history[indexPath.row].price //돈돈머니 빼줌
             }
             
