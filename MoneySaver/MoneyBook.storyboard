@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--추가-->
+        <!--가계부 작성-->
         <scene sceneID="TUO-h2-rxm">
             <objects>
                 <viewController id="Vwl-P4-KGO" customClass="MoneyBookAddController" customModule="Save_돈돈" customModuleProvider="target" sceneMemberID="viewController">
@@ -174,14 +174,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eBL-ad-Vvz"/>
                     </view>
-                    <navigationItem key="navigationItem" title="추가" id="u7I-s2-5yC">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Cbx-X9-Ogn">
+                    <navigationItem key="navigationItem" title="가계부 작성" id="u7I-s2-5yC">
+                        <barButtonItem key="leftBarButtonItem" title="가계부" id="Cbx-X9-Ogn">
                             <color key="tintColor" red="0.85882352941176465" green="0.39215686274509803" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <action selector="navigationBack:" destination="Vwl-P4-KGO" id="Axg-ei-Kyt"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="ECb-Hm-ghl">
+                        <barButtonItem key="rightBarButtonItem" title="저장" id="ECb-Hm-ghl">
                             <color key="tintColor" red="0.85882352941176465" green="0.39215686274509803" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <segue destination="n66-9V-H65" kind="unwind" identifier="AddSaveSegue" unwindAction="unwindMoneyBookSegueWithSegue:" id="hX2-tT-yFU"/>
@@ -317,7 +317,7 @@
                                         <color key="value" red="0.95686274509803915" green="0.50980392156862742" blue="0.42352941176470588" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="headerTitleColor">
-                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="value" red="0.85882352939999995" green="0.3921568627" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="weekdayTextColor">
                                         <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
