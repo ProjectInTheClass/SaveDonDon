@@ -15,11 +15,13 @@ class MoneyBookCheckController: UITableViewController {
     
     @IBOutlet weak var dateLabel: UILabel!
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        dateLabel!.text = selectedDate
+        tableView.reloadData()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(selectedDate)
-        dateLabel!.text = selectedDate
     }
     
     override func didReceiveMemoryWarning() {
