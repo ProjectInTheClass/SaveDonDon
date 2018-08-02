@@ -45,8 +45,10 @@
                                                             <constraint firstAttribute="width" constant="100" id="9i6-7a-D8Y"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                        <color key="tintColor" red="0.98431372549019602" green="0.67450980392156867" blue="0.65490196078431373" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <state key="normal" title="수입"/>
+                                                        <color key="tintColor" red="0.85882352941176465" green="0.39215686274509803" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <state key="normal" title="수입">
+                                                            <color key="titleColor" red="0.85882352939999995" green="0.3921568627" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        </state>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="iconStrokeWidth">
                                                                 <real key="value" value="0.0"/>
@@ -60,8 +62,10 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qf1-K2-2Rm" customClass="DLRadioButton">
                                                         <rect key="frame" x="100" y="0.0" width="100" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                        <color key="tintColor" red="0.98431372549019602" green="0.67450980392156867" blue="0.65490196078431373" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <state key="normal" title="지출"/>
+                                                        <color key="tintColor" red="0.85882352941176465" green="0.39215686274509803" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <state key="normal" title="지출">
+                                                            <color key="titleColor" red="0.85882352939999995" green="0.3921568627" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="typeSelect:" destination="Vwl-P4-KGO" eventType="touchUpInside" id="bWL-Ph-7Cc"/>
                                                         </connections>
@@ -89,8 +93,10 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xgR-w4-9si" customClass="DLRadioButton">
                                                         <rect key="frame" x="0.0" y="0.0" width="100" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                        <color key="tintColor" red="0.98431372549019602" green="0.67450980392156867" blue="0.65490196078431373" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <state key="normal" title="카드"/>
+                                                        <color key="tintColor" red="0.85882352941176465" green="0.39215686274509803" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <state key="normal" title="카드">
+                                                            <color key="titleColor" red="0.85882352941176465" green="0.39215686274509803" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="MCSelect:" destination="Vwl-P4-KGO" eventType="touchUpInside" id="XwF-Os-MMP"/>
                                                             <outletCollection property="otherButtons" destination="xaM-Z8-zhm" id="zaa-Es-5rw"/>
@@ -99,8 +105,10 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xaM-Z8-zhm" customClass="DLRadioButton">
                                                         <rect key="frame" x="100" y="0.0" width="100" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                        <color key="tintColor" red="0.98431372549019602" green="0.67450980392156867" blue="0.65490196078431373" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <state key="normal" title="현금"/>
+                                                        <color key="tintColor" red="0.85882352941176465" green="0.39215686274509803" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <state key="normal" title="현금">
+                                                            <color key="titleColor" red="0.85882352941176465" green="0.39215686274509803" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="MCSelect:" destination="Vwl-P4-KGO" eventType="touchUpInside" id="OGq-Cc-2Xj"/>
                                                         </connections>
@@ -168,13 +176,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="추가" id="u7I-s2-5yC">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Cbx-X9-Ogn">
-                            <color key="tintColor" red="0.92003184559999995" green="0.35848680589999998" blue="0.49133021560000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="tintColor" red="0.85882352941176465" green="0.39215686274509803" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <action selector="navigationBack:" destination="Vwl-P4-KGO" id="Axg-ei-Kyt"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="ECb-Hm-ghl">
-                            <color key="tintColor" red="0.92003184559999995" green="0.35848680589999998" blue="0.49133021560000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="tintColor" red="0.85882352941176465" green="0.39215686274509803" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <segue destination="n66-9V-H65" kind="unwind" identifier="AddSaveSegue" unwindAction="unwindMoneyBookSegueWithSegue:" id="hX2-tT-yFU"/>
                             </connections>
@@ -337,6 +345,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="가계부" id="xLp-gi-t1x">
                         <barButtonItem key="rightBarButtonItem" title="작성" id="Cae-eG-JtQ">
+                            <color key="tintColor" red="0.85882352939999995" green="0.3921568627" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <segue destination="Vwl-P4-KGO" kind="show" identifier="AddSegue" id="23s-Fp-pTt"/>
                             </connections>
