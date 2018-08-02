@@ -40,6 +40,7 @@ class DepositController: UIViewController {
                 return false
             }else {
                 moneyPocket.deposit = Int(deposit)!
+                moneyPocket.save()
                 return true }
         }
         return true

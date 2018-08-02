@@ -3,7 +3,12 @@ import Foundation
 import UIKit
 
 var moneyPocket: MoneyPocket = MoneyPocket()
-let fileName = "PocketData.pocket"
+let pigNameFile = "pigName.file"
+let depositFile = "deposit.file"
+let incomeFile = "income.file"
+let spendFile = "spend.file"
+let bucketFile = "bucket.file"
+
 
 
 class MoneyPocket {
@@ -29,41 +34,86 @@ class MoneyPocket {
     }
     
     
-    var filePath:String { get{
+    var pigNamePath:String { get{
         let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
-        return documentDirectory + fileName
+
+        return documentDirectory + "/" + pigNameFile
         }}
     
+    var depositPath:String { get{
+        let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+        
+        return documentDirectory + "/" + depositFile
+        }}
+    
+    var incomePath:String { get{
+        let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+        
+        return documentDirectory + "/" + incomeFile
+        }}
+    
+    var spendPath:String { get{
+        let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+        
+        return documentDirectory + "/" + spendFile
+        }}
+    
+    var bucketPath:String { get{
+        let documentDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
+        
+        return documentDirectory + "/" + bucketFile
+        }}
     
     init() {
-        if FileManager.default.fileExists(atPath: self.filePath) {
-            if let unarchArray = NSKeyedUnarchiver.unarchiveObject(withFile: self.filePath) as? [Income]{
-                self.income += unarchArray
-                            }
-            if let unarchArray2 = NSKeyedUnarchiver.unarchiveObject(withFile: self.filePath) as? [Spend]{
-                self.spend += unarchArray2
+        
+        //pigName
+        if FileManager.default.fileExists(atPath: self.pigNamePath) {
+            if let pigName = NSKeyedUnarchiver.unarchiveObject(withFile: self.pigNamePath) as? String {
+                self.pigName = pigName
+        }
+        }
+        
+        //deposit
+        if FileManager.default.fileExists(atPath: self.depositPath) {
+            if let deposit = NSKeyedUnarchiver.unarchiveObject(withFile: self.depositPath) as? Int {
+                self.deposit = deposit
             }
-            if let unarchArray3 = NSKeyedUnarchiver.unarchiveObject(withFile: self.filePath) as? String{
-                self.pigName = unarchArray3
+        }
+        
+        //income
+        if FileManager.default.fileExists(atPath: self.depositPath) {
+            if let income = NSKeyedUnarchiver.unarchiveObject(withFile: self.incomePath) as? [Income] {
+                self.income += income
             }
-            if let unarchArray4 = NSKeyedUnarchiver.unarchiveObject(withFile: self.filePath) as? Int{
-                self.deposit += unarchArray4
-            }
-            
-        } else {
+        }else {
             let income1 = Income(date: "2018.07.26",mc: "카드", history: "용돈", price: 100000)
             let income2 = Income(date: "2018.07.26",mc: "현금", history: "월급", price: 100000)
             let income3 = Income(date: "2018.07.26",mc: "카드", history: "근로", price: 100000)
             let income4 = Income(date: "2018.07.26",mc: "현금", history: "일급", price: 100000)
             income += [income1, income2, income3, income4]
-            
-            
+        }
+                
+        
+        //spend
+        if FileManager.default.fileExists(atPath: self.spendPath) {
+            if let spend = NSKeyedUnarchiver.unarchiveObject(withFile: self.spendPath) as? [Spend] {
+                self.spend += spend
+            }
+        }else {
             let spend1 = Spend(date: "2018.07.26",mc: "카드", history: "과자", price: 10000)
             let spend2 = Spend(date: "2018.07.26",mc: "현금", history: "빵", price: 10000)
             let spend3 = Spend(date: "2018.07.26",mc: "카드", history: "음료수", price: 10000)
             let spend4 = Spend(date: "2018.07.26",mc: "현금", history: "오징어", price: 10000)
             spend += [spend1, spend2, spend3, spend4]
-            
+        }
+        
+        
+        //bucket
+        if FileManager.default.fileExists(atPath: self.spendPath) {
+            if let bucket = NSKeyedUnarchiver.unarchiveObject(withFile: self.bucketPath) as? [Bucket] {
+                self.bucket += bucket
+            }
+        }else {
             let americaBucket = Bucket(bucketName: "미국여행",bucketImg: UIImage(named: "미국")!, goalMoney: 1000000)
             let europeBucket =  Bucket(bucketName: "유럽여행",bucketImg: UIImage(named: "유럽")!, goalMoney: 10000)
             let nammiBucket = Bucket(bucketName: "남미여행", bucketImg: UIImage(named: "남미")!, goalMoney: 10000)
@@ -89,17 +139,17 @@ class MoneyPocket {
             let europeBucket10 =  Bucket(bucketName: "유럽여행",bucketImg: UIImage(named: "유럽")!, goalMoney: 10000)
             let nammiBucket10 = Bucket(bucketName: "남미여행", bucketImg: UIImage(named: "남미")!, goalMoney: 10000)
             bucket += [americaBucket, europeBucket, nammiBucket, europeBucket2, nammiBucket2, europeBucket3, nammiBucket3, europeBucket4, nammiBucket4, europeBucket5, nammiBucket5, europeBucket6, nammiBucket6, europeBucket7,nammiBucket7, nammiBucket8, europeBucket8, nammiBucket9, europeBucket9, nammiBucket10, europeBucket10 ]
-            
-            }
         }
+        
+        
+ }
     
     func save(){
-         NSKeyedArchiver.archiveRootObject(self.income, toFile: self.filePath)
-        NSKeyedArchiver.archiveRootObject(self.spend, toFile: self.filePath)
-        NSKeyedArchiver.archiveRootObject(self.deposit, toFile: self.filePath)
-        NSKeyedArchiver.archiveRootObject(self.pigName, toFile: self.filePath)
-
-        //여기서 맨 마지막 것만 찍히는데 이걸 어케 해야할지 모르ㅔㄱㅆ음 ㅜㅜ
+         NSKeyedArchiver.archiveRootObject(self.income, toFile: self.incomePath)
+         NSKeyedArchiver.archiveRootObject(self.spend, toFile: self.spendPath)
+         NSKeyedArchiver.archiveRootObject(self.bucket, toFile: self.bucketPath)
+         NSKeyedArchiver.archiveRootObject(self.deposit, toFile: self.depositPath)
+         NSKeyedArchiver.archiveRootObject(self.pigName, toFile: self.pigNamePath)
     }
 
 }
@@ -110,9 +160,9 @@ class MoneyPocket {
 
 
  class Income : NSObject, NSCoding {
-//    static func == (lhs: Income, rhs: Income) -> Bool {
-//        return lhs.timeStamp == rhs.timeStamp
-//    }
+    static func == (lhs: Income, rhs: Income) -> Bool {
+        return lhs.timeStamp == rhs.timeStamp
+    }
     
     let timeStamp = Date().timeIntervalSince1970
     
@@ -125,7 +175,12 @@ class MoneyPocket {
         self.date = aDecoder.decodeObject(forKey: "incomeDate") as! String
         self.mc = aDecoder.decodeObject(forKey: "incomeMc") as! String
         self.history = aDecoder.decodeObject(forKey: "incomeHistory") as! String
-        self.price = aDecoder.decodeObject(forKey: "incomePrice") as! Int
+        if let value = aDecoder.decodeObject(forKey: "incomePrice") as? Int {
+            self.price = value
+        }
+        else {
+            self.price = 0
+        }
     }
     
     func encode(with aCoder: NSCoder) {
@@ -146,11 +201,11 @@ class MoneyPocket {
 
  class Spend: NSObject, NSCoding {
     
-//    static func == (lhs: Spend, rhs: Spend) -> Bool{
-//        return lhs.timeStamp == rhs.timeStamp
-//    }
-//
-//    let timeStamp = Date().timeIntervalSince1970
+    static func == (lhs: Spend, rhs: Spend) -> Bool{
+        return lhs.timeStamp == rhs.timeStamp
+    }
+
+    let timeStamp = Date().timeIntervalSince1970
     
     let date: String
     let mc : String
@@ -162,8 +217,16 @@ class MoneyPocket {
         self.date = aDecoder.decodeObject(forKey: "spendDate") as! String
         self.mc = aDecoder.decodeObject(forKey: "spendMc") as! String
         self.history = aDecoder.decodeObject(forKey: "spendHistory") as! String
-        self.price = aDecoder.decodeObject(forKey: "spendPrice") as! Int
-        self.bucketIndex = aDecoder.decodeObject(forKey: "spendIndex") as! Int
+        if let value = aDecoder.decodeObject(forKey: "spendPrice") as? Int {
+            self.price = value
+        }else {
+            self.price = 0
+        }
+        if let index = aDecoder.decodeObject(forKey: "spendIndex") as? Int {
+            self.bucketIndex = index
+        }else {
+            self.bucketIndex = -1
+        }
     }
     
     func encode(with aCoder: NSCoder) {
@@ -193,15 +256,16 @@ class MoneyPocket {
 
 
     class Bucket: NSObject, NSCoding {
-//    static func == (lhs: Bucket, rhs: Bucket) -> Bool{
-//        return lhs.timeStamp == rhs.timeStamp
-//    }
+        
+    static func == (lhs: Bucket, rhs: Bucket) -> Bool{
+        return lhs.timeStamp == rhs.timeStamp
+    }
     
     
     let timeStamp = Date().timeIntervalSince1970
     let bucketName:String
     let bucketImg: UIImage
-    var goalMoney:Int = 0
+        var goalMoney:Int
     var dondonMoney:Int = 0
    
     var goalDonNum: Int {
@@ -243,7 +307,7 @@ class MoneyPocket {
     init(bucketName:String, bucketImg:UIImage, goalMoney:Int) {
         self.bucketName = bucketName
         self.bucketImg = bucketImg
-        self.goalMoney = 0 //터ㅓ져
+        self.goalMoney = goalMoney //터ㅓ져
         self.dondonMoney = 0 //터져 int
     }
     

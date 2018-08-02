@@ -4,6 +4,9 @@ import UIKit
 /**돈돈이 넣는 곳 **/
 class BucketSaveController: UIViewController, UITextFieldDelegate {
     
+    // 화면 업데이트를 위해서 호출할 클로저.
+    var closureAfterUpdateUI:(() -> Void)?
+    
     var bucket: Bucket! //여기에는 filteredData[selectedIndex]값이 들어 있음.
     
     @IBOutlet weak var nameLabel: UILabel! //버킷리스트 이름
@@ -120,13 +123,14 @@ class BucketSaveController: UIViewController, UITextFieldDelegate {
                 
                 moneyPocket.bucket[index].dondonMoney += pigNum * 10000
                 
-                
                 alert.title = "꿀꿀"
                 alert.message = "돈돈이 넣기 성공!"
                 let action = UIAlertAction(title: "확인", style: UIAlertActionStyle.default){ (action: UIAlertAction) -> Void in
                     self.dismiss(animated: true, completion: {
-                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "modalIsDimissed"), object: nil)
-                        
+                        if let c = self.closureAfterUpdateUI {
+                            moneyPocket.save()
+                            c()
+                        }
                     })
                 }
                 alert.addAction(action)

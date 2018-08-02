@@ -13,20 +13,17 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
     
     
     override func viewWillAppear(_ animated: Bool){
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(BucketViewController.handleModalDismissed),
-                                               name: NSNotification.Name(rawValue: "modalIsDimissed"),
-                                               object: nil) //modaldismiss시 액션
+        super.viewWillAppear(animated)
+
         
         self.filteredData = moneyPocket.bucket //필터데이터에 원본 데이터 복사
         table.reloadData() //어디서든 업뎃
     }
-    
-    
-    /** save창 dismiss시 액션*/
-    @objc func handleModalDismissed() {
-        table.reloadData()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
     }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -146,6 +143,11 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
             let index = moneyPocket.bucket.index(of:filteredData[indexPath.row])
             
             let bucketSave = segue.destination as! BucketSaveController
+            
+            bucketSave.closureAfterUpdateUI = {
+                self.table.reloadData()
+            }
+            
             bucketSave.bucket = filteredData[indexPath.row]
             bucketSave.index = index
         }

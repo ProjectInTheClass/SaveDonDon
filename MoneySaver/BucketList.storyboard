@@ -358,7 +358,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6dO-Kh-VLa" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Hze-79-n3k" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-1766" y="1649"/>
+            <point key="canvasLocation" x="-1767" y="1671"/>
         </scene>
         <!--버킷리스트 추가-->
         <scene sceneID="FyY-BQ-zuY">
