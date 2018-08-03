@@ -116,6 +116,7 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
                 }
                 
                 filteredData.remove(at:indexPath.row) //필터된 데이터에도 삭제
+                moneyPocket.save()
                 tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic) }
             
         }
