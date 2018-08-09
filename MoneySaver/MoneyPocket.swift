@@ -85,12 +85,6 @@ class MoneyPocket {
             if let income = NSKeyedUnarchiver.unarchiveObject(withFile: self.incomePath) as? [Income] {
                 self.income = income
             }
-        }else {
-            let income1 = Income(date: "2018.07.26",mc: "카드", history: "용돈", price: 100000)
-            let income2 = Income(date: "2018.07.26",mc: "현금", history: "월급", price: 100000)
-            let income3 = Income(date: "2018.07.26",mc: "카드", history: "근로", price: 100000)
-            let income4 = Income(date: "2018.07.26",mc: "현금", history: "일급", price: 100000)
-            income += [income1, income2, income3, income4]
         }
         
         
@@ -99,27 +93,14 @@ class MoneyPocket {
             if let spend = NSKeyedUnarchiver.unarchiveObject(withFile: self.spendPath) as? [Spend] {
                 self.spend = spend
             }
-        }else {
-            let spend1 = Spend(date: "2018.07.26",mc: "카드", history: "과자", price: 10000)
-            let spend2 = Spend(date: "2018.07.26",mc: "현금", history: "빵", price: 10000)
-            let spend3 = Spend(date: "2018.07.26",mc: "카드", history: "음료수", price: 10000)
-            let spend4 = Spend(date: "2018.07.26",mc: "현금", history: "오징어", price: 10000)
-            spend += [spend1, spend2, spend3, spend4]
         }
-        
         
         //bucket
         if FileManager.default.fileExists(atPath: self.spendPath) {
             if let bucket = NSKeyedUnarchiver.unarchiveObject(withFile: self.bucketPath) as? [Bucket] {
                 self.bucket = bucket
             }
-        }else {
-            let americaBucket = Bucket(bucketName: "립스틱",bucketImg: UIImage(named: "lip")!, goalMoney: 50000)
-           
-            bucket += [americaBucket]
         }
-        
-        
     }
     
     func save(){

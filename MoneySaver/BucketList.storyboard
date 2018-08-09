@@ -130,7 +130,7 @@
                                                         <segue destination="Bk4-VJ-Lym" kind="presentation" identifier="DonDonSegue" id="0so-cv-9s8"/>
                                                     </connections>
                                                 </button>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="유럽" translatesAutoresizingMaskIntoConstraints="NO" id="nNk-8k-Y0t">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bucketsample" translatesAutoresizingMaskIntoConstraints="NO" id="nNk-8k-Y0t">
                                                     <rect key="frame" x="14" y="56" width="114" height="158"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="nNk-8k-Y0t" secondAttribute="height" multiplier="57:79" id="XIk-Gs-HYp"/>
@@ -590,6 +590,5 @@
         <image name="pig" width="146" height="142"/>
         <image name="settingPig" width="375" height="136"/>
         <image name="tab_3" width="25" height="25"/>
-        <image name="유럽" width="480" height="360"/>
     </resources>
 </document>
