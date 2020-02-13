@@ -9,7 +9,9 @@
 import UIKit
 
 class HomeViewController: UIViewController, HomeDelegate {
- 
+  
+    
+  
     private let homePresenter = HomePresenter()
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var levelLabel: UILabel!
@@ -35,10 +37,14 @@ class HomeViewController: UIViewController, HomeDelegate {
         homePresenter.getTodayDate()
         
         //돈돈이 이름 출력
-        nameLabel.text = moneyPocket.pigName
+        homePresenter.getDonDonName()
         
         //레벨에 따른 돈돈이 이미지 출력
         homePresenter.getDonDonLevel()
+        
+        //완료한 버킷리스트 개수 & 전체 버킷리스트 개수 출력
+        homePresenter.getBucketListCount()
+        
         
 //        // 1 5 10 20
 //
@@ -73,13 +79,21 @@ class HomeViewController: UIViewController, HomeDelegate {
         homePresenter.setViewDelegate(homeDelegate : self)
     }
     
-    
     func displayTodayDate(dateString : String) {
         dateLabel.text = dateString
     }
     
-    func displayDonDonLevel(level: String) {
+    func displayDonDonLevel(level: String, imageName : String) {
         levelLabel.text = level
+        donImage.image = UIImage(named : imageName)
+    }
+    
+    func displayDonDonName(name : String){
+        nameLabel.text = name
+    }
+    
+    func displayBucketListCount(doneBucketListCount : Int, totalBucketListCount : Int) {
+        bucketLabel.text = "\(doneBucketListCount) / \(totalBucketListCount)"
     }
     
 }

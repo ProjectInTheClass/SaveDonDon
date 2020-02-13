@@ -10,7 +10,9 @@ import Foundation
 
 protocol HomeDelegate : NSObjectProtocol {
     func displayTodayDate(dateString : String)
-    func displayDonDonLevel(level : String)
+    func displayDonDonLevel(level : String, imageName : String)
+    func displayDonDonName(name : String)
+    func displayBucketListCount(doneBucketListCount : Int, totalBucketListCount : Int )
 }
 
 class HomePresenter {
@@ -37,25 +39,41 @@ class HomePresenter {
         switch doneBucketListCount {
         case _ where doneBucketListCount < 1:
             let level = "1레벨"
-            self.homeDelegate?.displayDonDonLevel(level: level)
+            self.homeDelegate?.displayDonDonLevel(level: level, imageName : "lv1")
             break
-        case _ where doneBucketListCount < 5:
+        case _ where doneBucketListCount >= 1 && doneBucketListCount < 5:
             let level = "2레벨"
-            self.homeDelegate?.displayDonDonLevel(level: level)
+            self.homeDelegate?.displayDonDonLevel(level: level, imageName : "lv2")
             break
-        case _ where doneBucketListCount < 10:
+        case _ where doneBucketListCount >= 5 && doneBucketListCount < 10:
             let level = "3레벨"
-            self.homeDelegate?.displayDonDonLevel(level: level)
+            self.homeDelegate?.displayDonDonLevel(level: level, imageName: "lv3")
             break
-        case _ where doneBucketListCount < 20:
+        case _ where doneBucketListCount >= 15 && doneBucketListCount < 20:
             let level = "4레벨"
-            self.homeDelegate?.displayDonDonLevel(level: level)
+            self.homeDelegate?.displayDonDonLevel(level: level, imageName : "lv4")
+            break
+        case _ where doneBucketListCount >= 20:
+            let level = "5레벨"
+            self.homeDelegate?.displayDonDonLevel(level: level, imageName : "lv5")
             break
         default:
             let level = "1레벨"
-            self.homeDelegate?.displayDonDonLevel(level: level)
+            self.homeDelegate?.displayDonDonLevel(level: level, imageName : "lv1")
             break
         }
+    }
+    
+    func getDonDonName(){
+        let dondonName = moneyPocket.pigName
+        self.homeDelegate?.displayDonDonName(name: dondonName)
+    }
+    
+    func getBucketListCount(){
+        let totalBucketListCount = moneyPocket.bucket.count
+        let doneBucketListCount = moneyPocket.bucket.filter{$0.done == 1}.count
+        
+        self.homeDelegate?.displayBucketListCount(doneBucketListCount: doneBucketListCount, totalBucketListCount: totalBucketListCount)
     }
     
 }
