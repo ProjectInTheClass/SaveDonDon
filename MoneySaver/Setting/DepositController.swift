@@ -34,7 +34,7 @@ class DepositController: UIViewController {
             let deposit = depositText.text!
             if deposit.isEmpty {
                 let alert = UIAlertController(title: "자본금 저장 불가", message: "값을 입력해주세요", preferredStyle: .alert)
-                let action = UIAlertAction(title: "확인", style: UIAlertActionStyle.default)
+                let action = UIAlertAction(title: "확인", style: UIAlertAction.Style.default)
                 alert.addAction(action)
                 self.present(alert, animated: true, completion: nil)
                 return false

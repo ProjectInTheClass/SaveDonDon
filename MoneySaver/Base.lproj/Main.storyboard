@@ -27,7 +27,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YFT-x6-qxL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-250" y="-181"/>
+            <point key="canvasLocation" x="-223" y="-201"/>
         </scene>
         <!--MoneyBook-->
         <scene sceneID="9wn-00-stg">

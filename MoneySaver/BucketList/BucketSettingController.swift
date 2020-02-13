@@ -37,8 +37,8 @@ class BucketSettingController:UIViewController, UITableViewDelegate, UITableView
     }
     
     //스와이프해서 삭제(수정 필요)
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == UITableViewCellEditingStyle.delete{
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCell.EditingStyle.delete{
             
             if let index = moneyPocket.spend.index(of:history[indexPath.row]) {
                 moneyPocket.spend.remove(at: index) //원래 spend에서 삭제
@@ -47,7 +47,7 @@ class BucketSettingController:UIViewController, UITableViewDelegate, UITableView
             }
             
             history.remove(at:indexPath.row) //필터된 곳에서 삭제
-            tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+            tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
         }
 
     }

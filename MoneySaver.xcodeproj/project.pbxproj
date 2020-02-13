@@ -16,7 +16,6 @@
 		A311CA81211038EC00BD436D /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A311CA80211038EC00BD436D /* SettingViewController.swift */; };
 		A311CA832110393A00BD436D /* PigNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A311CA822110393A00BD436D /* PigNameCell.swift */; };
 		A31BE33F20F627AC0005D365 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31BE33E20F627AC0005D365 /* AppDelegate.swift */; };
-		A31BE34120F627AC0005D365 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31BE34020F627AC0005D365 /* ViewController.swift */; };
 		A31BE34420F627AC0005D365 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A31BE34220F627AC0005D365 /* Main.storyboard */; };
 		A31BE34920F627AD0005D365 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A31BE34720F627AD0005D365 /* LaunchScreen.storyboard */; };
 		A34C6B3121004E7800340796 /* MoneyPocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34C6B3021004E7800340796 /* MoneyPocket.swift */; };
@@ -27,6 +26,7 @@
 		A34E015221113FC200393464 /* DepositCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34E015121113FC200393464 /* DepositCell.swift */; };
 		A34E015621115B5500393464 /* DepositController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34E015521115B5500393464 /* DepositController.swift */; };
 		A34E015821115BD200393464 /* PigNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34E015721115BD200393464 /* PigNameViewController.swift */; };
+		A36D047223F3F7AD00EECD73 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36D047123F3F7AD00EECD73 /* HomePresenter.swift */; };
 		A36DAFFF2100A79C00A230F3 /* BucketSaveController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36DAFFE2100A79C00A230F3 /* BucketSaveController.swift */; };
 		A393178B20FF6EFF00B45C0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A393178A20FF6EFF00B45C0E /* Assets.xcassets */; };
 		A3AC10C0210E003F007991D5 /* BucketSettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AC10BF210E003F007991D5 /* BucketSettingCell.swift */; };
@@ -35,19 +35,6 @@
 		A3F789C52109723D007E50A5 /* MoneyBookCheckCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3F789C42109723D007E50A5 /* MoneyBookCheckCell.swift */; };
 		E03CA4742101CB5E005EF278 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E03CA4732101CB5E005EF278 /* HomeViewController.swift */; };
 		E04F1C7E20FF107900DFE473 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 612D46C120FDDB190069C8DB /* Home.storyboard */; };
-		E056896D20FEE3C200F1D5BC /* CHTableViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056896120FEE3C100F1D5BC /* CHTableViewControllers.swift */; };
-		E056896E20FEE3C200F1D5BC /* NavigationControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056896220FEE3C100F1D5BC /* NavigationControllers.swift */; };
-		E056896F20FEE3C200F1D5BC /* CHModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056896320FEE3C100F1D5BC /* CHModalViewController.swift */; };
-		E056897020FEE3C200F1D5BC /* DrawingCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056896420FEE3C100F1D5BC /* DrawingCanvasView.swift */; };
-		E056897120FEE3C200F1D5BC /* CHViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056896520FEE3C100F1D5BC /* CHViews.swift */; };
-		E056897220FEE3C200F1D5BC /* CHControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056896620FEE3C100F1D5BC /* CHControls.swift */; };
-		E056897320FEE3C200F1D5BC /* SwipeActionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056896720FEE3C100F1D5BC /* SwipeActionTableViewCell.swift */; };
-		E056897420FEE3C200F1D5BC /* CHPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056896820FEE3C100F1D5BC /* CHPickerViewController.swift */; };
-		E056897520FEE3C200F1D5BC /* CHPagingScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056896920FEE3C100F1D5BC /* CHPagingScrollViewController.swift */; };
-		E056897620FEE3C200F1D5BC /* CHContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056896A20FEE3C200F1D5BC /* CHContentViewController.swift */; };
-		E056897720FEE3C200F1D5BC /* RecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056896B20FEE3C200F1D5BC /* RecordButton.swift */; };
-		E056897820FEE3C200F1D5BC /* FIlters.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056896C20FEE3C200F1D5BC /* FIlters.swift */; };
-		E056897A20FEE3DF00F1D5BC /* UIViewController+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056897920FEE3DE00F1D5BC /* UIViewController+Navigation.swift */; };
 		F3A494B8B8425213832E6B6A /* Pods_MoneySaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B80647718FCDA4FBC17CCB6 /* Pods_MoneySaver.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,7 +53,6 @@
 		A311CA822110393A00BD436D /* PigNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PigNameCell.swift; sourceTree = "<group>"; };
 		A31BE33B20F627AC0005D365 /* Save 돈돈.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Save 돈돈.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A31BE33E20F627AC0005D365 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A31BE34020F627AC0005D365 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A31BE34320F627AC0005D365 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A31BE34820F627AD0005D365 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A31BE34A20F627AD0005D365 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -78,6 +64,7 @@
 		A34E015121113FC200393464 /* DepositCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositCell.swift; sourceTree = "<group>"; };
 		A34E015521115B5500393464 /* DepositController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositController.swift; sourceTree = "<group>"; };
 		A34E015721115BD200393464 /* PigNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PigNameViewController.swift; sourceTree = "<group>"; };
+		A36D047123F3F7AD00EECD73 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		A36DAFFE2100A79C00A230F3 /* BucketSaveController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketSaveController.swift; sourceTree = "<group>"; };
 		A393178A20FF6EFF00B45C0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A3AC10BF210E003F007991D5 /* BucketSettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketSettingCell.swift; sourceTree = "<group>"; };
@@ -85,19 +72,6 @@
 		A3F789C221096E98007E50A5 /* MoneyBookCheckController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyBookCheckController.swift; sourceTree = "<group>"; };
 		A3F789C42109723D007E50A5 /* MoneyBookCheckCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyBookCheckCell.swift; sourceTree = "<group>"; };
 		E03CA4732101CB5E005EF278 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		E056896120FEE3C100F1D5BC /* CHTableViewControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHTableViewControllers.swift; sourceTree = "<group>"; };
-		E056896220FEE3C100F1D5BC /* NavigationControllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControllers.swift; sourceTree = "<group>"; };
-		E056896320FEE3C100F1D5BC /* CHModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHModalViewController.swift; sourceTree = "<group>"; };
-		E056896420FEE3C100F1D5BC /* DrawingCanvasView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingCanvasView.swift; sourceTree = "<group>"; };
-		E056896520FEE3C100F1D5BC /* CHViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHViews.swift; sourceTree = "<group>"; };
-		E056896620FEE3C100F1D5BC /* CHControls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHControls.swift; sourceTree = "<group>"; };
-		E056896720FEE3C100F1D5BC /* SwipeActionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeActionTableViewCell.swift; sourceTree = "<group>"; };
-		E056896820FEE3C100F1D5BC /* CHPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHPickerViewController.swift; sourceTree = "<group>"; };
-		E056896920FEE3C100F1D5BC /* CHPagingScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHPagingScrollViewController.swift; sourceTree = "<group>"; };
-		E056896A20FEE3C200F1D5BC /* CHContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHContentViewController.swift; sourceTree = "<group>"; };
-		E056896B20FEE3C200F1D5BC /* RecordButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordButton.swift; sourceTree = "<group>"; };
-		E056896C20FEE3C200F1D5BC /* FIlters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FIlters.swift; sourceTree = "<group>"; };
-		E056897920FEE3DE00F1D5BC /* UIViewController+Navigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Navigation.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,26 +86,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5921D57920F6E13000C7F711 /* PP */ = {
-			isa = PBXGroup;
-			children = (
-				E056897920FEE3DE00F1D5BC /* UIViewController+Navigation.swift */,
-				E056896A20FEE3C200F1D5BC /* CHContentViewController.swift */,
-				E056896620FEE3C100F1D5BC /* CHControls.swift */,
-				E056896320FEE3C100F1D5BC /* CHModalViewController.swift */,
-				E056896920FEE3C100F1D5BC /* CHPagingScrollViewController.swift */,
-				E056896820FEE3C100F1D5BC /* CHPickerViewController.swift */,
-				E056896120FEE3C100F1D5BC /* CHTableViewControllers.swift */,
-				E056896520FEE3C100F1D5BC /* CHViews.swift */,
-				E056896420FEE3C100F1D5BC /* DrawingCanvasView.swift */,
-				E056896C20FEE3C200F1D5BC /* FIlters.swift */,
-				E056896220FEE3C100F1D5BC /* NavigationControllers.swift */,
-				E056896B20FEE3C200F1D5BC /* RecordButton.swift */,
-				E056896720FEE3C100F1D5BC /* SwipeActionTableViewCell.swift */,
-			);
-			path = PP;
-			sourceTree = "<group>";
-		};
 		6BE523F3DBDEA1CEA7AFE8AA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,38 +124,69 @@
 		A31BE33D20F627AC0005D365 /* MoneySaver */ = {
 			isa = PBXGroup;
 			children = (
-				5921D57920F6E13000C7F711 /* PP */,
+				A332703A23F311EB001C67BF /* MoneyBook */,
+				A332703923F311E2001C67BF /* Setting */,
+				A332703823F311DA001C67BF /* BucketList */,
+				A332703723F311C8001C67BF /* Home */,
 				612D46C120FDDB190069C8DB /* Home.storyboard */,
 				612D46C320FDDB300069C8DB /* MoneyBook.storyboard */,
 				612D46C520FDDB3F0069C8DB /* BucketList.storyboard */,
 				612D46C720FDDB470069C8DB /* Setting.storyboard */,
-				A34E015521115B5500393464 /* DepositController.swift */,
-				A34E014F21113FB300393464 /* HelpCell.swift */,
-				A34E015121113FC200393464 /* DepositCell.swift */,
-				A311CA822110393A00BD436D /* PigNameCell.swift */,
-				A34E015721115BD200393464 /* PigNameViewController.swift */,
-				A311CA80211038EC00BD436D /* SettingViewController.swift */,
 				A31BE33E20F627AC0005D365 /* AppDelegate.swift */,
-				A31BE34020F627AC0005D365 /* ViewController.swift */,
 				A31BE34220F627AC0005D365 /* Main.storyboard */,
 				A31BE34720F627AD0005D365 /* LaunchScreen.storyboard */,
 				A31BE34A20F627AD0005D365 /* Info.plist */,
 				A393178A20FF6EFF00B45C0E /* Assets.xcassets */,
-				A3E4AF1720FF8211000771BC /* BucketCell.swift */,
 				A34C6B3021004E7800340796 /* MoneyPocket.swift */,
-				A34C6B3421005E6A00340796 /* BucketViewController.swift */,
-				A34C6B362100639B00340796 /* BucketSettingController.swift */,
-				A34C6B38210084AC00340796 /* BucketAddViewController.swift */,
-				A36DAFFE2100A79C00A230F3 /* BucketSaveController.swift */,
-				E03CA4732101CB5E005EF278 /* HomeViewController.swift */,
-				A300A68C2107138400025A60 /* MoneyBookController.swift */,
-				A3F789C42109723D007E50A5 /* MoneyBookCheckCell.swift */,
-				A300A68E210716FE00025A60 /* MoneyBookAddController.swift */,
-				A300A69021073C4900025A60 /* MoneyBookCell.swift */,
-				A3F789C221096E98007E50A5 /* MoneyBookCheckController.swift */,
-				A3AC10BF210E003F007991D5 /* BucketSettingCell.swift */,
 			);
 			path = MoneySaver;
+			sourceTree = "<group>";
+		};
+		A332703723F311C8001C67BF /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				E03CA4732101CB5E005EF278 /* HomeViewController.swift */,
+				A36D047123F3F7AD00EECD73 /* HomePresenter.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		A332703823F311DA001C67BF /* BucketList */ = {
+			isa = PBXGroup;
+			children = (
+				A3AC10BF210E003F007991D5 /* BucketSettingCell.swift */,
+				A36DAFFE2100A79C00A230F3 /* BucketSaveController.swift */,
+				A34C6B38210084AC00340796 /* BucketAddViewController.swift */,
+				A34C6B362100639B00340796 /* BucketSettingController.swift */,
+				A34C6B3421005E6A00340796 /* BucketViewController.swift */,
+				A3E4AF1720FF8211000771BC /* BucketCell.swift */,
+			);
+			path = BucketList;
+			sourceTree = "<group>";
+		};
+		A332703923F311E2001C67BF /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				A311CA80211038EC00BD436D /* SettingViewController.swift */,
+				A34E015721115BD200393464 /* PigNameViewController.swift */,
+				A311CA822110393A00BD436D /* PigNameCell.swift */,
+				A34E015121113FC200393464 /* DepositCell.swift */,
+				A34E014F21113FB300393464 /* HelpCell.swift */,
+				A34E015521115B5500393464 /* DepositController.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		A332703A23F311EB001C67BF /* MoneyBook */ = {
+			isa = PBXGroup;
+			children = (
+				A300A69021073C4900025A60 /* MoneyBookCell.swift */,
+				A300A68E210716FE00025A60 /* MoneyBookAddController.swift */,
+				A3F789C221096E98007E50A5 /* MoneyBookCheckController.swift */,
+				A300A68C2107138400025A60 /* MoneyBookController.swift */,
+				A3F789C42109723D007E50A5 /* MoneyBookCheckCell.swift */,
+			);
+			path = MoneyBook;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,6 +223,7 @@
 				TargetAttributes = {
 					A31BE33A20F627AB0005D365 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -324,24 +310,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A36D047223F3F7AD00EECD73 /* HomePresenter.swift in Sources */,
 				A311CA81211038EC00BD436D /* SettingViewController.swift in Sources */,
-				E056897320FEE3C200F1D5BC /* SwipeActionTableViewCell.swift in Sources */,
-				E056897820FEE3C200F1D5BC /* FIlters.swift in Sources */,
 				A34C6B3521005E6A00340796 /* BucketViewController.swift in Sources */,
 				A34E015621115B5500393464 /* DepositController.swift in Sources */,
 				A34E015221113FC200393464 /* DepositCell.swift in Sources */,
-				E056896D20FEE3C200F1D5BC /* CHTableViewControllers.swift in Sources */,
 				A34E015021113FB300393464 /* HelpCell.swift in Sources */,
 				A34C6B39210084AC00340796 /* BucketAddViewController.swift in Sources */,
-				E056896E20FEE3C200F1D5BC /* NavigationControllers.swift in Sources */,
 				A3AC10C0210E003F007991D5 /* BucketSettingCell.swift in Sources */,
 				A311CA832110393A00BD436D /* PigNameCell.swift in Sources */,
-				E056897220FEE3C200F1D5BC /* CHControls.swift in Sources */,
 				A300A68D2107138400025A60 /* MoneyBookController.swift in Sources */,
-				E056897720FEE3C200F1D5BC /* RecordButton.swift in Sources */,
-				E056897A20FEE3DF00F1D5BC /* UIViewController+Navigation.swift in Sources */,
-				A31BE34120F627AC0005D365 /* ViewController.swift in Sources */,
-				E056897120FEE3C200F1D5BC /* CHViews.swift in Sources */,
 				A36DAFFF2100A79C00A230F3 /* BucketSaveController.swift in Sources */,
 				A3E4AF1820FF8211000771BC /* BucketCell.swift in Sources */,
 				A31BE33F20F627AC0005D365 /* AppDelegate.swift in Sources */,
@@ -349,15 +327,10 @@
 				A34C6B372100639B00340796 /* BucketSettingController.swift in Sources */,
 				A3F789C52109723D007E50A5 /* MoneyBookCheckCell.swift in Sources */,
 				A34E015821115BD200393464 /* PigNameViewController.swift in Sources */,
-				E056896F20FEE3C200F1D5BC /* CHModalViewController.swift in Sources */,
-				E056897520FEE3C200F1D5BC /* CHPagingScrollViewController.swift in Sources */,
 				E03CA4742101CB5E005EF278 /* HomeViewController.swift in Sources */,
-				E056897620FEE3C200F1D5BC /* CHContentViewController.swift in Sources */,
 				A300A68F210716FE00025A60 /* MoneyBookAddController.swift in Sources */,
 				A300A69121073C4900025A60 /* MoneyBookCell.swift in Sources */,
 				A34C6B3121004E7800340796 /* MoneyPocket.swift in Sources */,
-				E056897020FEE3C200F1D5BC /* DrawingCanvasView.swift in Sources */,
-				E056897420FEE3C200F1D5BC /* CHPickerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,7 +485,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = jmzzang.MoneySaver;
 				PRODUCT_NAME = "Save 돈돈";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -532,7 +505,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = jmzzang.MoneySaver;
 				PRODUCT_NAME = "Save 돈돈";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

@@ -43,9 +43,12 @@ class BucketAddViewController: UIViewController, UIImagePickerControllerDelegate
         
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]){
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
+// Local variable inserted by Swift 4.2 migrator.
+let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+
         
-        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage{
+        if let image = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as? UIImage{
             bucketImgView.image = image
         }
         dismiss(animated: true, completion: nil)
@@ -59,9 +62,9 @@ class BucketAddViewController: UIViewController, UIImagePickerControllerDelegate
         bucketNameField.delegate = self
         bucketMoneyField.delegate = self
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
     }
     
@@ -106,7 +109,7 @@ class BucketAddViewController: UIViewController, UIImagePickerControllerDelegate
         
         if bucketName.isEmpty || goalMoney.isEmpty {
             let alert = UIAlertController(title: "버킷 추가 불가", message: "모든 항목을 채워주세요", preferredStyle: .alert)
-            let action = UIAlertAction(title: "확인", style: UIAlertActionStyle.default)
+            let action = UIAlertAction(title: "확인", style: UIAlertAction.Style.default)
             alert.addAction(action)
             self.present(alert, animated: true, completion: nil)
             return false
@@ -114,7 +117,7 @@ class BucketAddViewController: UIViewController, UIImagePickerControllerDelegate
         }
         else if (Int(goalMoney)! % 10000 ) != 0 {
             let alert = UIAlertController(title: "버킷 금액 오류", message: "만원으로 나누어 떨어지게 입력해주세요\r\n ex) 20000원", preferredStyle: .alert)
-            let action = UIAlertAction(title: "확인", style: UIAlertActionStyle.default)
+            let action = UIAlertAction(title: "확인", style: UIAlertAction.Style.default)
             alert.addAction(action)
             self.present(alert, animated: true, completion: nil)
             return false
@@ -137,4 +140,14 @@ class BucketAddViewController: UIViewController, UIImagePickerControllerDelegate
     
     
     
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
+	return input.rawValue
 }

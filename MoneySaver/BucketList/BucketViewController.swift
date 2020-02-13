@@ -85,15 +85,15 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == UITableViewCellEditingStyle.delete{
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCell.EditingStyle.delete{
             
             let alert = UIAlertController(title: "버킷 삭제 경고", message: "저축한 돈돈이가 사라집니다", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "확인", style: UIAlertActionStyle.default) {
+            let okAction = UIAlertAction(title: "확인", style: UIAlertAction.Style.default) {
                 (action: UIAlertAction) -> Void in
                 deleteBucket()
             }
-            let cancelAction = UIAlertAction(title: "취소", style: UIAlertActionStyle.default)
+            let cancelAction = UIAlertAction(title: "취소", style: UIAlertAction.Style.default)
             alert.addAction(okAction)
             alert.addAction(cancelAction)
             self.present(alert, animated: true, completion: nil)
@@ -117,7 +117,7 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
                 
                 filteredData.remove(at:indexPath.row) //필터된 데이터에도 삭제
                 moneyPocket.save()
-                tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic) }
+                tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic) }
             
         }
     }
@@ -200,7 +200,7 @@ class BucketViewController: UIViewController, UITableViewDataSource, UITableView
             
             if filteredData[indexPath.row].done == 1 {
                 let alert = UIAlertController(title: "완료된 버킷", message: "더 이상 저축이 불가합니다", preferredStyle: .alert)
-                let action = UIAlertAction(title: "확인", style: UIAlertActionStyle.default)
+                let action = UIAlertAction(title: "확인", style: UIAlertAction.Style.default)
                 alert.addAction(action)
                 self.present(alert, animated: true, completion: nil)
                 return false

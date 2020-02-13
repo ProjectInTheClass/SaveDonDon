@@ -26,9 +26,9 @@ class BucketSaveController: UIViewController, UITextFieldDelegate {
         savePigText.delegate = self
        // savePigText.becomeFirstResponder() //포커스 주기
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     
@@ -81,7 +81,7 @@ class BucketSaveController: UIViewController, UITextFieldDelegate {
         if pig.isEmpty {
             alert.title = "꿀꿀"
             alert.message = "저축할 돈돈이를 입력해주세요"
-            let action = UIAlertAction(title: "확인", style: UIAlertActionStyle.default)
+            let action = UIAlertAction(title: "확인", style: UIAlertAction.Style.default)
             alert.addAction(action)
             self.present(alert, animated: true, completion:nil)
             return
@@ -92,7 +92,7 @@ class BucketSaveController: UIViewController, UITextFieldDelegate {
         if pigNum == 0 {
             alert.title = "꿀꿀"
             alert.message = "0마리는 저축할 수 없어요"
-            let action = UIAlertAction(title: "확인", style: UIAlertActionStyle.default)
+            let action = UIAlertAction(title: "확인", style: UIAlertAction.Style.default)
             alert.addAction(action)
             self.present(alert, animated: true, completion: nil)
             return
@@ -101,14 +101,14 @@ class BucketSaveController: UIViewController, UITextFieldDelegate {
         if pigNum > possiblePig {
             alert.title = "꿀꿀"
             alert.message = "돈돈이가 모자라요"
-            let action = UIAlertAction(title: "확인", style: UIAlertActionStyle.default)
+            let action = UIAlertAction(title: "확인", style: UIAlertAction.Style.default)
             alert.addAction(action)
             self.present(alert, animated: true, completion: nil)
         } else if pigNum <= possiblePig {
             if bucket.dondonNum + pigNum > bucket.goalDonNum {
                 alert.title = "꿀꿀"
                 alert.message = "필요한 돈돈이보다 너무 많아요"
-                let action = UIAlertAction(title: "확인", style: UIAlertActionStyle.default)
+                let action = UIAlertAction(title: "확인", style: UIAlertAction.Style.default)
                 alert.addAction(action)
                 self.present(alert, animated: true, completion: nil)
             } else {
@@ -125,7 +125,7 @@ class BucketSaveController: UIViewController, UITextFieldDelegate {
                 
                 alert.title = "꿀꿀"
                 alert.message = "돈돈이 넣기 성공!"
-                let action = UIAlertAction(title: "확인", style: UIAlertActionStyle.default){ (action: UIAlertAction) -> Void in
+                let action = UIAlertAction(title: "확인", style: UIAlertAction.Style.default){ (action: UIAlertAction) -> Void in
                     self.dismiss(animated: true, completion: {
                         if let c = self.closureAfterUpdateUI {
                             moneyPocket.save()

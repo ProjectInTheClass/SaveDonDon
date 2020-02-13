@@ -100,24 +100,24 @@ class MoneyBookCheckController: UITableViewController {
     
 
     //스와이프해서 삭제
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 
         if indexPath.section == 0 {
-        if editingStyle == UITableViewCellEditingStyle.delete{
+        if editingStyle == UITableViewCell.EditingStyle.delete{
             if let index = moneyPocket.income.index(of:todayIncomeArray[indexPath.row]) {
                moneyPocket.income.remove(at: index)
                 moneyPocket.save()
             }
             self.todayIncomeArray.remove(at:indexPath.row) //데이터 삭제
-            tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+            tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
             }
         }
         else if indexPath.section == 1 {
-            if editingStyle == UITableViewCellEditingStyle.delete{
+            if editingStyle == UITableViewCell.EditingStyle.delete{
                 if(todaySpendArray[indexPath.row].mc == "돈돈이")
                 {
-                    let alert = UIAlertController(title: "삭제 불가", message: "돈돈이 삭제는 버킷리스트 탭에서 가능합니다", preferredStyle: UIAlertControllerStyle.alert)
-                    let action = UIAlertAction(title: "확인", style: UIAlertActionStyle.default)
+                    let alert = UIAlertController(title: "삭제 불가", message: "돈돈이 삭제는 버킷리스트 탭에서 가능합니다", preferredStyle: UIAlertController.Style.alert)
+                    let action = UIAlertAction(title: "확인", style: UIAlertAction.Style.default)
                     alert.addAction(action)
                     present(alert, animated: true, completion: nil)
                 }
@@ -127,7 +127,7 @@ class MoneyBookCheckController: UITableViewController {
                     moneyPocket.save()
                 }
                 self.todaySpendArray.remove(at:indexPath.row)
-                    tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)}
+                    tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)}
             }
         }
     }
